@@ -60,15 +60,6 @@ body {
   margin: 0 100px;
 }
 
-.navigation__item {
-  opacity: 0.8;
-}
-
-.navigation__item:hover {
-  cursor: pointer;
-  opacity: 1;
-}
-
 .navigation__item:first-child {
   margin-right: 86px;
 }
@@ -79,11 +70,20 @@ body {
 
 .navigation__link {
   color: #ffffff;
+  opacity: 0.8;
   text-decoration: none;
 }
 
+.navigation__link:hover,
+.navigation__logo:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
 .navigation__link.active {
+  cursor: auto;
   font-weight: 500;
+  opacity: 1;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -110,6 +110,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .hero__header {
@@ -137,6 +138,10 @@ body {
   line-height: 140%;
   text-align: center;
   margin-bottom: 30px;
+}
+
+.hero__social-icons_wrapper {
+  z-index: 1;
 }
 
 .hero__social-icons {
@@ -193,6 +198,14 @@ body {
   line-height: 140%;
   color: #4e4e4e;
   margin-bottom: 30px;
+}
+
+.rappresent__text > strong {
+  font-weight: 700;
+}
+
+.rappresent__button {
+  margin-left: -2px;
 }
 
 /* community section styles */
