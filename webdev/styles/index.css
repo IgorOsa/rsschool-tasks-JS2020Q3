@@ -288,6 +288,55 @@ body {
   margin: 0;
 }
 
+/* footer */
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #000000;
+  padding: 60px 160px 80px;
+}
+
+.footer__menu {
+  display: flex;
+}
+
+.footer__menu-item {
+  font-size: 14px;
+  line-height: 140%;
+  margin-right: 20px;
+}
+
+.footer__menu li + li {
+  background: url('../assets/menu-items-divider.png') no-repeat center left;
+  padding-left: 20px;
+  color: #4e4e4e;
+}
+
+.footer__menu-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer__menu-link:hover {
+  opacity: 0.5;
+}
+
+.footer__logo {
+  padding-right: 85px;
+}
+
+.footer__copyright {
+  width: 170px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  color: #818181;
+}
+
 /* shared elements */
 
 .button {
