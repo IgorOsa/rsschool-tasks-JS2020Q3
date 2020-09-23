@@ -159,6 +159,42 @@ body {
   opacity: 0.8;
 }
 
+/* rappresent section styles */
+
+.rappresent__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 269px 140px;
+}
+
+.rappresent__left {
+  width: 407px;
+  height: 233px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 248px;
+}
+
+.rappresent__heading {
+  width: 367px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #373737;
+  margin-bottom: 25px;
+}
+
+.rappresent__text {
+  width: 407px;
+  font-size: 14px;
+  line-height: 140%;
+  color: #4e4e4e;
+  margin-bottom: 30px;
+}
+
 /* shared elements */
 
 .button {
