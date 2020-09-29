@@ -189,7 +189,7 @@ main {
   font-size: 1.7rem;
   line-height: 2.2rem;
   letter-spacing: 0.06em;
-  color: #292929;
+  color: #4C4C4C;
   background: #f1cdb3;
   border-radius: 10rem;
   background-color: #f1cdb3;
@@ -199,5 +199,59 @@ main {
 .btn__primary:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.about {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.about__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.about__image {
+  margin-right: 12rem;
+  height: 40.8rem;
+}
+
+.about__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 1.4rem;
+}
+
+.about__heding {
+  width: 370px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 2.5rem;
+}
+
+.about__text {
+  width: 430px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 160%;
+  color: #4C4C4C;
+  margin-bottom: 2.5rem;
 }
 /*# sourceMappingURL=main.css.map */

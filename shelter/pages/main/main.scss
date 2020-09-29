@@ -1,9 +1,11 @@
 $color-primary: #f1cdb3;
-$color-light-xl: #ffffff;
-$color-light-l: #CDCDCD;
 $color-light-s: #FAFAFA;
+$color-light-l: #CDCDCD;
+$color-light-xl: #ffffff;
 $color-dark-s: #CDCDCD;
-$color-dark-xl: #292929;
+$color-dark-l: #545454;
+// $color-dark-xl: #292929;
+$color-dark-xl: #4C4C4C;
 
 $font-primary: Georgia,
 'Times New Roman',
@@ -183,4 +185,52 @@ main {
 .btn__primary:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+// about section styles
+
+.about {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.about__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.about__image {
+    margin-right: 12rem;
+    height: 40.8rem;
+}
+
+.about__content {
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    padding-top: 1.4rem;
+}
+
+.about__heding {
+    width: 370px;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+    margin-bottom: 2.5rem;
+}
+
+.about__text {
+    width: 430px;
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160%;
+    color: $color-dark-xl;
+    margin-bottom: 2.5rem;
 }
