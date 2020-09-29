@@ -143,9 +143,6 @@ main {
 
 .hero__content {
     max-width: 46rem;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
     margin-right: 4.2rem;
     padding-top: 16.3rem;
 }
@@ -170,8 +167,6 @@ main {
 }
 
 .btn__primary {
-    width: 207px;
-    height: 52px;
     font-family: $font-primary;
     font-size: 1.7rem;
     line-height: 2.2rem;
@@ -181,6 +176,7 @@ main {
     border-radius: 10rem;
     background-color: $color-primary;
     border: none;
+    padding: 15px 45px;
 }
 
 .btn__primary:hover {
