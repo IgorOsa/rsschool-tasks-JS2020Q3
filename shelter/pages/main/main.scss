@@ -1,4 +1,5 @@
 $color-primary: #f1cdb3;
+$color-primary-light: #FDDCC4;
 
 $color-light-s: #FAFAFA;
 $color-light-l:#F6F6F6;
@@ -8,13 +9,8 @@ $color-dark-s: #CDCDCD;
 $color-dark-l: #545454;
 $color-dark-xl:#292929;
 
-$font-primary: Georgia,
-'Times New Roman',
-Times,
-serif;
-$font-secondary: Arial,
-Helvetica,
-sans-serif;
+$font-primary: Georgia;
+$font-secondary: Arial;
 
 :root {
     font-size: 10px;
@@ -109,7 +105,7 @@ body {
 
 .navigation__link:hover {
     cursor: pointer;
-    opacity: 0.8;
+    color: $color-light-s;
 }
 
 .navigation__link_active {
@@ -181,7 +177,6 @@ main {
 
 .btn__primary:hover {
     cursor: pointer;
-    opacity: 0.8;
 }
 
 // about section styles
@@ -222,7 +217,7 @@ main {
 }
 
 .about__text {
-    width: 430px;
+    max-width: 430px;
     font-family: $font-secondary;
     font-style: normal;
     font-weight: normal;
@@ -230,4 +225,149 @@ main {
     line-height: 160%;
     color: $color-dark-xl;
     margin-bottom: 2.5rem;
+}
+
+.about__text:last-child {
+    margin-bottom: 0;
+}
+
+// pets section styles
+.pets {
+    background: $color-light-l;
+}
+
+.pets__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+}
+
+.pets__header {
+    width: 40rem;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: $color-dark-l;
+    margin-bottom: 60px;
+}
+
+.slider {
+    height: 435px;
+    margin-bottom: 60px;
+}
+
+.btn__primary_pets {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    letter-spacing: 0.06em;
+    color: $color-dark-xl;
+}
+
+// pets slider styles
+
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    border-radius: 10rem;
+    padding: 23px 19px;
+}
+
+.slider__btn:hover {
+    cursor: pointer;
+    border: 2px solid $color-primary-light;
+    background: $color-primary-light;
+}
+
+.slider__btn_left {
+    margin-right: 5.3rem;
+}
+
+.btn__image_right {
+    transform: rotate(-180deg);
+}
+
+.slider__items {
+    display: flex;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px 0px 35px;
+    background: $color-light-s;
+    border-radius: 0.9rem;
+    margin-right: 9rem;
+    padding: 3rem 3.5rem;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.card:last-child {
+    margin-right: 5.3rem;
+}
+
+.card__image {
+    margin-bottom: 3rem;
+}
+
+.card__title {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+    margin-bottom: 3rem;
+}
+
+.card__button {}
+
+.btn_secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-xl;
+    background: transparent;
+    border: 2px solid $color-primary;
+    border-radius: 10rem;
+    padding: 15px 45px;
+}
+
+.btn_secondary:hover {
+    cursor: pointer;
+    background: $color-primary-light;
 }
