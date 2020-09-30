@@ -371,3 +371,67 @@ main {
     cursor: pointer;
     background: $color-primary-light;
 }
+
+// help section styles
+
+.help__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem 8.7rem 10rem 8.7rem;
+}
+
+.help__heading {
+    max-width: 310px;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l; // #545454;
+    margin-bottom: 6rem;
+}
+
+.icons__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons__list-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons__list-row_short {
+    padding: 0 8.4rem;
+}
+
+.list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5.5rem;
+}
+
+.item__image {
+    margin-bottom: 3rem;
+}
+
+.item__heading {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 115%;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l; // #545454;
+}
+
