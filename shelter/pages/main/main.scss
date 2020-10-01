@@ -6,6 +6,7 @@ $color-light-l:#F6F6F6;
 $color-light-xl: #ffffff;
 
 $color-dark-s: #CDCDCD;
+$color-dark-m: #B2B2B2;
 $color-dark-l: #545454;
 $color-dark-xl:#292929;
 
@@ -433,5 +434,96 @@ main {
     text-align: center;
     letter-spacing: 0.06em;
     color: $color-dark-l; // #545454;
+}
+
+// donation section styles
+
+.donation {
+    min-height: 46.4rem;
+    padding: 8rem 0 10rem 0;
+    background: $color-light-l;
+}
+
+.donation__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donation__image {
+    margin-right: 3rem;
+}
+
+.information__heading {
+    max-width: 300px;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+    margin-bottom: 2rem;
+}
+
+.information__subheading {
+    max-width: 31rem;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l; // #545454;
+    margin-bottom: 2rem;
+}
+
+.credit-card {
+    max-width: 35rem;
+    background: $color-primary;
+    border-radius: 0.9rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.credit-card__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.credit-card__icon {
+    margin-right: 1.5rem;
+}
+
+.credit-card__number {
+    max-width: 27.5rem;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 115%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-l; // #545454;
+}
+
+.legal-info {
+    max-width: 38rem;
+    font-family: $font-secondary;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: $color-dark-m; // #B2B2B2;
 }
 
