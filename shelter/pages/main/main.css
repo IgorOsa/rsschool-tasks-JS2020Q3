@@ -621,7 +621,11 @@ main {
       -ms-flex-align: center;
           align-items: center;
   letter-spacing: 0.06em;
+}
+
+.credit-card__link {
   color: #545454;
+  text-decoration: none;
 }
 
 .legal-info {
