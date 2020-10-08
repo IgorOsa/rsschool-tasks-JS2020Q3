@@ -1,17 +1,4 @@
-$color-primary: #f1cdb3;
-$color-primary-light: #fddcc4;
-
-$color-light-s: #fafafa;
-$color-light-l: #f6f6f6;
-$color-light-xl: #ffffff;
-
-$color-dark-s: #cdcdcd;
-$color-dark-m: #b2b2b2;
-$color-dark-l: #545454;
-$color-dark-xl: #292929;
-
-$font-primary: Georgia;
-$font-secondary: Arial;
+@import 'vars';
 
 :root {
     font-size: 10px;
@@ -566,8 +553,6 @@ main {
 }
 
 .contacts__email {
-    display: flex;
-    align-items: center;
     margin-bottom: 4rem;
 }
 
@@ -577,6 +562,14 @@ main {
     margin-bottom: 4rem;
 }
 
+.email__link,
+.phone__link,
+.location__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .email__icon {
     color: $color-primary;
     margin-right: 2rem;
@@ -584,8 +577,6 @@ main {
 
 .email__text {
     font-family: $font-primary;
-    font-style: normal;
-    font-weight: normal;
     font-size: 2rem;
     line-height: 115%;
     letter-spacing: 0.06em;

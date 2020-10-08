@@ -680,12 +680,6 @@ main {
 }
 
 .contacts__email {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-bottom: 4rem;
 }
 
@@ -699,6 +693,18 @@ main {
   margin-bottom: 4rem;
 }
 
+.email__link,
+.phone__link,
+.location__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
 .email__icon {
   color: #f1cdb3;
   margin-right: 2rem;
@@ -706,8 +712,6 @@ main {
 
 .email__text {
   font-family: Georgia;
-  font-style: normal;
-  font-weight: normal;
   font-size: 2rem;
   line-height: 115%;
   letter-spacing: 0.06em;
