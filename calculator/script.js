@@ -2,6 +2,7 @@ class Calculator {
     constructor(previousOperandText, currentOperandText) {
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
+        this.readyToReset = false;
         this.clear();
     }
 
@@ -9,6 +10,11 @@ class Calculator {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operation = undefined;
+        this.readyToReset = false;
+    }
+
+    clearElement() {
+        this.currentOperand = '';
     }
 
     delete() {
@@ -25,33 +31,55 @@ class Calculator {
         if (this.previousOperand !== '') {
             this.compute();
         }
+
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
     }
 
     compute() {
-        let computation
+        let computation;
         const prev = parseFloat(this.previousOperand);
-        const current = parseFloat(this.currentOperand);
-        if (isNaN(prev) || isNaN(current)) return;
+        const curr = parseFloat(this.currentOperand);
+
+        if (isNaN(prev) || isNaN(curr)) return;
+
         switch (this.operation) {
             case '+':
-                computation = prev + current;
+                computation = prev + curr;
                 break;
             case '-':
-                computation = prev - current;
+                computation = prev - curr;
                 break;
             case '*':
-                computation = prev * current;
+                computation = prev * curr;
                 break;
             case '÷':
-                computation = prev / current;
+                computation = prev / curr;
+                break;
+            case '^':
+                computation = Math.pow(prev, curr);
                 break;
             default:
                 return;
         }
+
+        this.readyToReset = true;
         this.currentOperand = computation;
+        this.operation = undefined;
+        this.previousOperand = '';
+    }
+
+    computeSqrt() {
+        if (!this.previousOperandText.innerText) return;
+        const computation = Math.sqrt(parseFloat(this.previousOperandText.innerText));
+        if (!isNaN(computation)) {
+            this.currentOperandText.innerText = computation;
+        this.currentOperand = computation;
+        } else {
+            this.currentOperandText.innerText = 'Error';
+            this.currentOperand = '';
+        }
         this.operation = undefined;
         this.previousOperand = '';
     }
@@ -64,7 +92,7 @@ class Calculator {
         if (isNaN(integerDigits)) {
             integerDisplay = '';
         } else {
-            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+            integerDisplay = integerDigits.toLocaleString('ru', { maximumFractionDigits: 0 });
         }
         if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`;
@@ -86,9 +114,11 @@ class Calculator {
 }
 
 const acButton = document.querySelector('[data-all-clear]');
+const clearBtn = document.querySelector('[data-clear]');
 const delButton = document.querySelector('[data-delete]');
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
+const sqrtButton = document.querySelector('[data-sqrt]');
 const equalsButton = document.querySelector('[data-equals]');
 const currentOutput = document.querySelector('[data-output-current]');
 const previousOutput = document.querySelector('[data-output-previous]');
@@ -97,25 +127,41 @@ const calculator = new Calculator(previousOutput, currentOutput);
 
 numberButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        calculator.appendNumber(btn.innerHTML);
+        if (calculator.previousOperand === "" && calculator.currentOperand !== "" && calculator.readyToReset) {
+            calculator.currentOperand = "";
+            calculator.readyToReset = false;
+        }
+
+        calculator.appendNumber(btn.innerText);
         calculator.updateDisplay();
     })
 });
 
 operationButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+        if (calculator.currentOperandText.innerText === 'Error') return;
         calculator.chooseOperation(btn.innerText);
         calculator.updateDisplay();
     })
 });
 
+sqrtButton.addEventListener('click', btn => {
+    calculator.computeSqrt();
+})
+
 equalsButton.addEventListener('click', btn => {
+    if (calculator.currentOperandText.innerText === 'Error') return;
     calculator.compute();
     calculator.updateDisplay();
 })
 
 acButton.addEventListener('click', () => {
     calculator.clear();
+    calculator.updateDisplay();
+})
+
+clearBtn.addEventListener('click', () => {
+    calculator.clearElement();
     calculator.updateDisplay();
 })
 
