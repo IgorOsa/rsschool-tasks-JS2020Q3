@@ -65,14 +65,14 @@ class Calculator {
         }
 
         this.readyToReset = true;
-        this.currentOperand = computation;
+        this.currentOperand = this.normalizeError(computation);
         this.operation = undefined;
         this.previousOperand = '';
     }
 
     computeSqrt() {
-        if (!this.previousOperandText.innerText) return;
-        const computation = Math.sqrt(parseFloat(this.previousOperandText.innerText));
+        if (!this.previousOperand) return;
+        const computation = Math.sqrt(parseFloat(this.previousOperand));
         if (!isNaN(computation)) {
             this.currentOperandText.innerText = computation;
             this.currentOperand = computation;
@@ -80,6 +80,7 @@ class Calculator {
             this.currentOperandText.innerText = 'Error';
             this.currentOperand = '';
         }
+        this.readyToReset = true;
         this.operation = undefined;
         this.previousOperand = '';
     }
@@ -113,10 +114,14 @@ class Calculator {
             this.getDisplayNumber(this.currentOperand);
         if (this.operation != null) {
             this.previousOperandText.innerText =
-                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+                `${this.getDisplayNumber(this.normalizeError(this.previousOperand))} ${this.operation}`;
         } else {
             this.previousOperandText.innerText = '';
         }
+    }
+
+    normalizeError(num) {
+        return parseFloat((+num).toFixed(16).replace(/0*$/, ""));
     }
 }
 
