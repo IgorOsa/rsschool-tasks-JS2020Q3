@@ -75,13 +75,20 @@ class Calculator {
         const computation = Math.sqrt(parseFloat(this.previousOperandText.innerText));
         if (!isNaN(computation)) {
             this.currentOperandText.innerText = computation;
-        this.currentOperand = computation;
+            this.currentOperand = computation;
         } else {
             this.currentOperandText.innerText = 'Error';
             this.currentOperand = '';
         }
         this.operation = undefined;
         this.previousOperand = '';
+    }
+
+    negate() {
+        if (this.currentOperandText.innerText) {
+            this.currentOperandText.innerText = (-1 * this.currentOperandText.innerText).toString();
+            this.currentOperand = this.currentOperandText.innerText;
+        }
     }
 
     getDisplayNumber(number) {
@@ -119,6 +126,7 @@ const delButton = document.querySelector('[data-delete]');
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const sqrtButton = document.querySelector('[data-sqrt]');
+const negateButton = document.querySelector('[data-negate]');
 const equalsButton = document.querySelector('[data-equals]');
 const currentOutput = document.querySelector('[data-output-current]');
 const previousOutput = document.querySelector('[data-output-previous]');
@@ -147,6 +155,10 @@ operationButtons.forEach(btn => {
 
 sqrtButton.addEventListener('click', btn => {
     calculator.computeSqrt();
+})
+
+negateButton.addEventListener('click', btn => {
+    calculator.negate();
 })
 
 equalsButton.addEventListener('click', btn => {
