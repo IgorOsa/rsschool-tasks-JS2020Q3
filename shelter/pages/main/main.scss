@@ -1,4 +1,5 @@
 @import './../vars';
+@import './../mixins';
 
 :root {
     font-size: 10px;
@@ -24,10 +25,17 @@ body {
     margin: 0 auto;
 }
 
+// @media screen and (max-width: 1280px) {
+//     .wrapper {
+//         padding: 0 4rem;
+//     }
+// }
+
 .header {
-    position: absolute;
-    width: 100%;
-    padding-top: 60px;
+    position: absolute; 
+    max-width: 100%;
+    width: 100vw;
+    top: 6rem;
 }
 
 .header__wrapper {
@@ -47,34 +55,20 @@ body {
 }
 
 .logo__title {
-    font-family: $font-primary;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3.2rem;
-    line-height: 3.5rem;
-    letter-spacing: 0.06em;
+    @include logo-title;
     color: $color-primary;
     margin-bottom: 10px;
 }
 
 .logo__subtitle {
-    font-size: 1.3rem;
-    line-height: 1.5rem;
-    letter-spacing: 0.1em;
+    @include logo-subtitle;
     text-align: center;
     color: $color-light-xl;
 }
 
-.logo__subtitle,
-.navigation__link {
-    font-family: $font-secondary;
-    font-style: normal;
-    font-weight: normal;
-}
-
 .navigation {
+    width: 44.3rem;
     display: flex;
-    width: 443px;
 }
 
 .list {
@@ -90,24 +84,22 @@ body {
 }
 
 .navigation__link {
-    font-size: 1.5rem;
-    line-height: 2.4rem;
-    color: $color-light-l;
+    @include paragraph-l;
+    color: $color-dark-s;
+    &:hover {
+        cursor: pointer; 
+        color: $color-light-s;
+    }
 }
 
-.navigation__link:hover {
-    cursor: pointer;
-    color: $color-light-s;
-}
 
 .navigation__link_active {
     color: $color-light-s;
     border-bottom: 3px solid $color-primary;
-}
-
-.navigation__link_active:hover {
-    cursor: default;
-    opacity: 1;
+    &:hover {
+        cursor: default;
+        opacity: 1;
+    }
 }
 
 // Hero styles
@@ -118,9 +110,8 @@ main {
 }
 
 .hero {
+    @include start-screen-gradient-background;
     display: flex;
-    background: url(../../assets/images/noise_transparent@2x.png),
-        radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 .hero__wrapper {
@@ -164,10 +155,10 @@ main {
     background-color: $color-primary;
     border: none;
     padding: 15px 45px;
-}
 
-.btn__primary:hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 // about section styles
@@ -280,12 +271,12 @@ main {
     border: 2px solid $color-primary;
     border-radius: 10rem;
     padding: 23px 19px;
-}
 
-.slider__btn:hover {
-    cursor: pointer;
-    border: 2px solid $color-primary-light;
-    background: $color-primary-light;
+    &:hover {
+        cursor: pointer;
+        border: 2px solid $color-primary-light;
+        background: $color-primary-light;
+    }
 }
 
 .slider__btn_left {
@@ -304,16 +295,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0px 0px 35px;
     background: $color-light-s;
     border-radius: 0.9rem;
     margin-right: 9rem;
-    padding: 3rem 3.5rem;
-}
+    padding-bottom: 3rem;
 
-.card:hover {
-    cursor: pointer;
-    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    }
 }
 
 .card:last-child {
@@ -353,11 +343,11 @@ main {
     border: 2px solid $color-primary;
     border-radius: 10rem;
     padding: 15px 45px;
-}
 
-.btn_secondary:hover {
-    cursor: pointer;
-    background: $color-primary-light;
+    &:hover {
+        cursor: pointer;
+        background: $color-primary-light;
+    }
 }
 
 // help section styles
@@ -522,9 +512,7 @@ main {
 // footer styles
 
 .footer {
-    background: url(../../assets/images/noise_transparent@2x.png),
-        radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
-        #211f20;
+    @include footer-gradient-background;
 }
 
 .footer__wrapper {
