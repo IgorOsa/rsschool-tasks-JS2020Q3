@@ -1,3 +1,35 @@
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia.eot");
+  src: local("Georgia"), url("./../../assets/fonts/Georgia/Georgia.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia-Bold.eot");
+  src: local("Georgia Bold"), local("Georgia-Bold"), url("./../../assets/fonts/Georgia/Georgia-Bold.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia-Bold.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/ArialMT.eot");
+  src: local("Arial"), local("ArialMT"), url("./../../assets/fonts/Arial/ArialMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/ArialMT.woff") format("woff"), url("./../../assets/fonts/Arial/ArialMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/Arial-ItalicMT.eot");
+  src: local("Arial Italic"), local("Arial-ItalicMT"), url("./../../assets/fonts/Arial/Arial-ItalicMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/Arial-ItalicMT.woff") format("woff"), url("./../../assets/fonts/Arial/Arial-ItalicMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
 :root {
   font-size: 10px;
 }
@@ -12,7 +44,7 @@
 }
 
 body {
-  font-family: Georgia;
+  font-family: "Georgia";
 }
 
 .wrapper {
@@ -57,7 +89,7 @@ body {
 }
 
 .logo__title {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.2rem;
@@ -77,7 +109,7 @@ body {
 
 .logo__subtitle,
 .navigation__link {
-  font-family: Arial;
+  font-family: "Arial";
   font-style: normal;
   font-weight: normal;
 }
@@ -89,7 +121,7 @@ body {
   width: 443px;
 }
 
-.list {
+.menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,7 +132,7 @@ body {
   list-style: none;
 }
 
-.list__item {
+.menu__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,7 +183,7 @@ body {
 
 .pets__header {
   width: 40rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -163,7 +195,7 @@ body {
 }
 
 .btn__primary_pets {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 1.7rem;
@@ -298,7 +330,7 @@ body {
 }
 
 .card__title {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -326,7 +358,7 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 1.7rem;
@@ -369,7 +401,7 @@ body {
 
 .contacts__title {
   max-width: 28rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -411,7 +443,7 @@ body {
 }
 
 .email__text {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-size: 2rem;
   line-height: 115%;
   letter-spacing: 0.06em;
@@ -424,7 +456,7 @@ body {
 }
 
 .phone__text {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -440,7 +472,7 @@ body {
 
 .location__title {
   max-width: 27rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;

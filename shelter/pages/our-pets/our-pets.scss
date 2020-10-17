@@ -1,4 +1,6 @@
 @import './../vars';
+@import './../mixins';
+@import './../fonts';
 
 :root {
     font-size: 10px;
@@ -77,14 +79,14 @@ body {
     width: 443px;
 }
 
-.list {
+.menu {
     display: flex;
     justify-content: space-between;
     width: 100%;
     list-style: none;
 }
 
-.list__item {
+.menu__item {
     display: flex;
     align-items: center;
 }
