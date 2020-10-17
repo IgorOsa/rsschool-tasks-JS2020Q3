@@ -20,21 +20,22 @@
                     </a>
                 </div>
                 <nav class="navigation">
-                    <ul class="list">
-                        <li class="list__item">
+                    <ul class="menu">
+                        <li class="menu__item">
                             <a class="navigation__link navigation__link_active">About the shelter</a>
                         </li>
-                        <li class="list__item">
+                        <li class="menu__item">
                             <a class="navigation__link">Our pets</a></li>
-                        <li class="list__item">
+                        <li class="menu__item">
                             <a class="navigation__link">Help the shelter</a></li>
-                        <li class="list__item">
+                        <li class="menu__item">
                             <a class="navigation__link">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
     <main class="main">
         <section class="hero">
             <div class="wrapper">
@@ -44,12 +45,15 @@
                         <p class="hero__text">We offer to give a chance to a little and nice puppy with an extremely
                             wide and open heart. He or she will love you more than anybody else in the world, you will
                             see!</p>
-                        <button type="button" class="btn__primary">Make a friend</button>
+                        <div class="hero__button">
+                            <button type="button" class="btn__primary">Make a friend</button>
+                        </div>
                     </div>
-                    <img src="../../assets/images/start-screen-puppy.png" alt="puppy">
+                    <img src="../../assets/images/start-screen-puppy.png" alt="puppy" class="hero__image">
                 </div>
             </div>
         </section>
+
         <section class="about">
             <div class="wrapper">
                 <div class="about__wrapper">
@@ -137,8 +141,7 @@
                                 <img src="../../assets/icons/icon-shampoos.png" alt="Shampoos" class="item__image">
                                 <h4 class="item__heading">Shampoos</h4>
                             </div>
-                        </div>
-                        <div class="icons__list-row icons__list-row_short">
+                            <div class="list__break_desktop"></div>
                             <div class="list__item">
                                 <img src="../../assets/icons/icon-vitamins.png" alt="Vitamins" class="item__image">
                                 <h4 class="item__heading">Vitamins</h4>
@@ -188,47 +191,49 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <footer class="footer">
-            <div class="wrapper">
-                <div class="footer__wrapper">
-                    <div class="contacts">
-                        <div class="contacts__title">For questions and suggestions</div>
-                        <div class="contacts__email">
-                            <a class="email__link" href="mailto:email@shelter.com">
-                                <img src="../../assets/icons/icon-email.png" alt="email icon" class="email__icon">
-                                <p class="email__text">email@shelter.com</p>
-                            </a>
-                        </div>
-                        <div class="contacts__phone">
-                            <a class="phone__link" href="tel:+13 674 567 75 54">
-                                <img src="../../assets/icons/icon-phone.png" alt="phone icon" class="phone__icon">
-                                <p class="phone__text">+13 674 567 75 54</p>
-                            </a>
-                        </div>
+
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer__wrapper">
+                <div class="contacts">
+                    <div class="contacts__title">For questions and suggestions</div>
+                    <div class="contacts__email">
+                        <a class="email__link" href="mailto:email@shelter.com">
+                            <img src="../../assets/icons/icon-email.png" alt="email icon" class="email__icon">
+                            <p class="email__text">email@shelter.com</p>
+                        </a>
                     </div>
-                    <div class="location">
-                        <div class="location__title">We are waiting for your visit</div>
-                        <div class="location__info">
-                            <a class="location__link" href="https://maps.google.com/?q=1 Central Street, Boston"
-                                target="_blank">
-                                <img src="../../assets/icons/icon-marker.png" alt="location #1" class="location__icon">
-                                <p class="location__text">1 Central Street, Boston (entrance from the store)</p>
-                            </a>
-                        </div>
-                        <div class="location__info">
-                            <a class="location__link" href="https://maps.google.com/?q=18 South Park, London"
-                                target="_blank">
-                                <img src="../../assets/icons/icon-marker.png" alt="location #1" class="location__icon">
-                                <p class="location__text">18 South Park, London</p>
-                            </a>
-                        </div>
+                    <div class="contacts__phone">
+                        <a class="phone__link" href="tel:+13 674 567 75 54">
+                            <img src="../../assets/icons/icon-phone.png" alt="phone icon" class="phone__icon">
+                            <p class="phone__text">+13 674 567 75 54</p>
+                        </a>
                     </div>
+                </div>
+                <div class="location">
+                    <div class="location__title">We are waiting for your visit</div>
+                    <div class="location__info">
+                        <a class="location__link" href="https://maps.google.com/?q=1 Central Street, Boston"
+                            target="_blank">
+                            <img src="../../assets/icons/icon-marker.png" alt="location #1" class="location__icon">
+                            <p class="location__text">1 Central Street, Boston (entrance from the store)</p>
+                        </a>
+                    </div>
+                    <div class="location__info">
+                        <a class="location__link" href="https://maps.google.com/?q=18 South Park, London"
+                            target="_blank">
+                            <img src="../../assets/icons/icon-marker.png" alt="location #1" class="location__icon">
+                            <p class="location__text">18 South Park, London</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__image-container">
                     <img src="../../assets/images/footer-puppy.png" alt="footer puppy" class="footer__image">
                 </div>
             </div>
-        </footer>
-    </main>
+    </footer>
 </body>
 
 </html>

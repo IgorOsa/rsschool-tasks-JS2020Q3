@@ -1,5 +1,6 @@
 @import './../vars';
 @import './../mixins';
+@import './../fonts';
 
 :root {
     font-size: 10px;
@@ -24,12 +25,6 @@ body {
     display: flex;
     margin: 0 auto;
 }
-
-// @media screen and (max-width: 1280px) {
-//     .wrapper {
-//         padding: 0 4rem;
-//     }
-// }
 
 .header {
     position: absolute; 
@@ -71,14 +66,14 @@ body {
     display: flex;
 }
 
-.list {
+.menu {
     display: flex;
     justify-content: space-between;
     width: 100%;
     list-style: none;
 }
 
-.list__item {
+.menu__item {
     display: flex;
     align-items: center;
 }
@@ -214,6 +209,7 @@ main {
 }
 
 // pets section styles
+
 .pets {
     background: $color-light-l;
 }
@@ -240,11 +236,6 @@ main {
     margin-bottom: 60px;
 }
 
-.slider {
-    height: 435px;
-    margin-bottom: 60px;
-}
-
 .btn__primary_pets {
     font-family: $font-primary;
     font-style: normal;
@@ -258,6 +249,8 @@ main {
 // pets slider styles
 
 .slider {
+    height: 43.5rem;
+    margin-bottom: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -357,7 +350,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8rem 8.7rem 10rem 8.7rem;
+    padding: 8rem 8.7rem 4.5rem 8.7rem;
 }
 
 .help__heading {
@@ -381,22 +374,31 @@ main {
 }
 
 .icons__list-row {
-    width: 100%;
+    max-width: 102.6rem;
     display: flex;
+    flex-flow: row wrap; 
     justify-content: space-between;
-    margin-bottom: 5.5rem;
 }
 
-.icons__list-row_short {
-    padding: 0 8.4rem;
-    margin-bottom: 0;
+.list__break_desktop {
+    // display: none;
+    flex-basis: 100%;
+    height: 0;
 }
 
 .list__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 5.5rem;
+}
+
+.list__item:nth-last-child(4) {
+    padding-left: 8.4rem;
+}
+
+.list__item:last-child {
+    padding-right: 8.4rem;
 }
 
 .item__image {
@@ -624,3 +626,6 @@ main {
     letter-spacing: 0.06em;
     color: $color-primary;
 }
+
+@import './tablet';
+@import './mobile';

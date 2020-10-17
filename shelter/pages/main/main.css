@@ -1,3 +1,35 @@
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia.eot");
+  src: local("Georgia"), url("./../../assets/fonts/Georgia/Georgia.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia-Bold.eot");
+  src: local("Georgia Bold"), local("Georgia-Bold"), url("./../../assets/fonts/Georgia/Georgia-Bold.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia-Bold.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/ArialMT.eot");
+  src: local("Arial"), local("ArialMT"), url("./../../assets/fonts/Arial/ArialMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/ArialMT.woff") format("woff"), url("./../../assets/fonts/Arial/ArialMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/Arial-ItalicMT.eot");
+  src: local("Arial Italic"), local("Arial-ItalicMT"), url("./../../assets/fonts/Arial/Arial-ItalicMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/Arial-ItalicMT.woff") format("woff"), url("./../../assets/fonts/Arial/Arial-ItalicMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
 :root {
   font-size: 10px;
 }
@@ -12,7 +44,7 @@
 }
 
 body {
-  font-family: Georgia;
+  font-family: "Georgia";
 }
 
 .wrapper {
@@ -58,7 +90,7 @@ body {
 }
 
 .logo__title {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.2rem;
@@ -69,7 +101,7 @@ body {
 }
 
 .logo__subtitle {
-  font-family: Arial;
+  font-family: "Arial";
   font-style: normal;
   font-weight: normal;
   font-size: 1.3rem;
@@ -86,7 +118,7 @@ body {
   display: flex;
 }
 
-.list {
+.menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,7 +129,7 @@ body {
   list-style: none;
 }
 
-.list__item {
+.menu__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,7 +139,7 @@ body {
 }
 
 .navigation__link {
-  font-family: Arial;
+  font-family: "Arial";
   font-style: normal;
   font-weight: normal;
   font-size: 1.5rem;
@@ -162,7 +194,7 @@ main {
 
 .hero__header {
   max-width: 310px;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 4.4rem;
@@ -172,7 +204,7 @@ main {
 }
 
 .hero__text {
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 1.5rem;
   line-height: 2.4rem;
   color: #cdcdcd;
@@ -180,7 +212,7 @@ main {
 }
 
 .btn__primary {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-size: 1.7rem;
   line-height: 2.2rem;
   letter-spacing: 0.06em;
@@ -229,7 +261,7 @@ main {
 
 .about__heding {
   width: 370px;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -241,7 +273,7 @@ main {
 
 .about__text {
   max-width: 430px;
-  font-family: Arial;
+  font-family: "Arial";
   font-style: normal;
   font-weight: normal;
   font-size: 1.5rem;
@@ -276,7 +308,7 @@ main {
 
 .pets__header {
   width: 40rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -287,13 +319,8 @@ main {
   margin-bottom: 60px;
 }
 
-.slider {
-  height: 435px;
-  margin-bottom: 60px;
-}
-
 .btn__primary_pets {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 1.7rem;
@@ -303,6 +330,8 @@ main {
 }
 
 .slider {
+  height: 43.5rem;
+  margin-bottom: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,7 +413,7 @@ main {
 }
 
 .card__title {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -412,7 +441,7 @@ main {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 1.7rem;
@@ -442,12 +471,12 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 8rem 8.7rem 10rem 8.7rem;
+  padding: 8rem 8.7rem 4.5rem 8.7rem;
 }
 
 .help__heading {
   max-width: 310px;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -473,19 +502,23 @@ main {
 }
 
 .icons__list-row {
-  width: 100%;
+  max-width: 102.6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 5.5rem;
 }
 
-.icons__list-row_short {
-  padding: 0 8.4rem;
-  margin-bottom: 0;
+.list__break_desktop {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 0;
 }
 
 .list__item {
@@ -499,9 +532,15 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-bottom: 5.5rem;
+}
+
+.list__item:nth-last-child(4) {
+  padding-left: 8.4rem;
+}
+
+.list__item:last-child {
+  padding-right: 8.4rem;
 }
 
 .item__image {
@@ -509,7 +548,7 @@ main {
 }
 
 .item__heading {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -544,7 +583,7 @@ main {
 
 .information__heading {
   max-width: 300px;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -562,7 +601,7 @@ main {
 
 .information__subheading {
   max-width: 31rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 1.5rem;
@@ -608,7 +647,7 @@ main {
 
 .credit-card__number {
   max-width: 27.5rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -629,7 +668,7 @@ main {
 
 .legal-info {
   max-width: 38rem;
-  font-family: Arial;
+  font-family: "Arial";
   font-style: italic;
   font-weight: normal;
   font-size: 1.2rem;
@@ -668,7 +707,7 @@ main {
 
 .contacts__title {
   max-width: 28rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -710,7 +749,7 @@ main {
 }
 
 .email__text {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-size: 2rem;
   line-height: 115%;
   letter-spacing: 0.06em;
@@ -723,7 +762,7 @@ main {
 }
 
 .phone__text {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 2rem;
@@ -739,7 +778,7 @@ main {
 
 .location__title {
   max-width: 27rem;
-  font-family: Georgia;
+  font-family: "Georgia";
   font-style: normal;
   font-weight: normal;
   font-size: 3.5rem;
@@ -776,5 +815,127 @@ main {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #f1cdb3;
+}
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+  .header {
+    top: 3rem;
+  }
+  .hero__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 0;
+  }
+  .hero__content {
+    padding-top: 15rem;
+    margin-right: 0;
+    margin-bottom: 10rem;
+  }
+  .hero__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .hero__image {
+    max-width: 56.9rem;
+    margin-right: -14rem;
+  }
+  .about__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .about__content {
+    padding-top: 0;
+    margin-bottom: 8rem;
+  }
+  .about__image {
+    margin-right: 0;
+    max-height: 40.8rem;
+  }
+  .slider {
+    max-width: 70.8rem;
+  }
+  .slider__items {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 58rem;
+            flex: 0 0 58rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .slider__btn {
+    margin-right: 0;
+  }
+  .card {
+    margin-right: 4rem;
+  }
+  .help__wrapper {
+    padding: 8rem 0 0;
+    margin-bottom: 4.7rem;
+  }
+  .list__break_desktop {
+    display: none;
+  }
+  .list__item {
+    min-width: 33.33%;
+  }
+  .list__item:nth-last-child(4) {
+    padding-left: 0rem;
+  }
+  .list__item:last-child {
+    padding-right: 0;
+  }
+  .donation__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .donation__image {
+    margin-right: 0;
+    padding-top: 6rem;
+  }
+  .footer__wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+  .contacts,
+  .location {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    padding-top: 0;
+  }
+  .footer__image-container {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 2.5rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
