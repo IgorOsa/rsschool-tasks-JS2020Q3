@@ -8,24 +8,19 @@ body {
     font-family: 'Quicksand', sans-serif;
     background-position: center center;
     background-size:cover;
+    height: 100vh;
     transition: background-image 1s ease-in-out;
 }
 
 .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-rows: 15rem auto 10rem;
+    grid-template-columns: auto;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100vh;
     color: white;
-    /* background: radial-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.3), 
-         rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.3), 
-        rgba(255, 255, 255, 0.4)
-        ); */
     background: radial-gradient(
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.5),
@@ -38,9 +33,18 @@ body {
     background-size:cover;
     background-position: center center;
     padding: 1rem;
+    overflow: hidden;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #time {
+    font-family: 'Overpass Mono', monospace;
     font-size: 8rem;
     min-width: 20rem;
     text-align: center;
@@ -67,6 +71,7 @@ body {
 .weather {
     width: 100%;
     margin-bottom: 1rem;
+    align-self: flex-end;
 }
 
 .weather-icon {
@@ -112,11 +117,11 @@ body {
     outline: 0;
 }
 
-h1 {
+.greet-wrapper {
     display: flex;
     flex-direction: row;
     padding-top: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
@@ -154,14 +159,6 @@ h2 {
 
 .btn:active {
     transform: scale(1.05);
-    /* animation:spin 1s linear infinite; */
-}
-
-@keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
 }
 
 .btn__cite {
@@ -171,6 +168,7 @@ h2 {
     min-width: 1.5rem;
     height: 1.5rem;
     min-height: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .rotation {
@@ -187,19 +185,25 @@ h2 {
     }
 }
 
+.quote-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    padding-bottom: 0.5rem;
+}
+
 .quote {
-    min-width: 20rem;
-    width: 100%;
+    /* max-width: 40rem; */
     min-height: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 1.125rem;
     border-radius: 0.5rem;
     color: rgba(255, 255, 255, 0.9);
     background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     padding: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -210,15 +214,35 @@ h2 {
     }
 }
 
-@media (max-width: 380px) {
+/* @media (max-width: 40rem) {
+    .wrapper {
+        grid-template-columns: 40rem;
+    }
+} */
+
+@media (max-width: 480px) {
+    #time {
+        font-size: 5rem;
+    }
+
+    .greet-wrapper {
+        flex-direction: column;
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 420px) {
     h1 {
         flex-direction: column;
     }
     #time {
-        font-size: 5rem;
+        font-size: 4rem;
         text-align: center;
     }
     #date {
+        font-size: 1.25rem;
+    }
+    .focus-question {
         font-size: 1.25rem;
     }
     .quote {

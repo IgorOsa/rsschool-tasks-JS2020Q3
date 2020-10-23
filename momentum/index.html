@@ -7,13 +7,15 @@
     <title>Momentum</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/owfont-regular.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <button id="btn" class="btn absolute" title="next background"> </button>
-    <div class="wrapper">
+    <div class="wrapper overlay">
         <div id="#weather" class="weather">
             <div id="weather-data" class="weather-data">
                 <i class="weather-icon owf"></i>
@@ -26,18 +28,22 @@
             </div>
             <div id="geo-location" class="location" contenteditable="true"></div>
         </div>
-        <time id="time"></time>
-        <date id="date"></date>
-        <h1>
-            <div id="greeting"></div>
-            <div id="name" contenteditable="true"></div>
-        </h1>
-        <h2>What is your focus for today?</h2>
-        <h2 id="focusText" contenteditable="true"></h2>
-        <figure id="quote" class="quote">
-            <blockquote id="blockquote">Loading...</blockquote>
-        </figure>
-        <button id="btn-cite" class="btn btn__cite" title="click to load next randow quote"> </button>
+        <div class="main-content">
+            <time id="time"></time>
+            <date id="date"></date>
+            <h1 class="greet-wrapper">
+                <div id="greeting"></div>
+                <div id="name" contenteditable="true"></div>
+            </h1>
+            <h2 class="focus-question">What is your focus for today?</h2>
+            <h2 id="focusText" contenteditable="true"></h2>
+        </div>
+        <div class="quote-wrapper">
+            <figure id="quote" class="quote">
+                <blockquote id="blockquote">Loading...</blockquote>
+            </figure>
+            <button id="btn-cite" class="btn btn__cite" title="click to load next randow quote"> </button>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
