@@ -159,6 +159,14 @@ h2 {
 
 .btn:active {
     transform: scale(1.05);
+    /* animation:spin 1s linear infinite; */
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 .btn__cite {
