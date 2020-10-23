@@ -17,12 +17,23 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: radial-gradient(
-        rgba(255, 255, 255, 0.5), 
-        rgba(255, 255, 255, 0.4), 
+    color: white;
+    /* background: radial-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3), 
          rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.1), 
-        rgba(255, 255, 255, 0.05)
+        rgba(255, 255, 255, 0.3), 
+        rgba(255, 255, 255, 0.4)
+        ); */
+    background: radial-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.4), 
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0,0.4), 
+        rgba(0, 0, 0,0.6)
         );
     background-size:cover;
     background-position: center center;
@@ -31,7 +42,8 @@ body {
 
 #time {
     font-size: 8rem;
-    width: 20rem;
+    min-width: 20rem;
+    text-align: center;
 }
 
 #date {
@@ -43,15 +55,61 @@ body {
 #focusText {
     min-width: 100%;
     text-align: center;
+    margin-bottom: 2rem;
+    outline: 0;
 }
 
 #name {
     min-width: 5rem;
-    
+    outline: 0;
 }
 
-#focusText {
-    margin-bottom: 2rem;
+.weather {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.weather-icon {
+    font-size: 5rem;
+}
+
+.weather-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.weather-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.weather-info {
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.weather-info > * {
+    margin-right: 1rem;
+}
+
+.weather-info>*:last-child {
+    margin-right: 0;
+}
+
+.wind-icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+#geo-location {
+    min-width: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    outline: 0;
 }
 
 h1 {
@@ -79,13 +137,14 @@ h2 {
     background: url("./../assets/update-btn.png");
     background-size: contain;
     background-repeat: no-repeat;
-    filter: grayscale(0.6);
+    filter: grayscale(0.9);
     margin: 1rem;
+    transition: filter 0.5s ease-in-out;
 }
 
 .btn:hover {
     cursor: pointer;
-    filter: grayscale(0.9);
+    filter: grayscale(0.6);
 }
 
 .btn:active,
@@ -94,7 +153,15 @@ h2 {
 }
 
 .btn:active {
-    transform: scale(1.05)
+    transform: scale(1.05);
+    /* animation:spin 1s linear infinite; */
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 .btn__cite {
@@ -104,6 +171,20 @@ h2 {
     min-width: 1.5rem;
     height: 1.5rem;
     min-height: 1.5rem;
+}
+
+.rotation {
+    animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+    }
 }
 
 .quote {
@@ -139,5 +220,8 @@ h2 {
     }
     #date {
         font-size: 1.25rem;
+    }
+    .quote {
+        font-size: 0.875rem;
     }
 }

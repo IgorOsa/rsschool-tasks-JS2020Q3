@@ -7,12 +7,25 @@
     <title>Momentum</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="css/owfont-regular.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <button id="btn" class="btn absolute" title="next background"> </button>
     <div class="wrapper">
+        <div id="#weather" class="weather">
+            <div id="weather-data" class="weather-data">
+                <i class="weather-icon owf"></i>
+                <div class="weather-description"></div>
+                <div class="temperature"></div>
+                <div class="weather-info">
+                    <div class="air-humadity"></div>
+                    <div class="weatherWind"></div>
+                </div>
+            </div>
+            <div id="geo-location" class="location" contenteditable="true"></div>
+        </div>
         <time id="time"></time>
         <date id="date"></date>
         <h1>

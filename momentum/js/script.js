@@ -6,8 +6,14 @@ const name = document.getElementById('name');
 const focusText = document.getElementById('focusText');
 const btn = document.getElementById('btn');
 const blockquote = document.getElementById('blockquote');
-const figcaption = document.getElementById('figcaption');
 const btnCite = document.getElementById('btn-cite');
+const geoLocation = document.getElementById('geo-location');
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherData = document.querySelector('.weather-data');
+const weatherDescription = document.querySelector('.weather-description');
+const weatherWind = document.querySelector('.weatherWind');
+const airHumidity = document.querySelector('.air-humadity');
 
 // Options
 const dateOptions = {
@@ -27,6 +33,7 @@ const imageNames = [
 state = {
     previousNameValue: '[Enter Name]',
     previousFocusValue: '[Enter Focus]',
+    previousLocationValue: '[Enter your location]',
     imagesForToday: generateImageSet(),
     currentImageForToday: 0
 };
@@ -125,8 +132,8 @@ function nextImage() {
 function getName() {
     const localName = localStorage.getItem('name');
 
-    if (localName === null || localName === '') {
-        name.textContent = stet.previousNameValue;
+    if (!localName) {
+        name.textContent = state.previousNameValue;
     } else {
         name.textContent = localStorage.getItem('name');
     }
@@ -158,6 +165,7 @@ function getFocus() {
 
 // Set Focus
 function setFocus(e) {
+    if (!e.target.innerText) return;
     if (e.type === 'keypress') {
         // Make sure enter is pressed
         if (e.which == 13 || e.keyCode == 13) {
@@ -169,6 +177,56 @@ function setFocus(e) {
     }
 }
 
+// Get Location
+function getLocation() {
+    const localLocation = localStorage.getItem('geoLocation');
+
+    if (localLocation === null || localLocation === '') {
+        geoLocation.textContent = state.previousLocationValue;
+    } else {
+        geoLocation.textContent = localStorage.getItem('geoLocation');
+    }
+}
+
+// Set Location
+function setLocation(e) {
+    if (e.type === 'keypress') {
+        // Make sure enter is pressed
+        if (e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('geoLocation', e.target.innerText);
+            geoLocation.blur();
+        }
+    } else {
+        localStorage.setItem('geoLocation', e.target.innerText);
+    }
+    getWeather();
+}
+
+async function getWeather() {
+    const loc = await localStorage.getItem('geoLocation');
+    if (loc) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&lang=en&units=metric&appid=bc3a69f0a7473cf055cee87c27b82be9`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.cod === '404') {
+            data.message ? weatherDescription.textContent = data.message : null;
+            weatherDescription.style.margin = 0;
+            weatherIcon.className = '';
+            temperature.textContent = '';
+            weatherWind.textContent = '';
+            airHumidity.textContent = '';
+        } else {
+            weatherIcon.className = 'weather-icon owf';
+            data.weather[0] ? weatherIcon.classList.add(`owf-${data.weather[0].id}`) : null;
+            data.main.temp ? temperature.textContent = `${data.main.temp}°C` : null;
+            data.weather[0].description ? weatherDescription.textContent = data.weather[0].description : null;
+            data.wind.speed ? weatherWind.innerHTML = '<i class="weather-icon owf owf-957 wind-icon"></i>' + data.wind.speed + ' m/s' : null;
+            data.main.humidity ? airHumidity.innerHTML = '' + data.main.humidity + ' %' : null;
+        }
+    }
+}
+
 async function getQuote() {
     const url = `https://api.chucknorris.io/jokes/random`;
     const res = await fetch(url);
@@ -177,6 +235,8 @@ async function getQuote() {
 }
 
 function nextCite() {
+    btnCite.classList.add('rotation');
+    setTimeout(() => btnCite.classList.remove('rotation'), 2000);
     return getQuote();
 }
 
@@ -198,10 +258,17 @@ focusText.addEventListener('focus', () => {
     focusText.textContent = '';
 })
 
+geoLocation.addEventListener('keypress', setLocation);
+geoLocation.addEventListener('blur', e => {
+    e.target.innerText == '' ? geoLocation.innerText = state.previousLocationValue : setLocation(e);
+});
+geoLocation.addEventListener('focus', () => {
+    state.previousLocationValue = geoLocation.textContent;
+    geoLocation.textContent = '';
+})
+
 btn.addEventListener('click', nextImage);
-
 btnCite.addEventListener('click', nextCite);
-
 document.addEventListener('DOMContentLoaded', getQuote);
 
 // Run
@@ -210,3 +277,5 @@ showDate();
 setBgGreet();
 getName();
 getFocus();
+getLocation();
+getWeather();
