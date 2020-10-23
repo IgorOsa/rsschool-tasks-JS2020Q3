@@ -15,17 +15,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100vh;
     color: white;
-    /* background: radial-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.3), 
-         rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.3), 
-        rgba(255, 255, 255, 0.4)
-        ); */
     background: radial-gradient(
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.5),
@@ -41,6 +33,7 @@ body {
 }
 
 #time {
+    font-family: 'Overpass Mono', monospace;
     font-size: 8rem;
     min-width: 20rem;
     text-align: center;
@@ -154,7 +147,6 @@ h2 {
 
 .btn:active {
     transform: scale(1.05);
-    /* animation:spin 1s linear infinite; */
 }
 
 @keyframes spin {
@@ -210,12 +202,18 @@ h2 {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
+    #time {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 420px) {
     h1 {
         flex-direction: column;
     }
     #time {
-        font-size: 5rem;
+        font-size: 4rem;
         text-align: center;
     }
     #date {

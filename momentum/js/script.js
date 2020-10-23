@@ -92,7 +92,7 @@ function showTime() {
 
 // Show Date
 function showDate(today = new Date()) {
-    date.innerHTML = `${today.toLocaleDateString('ru', dateOptions)}`;
+    date.innerHTML = `${today.toLocaleDateString('en', dateOptions)}`;
 }
 
 // Set Background and Greeting
