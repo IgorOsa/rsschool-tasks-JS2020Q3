@@ -5,6 +5,9 @@ const greeting = document.getElementById('greeting');
 const name = document.getElementById('name');
 const focusText = document.getElementById('focusText');
 const btn = document.getElementById('btn');
+const blockquote = document.getElementById('blockquote');
+const figcaption = document.getElementById('figcaption');
+const btnCite = document.getElementById('btn-cite');
 
 // Options
 const dateOptions = {
@@ -106,7 +109,7 @@ function setBgGreet() {
         // Evening
         greeting.textContent = 'Good Evening, ';
     }
-    }
+}
 
 // nextImage
 function nextImage() {
@@ -166,7 +169,15 @@ function setFocus(e) {
     }
 }
 
-    }
+async function getQuote() {
+    const url = `https://api.chucknorris.io/jokes/random`;
+    const res = await fetch(url);
+    const data = await res.json();
+    blockquote.textContent = data.value;
+}
+
+function nextCite() {
+    return getQuote();
 }
 
 name.addEventListener('keypress', setName);
@@ -188,6 +199,10 @@ focusText.addEventListener('focus', () => {
 })
 
 btn.addEventListener('click', nextImage);
+
+btnCite.addEventListener('click', nextCite);
+
+document.addEventListener('DOMContentLoaded', getQuote);
 
 // Run
 showTime();
