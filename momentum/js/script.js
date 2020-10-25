@@ -120,12 +120,16 @@ function setBgGreet() {
 
 // nextImage
 function nextImage() {
+    btn.disabled = true;
+    const img = document.createElement('img');
     state.currentImageForToday < (state.imagesForToday.length - 1)
         ? state.currentImageForToday++
         : state.currentImageForToday = 0;
-    document.body.style.backgroundImage = `url('${state.imagesForToday[state.currentImageForToday]}')`;
-    btn.disabled = true;
-    setTimeout(function () { btn.disabled = false }, 1000);
+    img.src = state.imagesForToday[state.currentImageForToday];
+    img.onload = () => {
+        document.body.style.backgroundImage = `url('${img.src}')`;
+    }
+    setTimeout(function () { btn.disabled = false }, 1500);
 }
 
 // Get Name
@@ -139,16 +143,25 @@ function getName() {
     }
 }
 
+function checkName(e) {
+    const input = e.target.innerText.trim();
+    if (input !== '') {
+        localStorage.setItem('name', input);
+    } else {
+        name.innerText = state.previousNameValue;
+    }
+}
+
 // Set Name
 function setName(e) {
     if (e.type === 'keypress') {
         // Make sure enter is pressed
-        if (e.which == 13 || e.keyCode == 13) {
-            localStorage.setItem('name', e.target.innerText);
+        if (e.which === 13 || e.keyCode === 13) {
+            checkName(e);
             name.blur();
         }
     } else {
-        localStorage.setItem('name', e.target.innerText);
+        checkName(e);
     }
 }
 
@@ -163,17 +176,26 @@ function getFocus() {
     }
 }
 
+function checkFocus(e) {
+    const input = e.target.innerText.trim();
+    if (input !== '') {
+        localStorage.setItem('focusText', input);
+    } else {
+        focusText.innerText = state.previousFocusValue;
+    }
+}
+
 // Set Focus
 function setFocus(e) {
     if (!e.target.innerText) return;
     if (e.type === 'keypress') {
         // Make sure enter is pressed
         if (e.which == 13 || e.keyCode == 13) {
-            localStorage.setItem('focusText', e.target.innerText);
+            checkFocus(e);
             focusText.blur();
         }
     } else {
-        localStorage.setItem('focusText', e.target.innerText);
+        checkFocus(e);
     }
 }
 
@@ -188,16 +210,25 @@ function getLocation() {
     }
 }
 
+function checkLocation(e) {
+    const input = e.target.innerText.trim();
+    if (input !== '') {
+        localStorage.setItem('geoLocation', input);
+    } else {
+        geoLocation.innerText = state.previousLocationValue;
+    }
+}
+
 // Set Location
 function setLocation(e) {
     if (e.type === 'keypress') {
         // Make sure enter is pressed
         if (e.which == 13 || e.keyCode == 13) {
-            localStorage.setItem('geoLocation', e.target.innerText);
+            checkLocation(e);
             geoLocation.blur();
         }
     } else {
-        localStorage.setItem('geoLocation', e.target.innerText);
+        checkLocation(e);
     }
     getWeather();
 }
@@ -241,9 +272,7 @@ function nextCite() {
 }
 
 name.addEventListener('keypress', setName);
-name.addEventListener('blur', e => {
-    e.target.innerText == '' ? name.innerText = state.previousNameValue : setName(e);
-});
+name.addEventListener('blur', setName);
 name.addEventListener('focus', () => {
     state.previousNameValue = name.textContent;
     name.textContent = '';
