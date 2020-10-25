@@ -99,8 +99,11 @@ function showDate(today = new Date()) {
 function setBgGreet() {
     let today = new Date(),
         hour = today.getHours();
-
-    document.body.style.backgroundImage = `url('${state.imagesForToday[hour]}')`;
+    const img = document.createElement('img');
+    img.src = state.imagesForToday[hour];
+    img.onload = () => {
+        document.body.style.backgroundImage = `url('${img.src}')`;
+    }
     state.currentImageForToday = hour;
 
     if (hour < 6) {
@@ -169,7 +172,7 @@ function setName(e) {
 function getFocus() {
     const localFocus = localStorage.getItem('focusText');
 
-    if (localFocus === null || localFocus === '') {
+    if (!localFocus) {
         focusText.textContent = state.previousFocusValue;
     } else {
         focusText.textContent = localStorage.getItem('focusText');
@@ -187,7 +190,6 @@ function checkFocus(e) {
 
 // Set Focus
 function setFocus(e) {
-    if (!e.target.innerText) return;
     if (e.type === 'keypress') {
         // Make sure enter is pressed
         if (e.which == 13 || e.keyCode == 13) {
@@ -235,7 +237,7 @@ function setLocation(e) {
 
 async function getWeather() {
     const loc = await localStorage.getItem('geoLocation');
-    if (loc) {
+    if (loc && loc !== state.previousLocationValue) {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&lang=en&units=metric&appid=bc3a69f0a7473cf055cee87c27b82be9`;
         const res = await fetch(url);
         const data = await res.json();
@@ -279,18 +281,14 @@ name.addEventListener('focus', () => {
 })
 
 focusText.addEventListener('keypress', setFocus);
-focusText.addEventListener('blur', e => {
-    e.target.innerText == '' ? focusText.innerText = state.previousFocusValue : setFocus(e);
-});
+focusText.addEventListener('blur', setFocus);
 focusText.addEventListener('focus', () => {
     state.previousFocusValue = focusText.textContent;
     focusText.textContent = '';
 })
 
 geoLocation.addEventListener('keypress', setLocation);
-geoLocation.addEventListener('blur', e => {
-    e.target.innerText == '' ? geoLocation.innerText = state.previousLocationValue : setLocation(e);
-});
+geoLocation.addEventListener('blur', setLocation);
 geoLocation.addEventListener('focus', () => {
     state.previousLocationValue = geoLocation.textContent;
     geoLocation.textContent = '';
