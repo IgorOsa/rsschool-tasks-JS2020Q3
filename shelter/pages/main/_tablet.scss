@@ -1,147 +1,137 @@
 @media screen and (max-width: 1279px) {
-    .wrapper {
-        padding: 0 3rem;
-    }
+  .wrapper {
+    padding: 0 3rem;
+  }
 
-    .header {
-        top: 3rem;
-    }
+  .header {
+    top: 3rem;
+  }
 
-    .hero__wrapper {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 0;
-    }
+  .hero__wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
 
-    .hero__content { 
-        padding-top: 15rem;
-        margin-right: 0;
-        margin-bottom: 10rem;
-    }
+  .hero__content {
+    padding-top: 15rem;
+    margin-right: 0;
+    margin-bottom: 10rem;
+  }
 
-    .hero__button {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
+  .hero__text {
+    margin-bottom: 4.2rem;
+  }
 
-    .hero__image {
-        max-width: 56.9rem;
-        margin-right: -14rem;
-    }
+  .hero__button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-    // about section styles
+  .hero__image {
+    max-width: 56.9rem;
+    margin-right: -14rem;
+  }
 
-    .about__wrapper {
-        // flex-direction: column;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: space-around;
-    }
+  // about section styles
 
-    .about__content { 
-        // order: 1;
-        padding-top: 0;
-        margin-bottom: 8rem;
-    }
+  .about__wrapper {
+    // flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
 
-    .about__image {
-        // order: 2;
-        margin-right: 0;
-        max-height: 40.8rem;
-    }
+  .about__content {
+    // order: 1;
+    padding-top: 0;
+    margin-bottom: 8rem;
+  }
 
-    // pets section styles
-    .slider {
-        // flex: 0 0 50%;
-        max-width: 70.8rem;
-    }
-    
-    .slider__items {
-        flex: 0 0 58rem;
-        // max-width: 50%;
-        position: relative;
-        overflow: hidden;
-    }
+  .about__image {
+    // order: 2;
+    margin-right: 0;
+    max-height: 40.8rem;
+  }
 
-    .slider__btn {
-        margin-right: 0;
-    }
+  // pets section styles
+  .slider {
+    // flex: 0 0 50%;
+    max-width: 70.8rem;
+  }
 
-    .card {
-        margin-right: 4rem;
-    }
+  .slider__items {
+    flex: 0 0 58rem;
+    // max-width: 50%;
+    position: relative;
+    overflow: hidden;
+  }
 
-    // help section styles
+  .slider__btn {
+    margin-right: 0;
+  }
 
-    .help__wrapper { 
-        padding: 8rem 0 0;
-        margin-bottom: 4.7rem;
-    }
+  .card {
+    margin-right: 4rem;
+  }
 
-    .list__break_desktop {
-        display: none;
-    }
+  // help section styles
 
-    .list__item {
-        // width: 17rem;
-        min-width: 33.33%;
-        // margin-right: 6rem;
-    }
+  .help__wrapper {
+    max-width: 63rem;
+    padding: 8rem 0 0;
+    margin-bottom: 4.7rem;
+  }
 
-    .list__item:nth-last-child(4) {
-        padding-left: 0rem;
-    }
+  .list__break_desktop {
+    display: none;
+  }
 
-    .list__item:last-child {
-        padding-right: 0;
-    }
+  .list__item {
+    min-width: 17rem;
+    // min-width: 33.33%;
+  }
 
-    // .list__item:nth-child(3n) {
-    //     padding-left: 1rem;
-    // }
+  .list__item:nth-last-child(4) {
+    padding-left: 0rem;
+  }
 
-    // .list__item:nth-child(3n+3) {
-    //     padding-left: 0;
-    //     padding-right: 1rem;
-    // }
+  .list__item:last-child {
+    padding-right: 0;
+  }
 
-    // donation section styles
+  // donation section styles
 
-    .donation__wrapper { 
-        flex-direction: column-reverse;
-    }
+  .donation__wrapper {
+    flex-direction: column-reverse;
+  }
 
-    .donation__image {
-        margin-right: 0;
-        padding-top: 6rem;
-    }
+  .donation__image {
+    margin-right: 0;
+    padding-top: 6rem;
+  }
 
-    // footer styles
+  // footer styles
 
-    .footer__wrapper { 
-        flex-wrap: wrap;
-        padding-top: 3rem;
-        padding-left: 3.4rem;
-        padding-right: 3.4rem;
-    }
-    
-    .contacts,
-    .location {
-        flex-basis: 50%;
-        padding-top: 0;
-    }
+  .footer__wrapper {
+    max-width: 70.8rem;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
 
-    .footer__image-container {
-        flex-basis: 100%;
-        display: flex;
-        justify-content: center;
-        padding-top: 2.5rem;
-    }
+  .contacts,
+  .location {
+    flex-basis: 50%;
+    padding-top: 0;
+  }
 
-    // .footer__image {
-    //     flex-basis: 30rem;
-    //     // max-width: 30rem;
-    //     align-self: center;
-    // }
+  .footer__image-container {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5rem;
+  }
 }
