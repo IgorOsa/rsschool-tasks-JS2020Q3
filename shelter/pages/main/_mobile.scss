@@ -1,3 +1,19 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+
+    .wrapper {
+        padding: 0 1rem;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .navbar__toggler {
+        display: block;
+    }
+
+    .navbar__toggler-icon {
+        background-image: url('./../../assets/icons/burger.png');
+    }
 
 }

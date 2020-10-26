@@ -161,6 +161,15 @@ body {
   opacity: 1;
 }
 
+.navigation__link_disabled {
+  cursor: default;
+}
+
+.navigation__link_disabled:hover {
+  cursor: default;
+  color: #545454;
+}
+
 .pets {
   background: #f6f6f6;
 }
@@ -205,7 +214,7 @@ body {
 }
 
 .btn__disabled {
-  color: #CDCDCD;
+  color: #cdcdcd;
 }
 
 .slider {

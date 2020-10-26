@@ -168,6 +168,15 @@ body {
   border-bottom: 3px solid #fddcc4;
 }
 
+.navigation__link_disabled {
+  cursor: default;
+}
+
+.navigation__link_disabled:hover {
+  cursor: default;
+  color: #cdcdcd;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
