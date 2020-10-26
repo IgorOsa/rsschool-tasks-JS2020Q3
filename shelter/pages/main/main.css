@@ -1,0 +1,971 @@
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia.eot");
+  src: local("Georgia"), url("./../../assets/fonts/Georgia/Georgia.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url("./../../assets/fonts/Georgia/Georgia-Bold.eot");
+  src: local("Georgia Bold"), local("Georgia-Bold"), url("./../../assets/fonts/Georgia/Georgia-Bold.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Georgia/Georgia-Bold.woff") format("woff"), url("./../../assets/fonts/Georgia/Georgia-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/ArialMT.eot");
+  src: local("Arial"), local("ArialMT"), url("./../../assets/fonts/Arial/ArialMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/ArialMT.woff") format("woff"), url("./../../assets/fonts/Arial/ArialMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url("./../../assets/fonts/Arial/Arial-ItalicMT.eot");
+  src: local("Arial Italic"), local("Arial-ItalicMT"), url("./../../assets/fonts/Arial/Arial-ItalicMT.eot?#iefix") format("embedded-opentype"), url("./../../assets/fonts/Arial/Arial-ItalicMT.woff") format("woff"), url("./../../assets/fonts/Arial/Arial-ItalicMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root {
+  font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia";
+}
+
+.wrapper {
+  max-width: 120rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.header {
+  position: absolute;
+  max-width: 100%;
+  width: 100vw;
+  top: 6rem;
+}
+
+.header__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo__link {
+  text-decoration: none;
+}
+
+.logo__title {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.2rem;
+  line-height: 3.5rem;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+  margin-bottom: 10px;
+}
+
+.logo__subtitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.navbar__toggler {
+  display: none;
+}
+
+.navigation {
+  width: 44.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+
+.menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation__link {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  color: #cdcdcd;
+  text-decoration: none;
+}
+
+.navigation__link:hover {
+  cursor: pointer;
+  color: #fafafa;
+}
+
+.navigation__link_active {
+  color: #fafafa;
+  border-bottom: 3px solid #f1cdb3;
+}
+
+.navigation__link_active:hover {
+  opacity: 1;
+  color: #cdcdcd;
+  border-bottom: 3px solid #fddcc4;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero {
+  background: url(./../../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 18rem;
+}
+
+.hero__content {
+  max-width: 46rem;
+  margin-right: 4.2rem;
+  padding-top: 16.3rem;
+}
+
+.hero__header {
+  max-width: 310px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4.4rem;
+  line-height: 5.7rem;
+  color: #ffffff;
+  margin-bottom: 4.2rem;
+}
+
+.hero__text {
+  font-family: "Arial";
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  color: #cdcdcd;
+  margin-bottom: 4.1rem;
+}
+
+.btn__primary {
+  font-family: "Georgia";
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  letter-spacing: 0.06em;
+  color: #292929;
+  background: #f1cdb3;
+  border-radius: 10rem;
+  border: none;
+  padding: 15px 45px;
+  outline: 0;
+  text-decoration: none;
+}
+
+.btn__primary:hover {
+  cursor: pointer;
+  background: #fddcc4;
+}
+
+.about {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.about__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.about__image {
+  margin-right: 12rem;
+  height: 40.8rem;
+}
+
+.about__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 1.4rem;
+}
+
+.about__heding {
+  width: 370px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 2.5rem;
+}
+
+.about__text {
+  max-width: 430px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 160%;
+  color: #292929;
+  margin-bottom: 2.5rem;
+}
+
+.about__text:last-child {
+  margin-bottom: 0;
+}
+
+.pets {
+  background: #f6f6f6;
+}
+
+.pets__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+}
+
+.pets__header {
+  width: 40rem;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #545454;
+  margin-bottom: 60px;
+}
+
+.btn__primary_pets {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  letter-spacing: 0.06em;
+  color: #292929;
+}
+
+.slider {
+  height: 43.5rem;
+  margin-bottom: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.slider__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: transparent;
+  border: 2px solid #f1cdb3;
+  border-radius: 10rem;
+  padding: 23px 19px;
+  outline: 0;
+}
+
+.slider__btn:hover {
+  cursor: pointer;
+  border: 2px solid #fddcc4;
+  background: #fddcc4;
+}
+
+.slider__btn_left {
+  margin-right: 5.3rem;
+}
+
+.btn__image_right {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.slider__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fafafa;
+  border-radius: 0.9rem;
+  margin-right: 9rem;
+  padding-bottom: 3rem;
+}
+
+.card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.card:last-child {
+  margin-right: 5.3rem;
+}
+
+.card__image {
+  margin-bottom: 3rem;
+}
+
+.card__title {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 2.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 3rem;
+}
+
+.btn__secondary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  background: transparent;
+  border: 2px solid #f1cdb3;
+  border-radius: 10rem;
+  padding: 15px 45px;
+  outline: 0;
+}
+
+.btn__secondary:hover {
+  cursor: pointer;
+  background: #fddcc4;
+}
+
+.help__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8rem 8.7rem 4.5rem 8.7rem;
+}
+
+.help__heading {
+  max-width: 310px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 6rem;
+}
+
+.icons__list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.icons__list-row {
+  max-width: 102.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list__break_desktop {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 0;
+}
+
+.list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5.5rem;
+}
+
+.list__item:nth-last-child(4) {
+  padding-left: 8.4rem;
+}
+
+.list__item:last-child {
+  padding-right: 8.4rem;
+}
+
+.item__image {
+  margin-bottom: 3rem;
+}
+
+.item__heading {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.donation {
+  min-height: 46.4rem;
+  padding: 8rem 0 10rem 0;
+  background: #f6f6f6;
+}
+
+.donation__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.donation__image {
+  margin-right: 3rem;
+}
+
+.information__heading {
+  max-width: 300px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 2rem;
+}
+
+.information__subheading {
+  max-width: 31rem;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-bottom: 2rem;
+}
+
+.credit-card {
+  max-width: 35rem;
+  background: #f1cdb3;
+  border-radius: 0.9rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.credit-card:hover {
+  cursor: pointer;
+  background: #fddcc4;
+}
+
+.credit-card__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.credit-card__icon {
+  margin-right: 1.5rem;
+}
+
+.credit-card__number {
+  max-width: 27.5rem;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.06em;
+}
+
+.credit-card__link {
+  color: #545454;
+  text-decoration: none;
+}
+
+.legal-info {
+  max-width: 38rem;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 150%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #b2b2b2;
+}
+
+.footer {
+  background: url(./../../assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+
+.footer__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 4rem;
+}
+
+.contacts {
+  max-width: 28rem;
+  padding-top: 1.6rem;
+}
+
+.contacts__title {
+  max-width: 28rem;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+.contacts__email {
+  margin-bottom: 4rem;
+}
+
+.contacts__phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4rem;
+}
+
+.email__link,
+.phone__link,
+.location__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.email__icon {
+  color: #f1cdb3;
+  margin-right: 2rem;
+}
+
+.email__text {
+  font-family: "Georgia";
+  font-size: 2rem;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+
+.phone__icon {
+  color: #f1cdb3;
+  margin-right: 2rem;
+}
+
+.phone__text {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+
+.location {
+  max-width: 30.2rem;
+  padding-top: 1.6rem;
+}
+
+.location__title {
+  max-width: 27rem;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin-bottom: 3.4rem;
+}
+
+.location__icon {
+  color: #f1cdb3;
+  margin-right: 2rem;
+}
+
+.location__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3.2rem;
+}
+
+.location__text {
+  font-family: #f1cdb3;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+  .header {
+    top: 3rem;
+  }
+  .hero__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 0;
+  }
+  .hero__content {
+    padding-top: 15rem;
+    margin-right: 0;
+    margin-bottom: 10rem;
+  }
+  .hero__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .hero__image {
+    max-width: 56.9rem;
+    margin-right: -14rem;
+  }
+  .about__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .about__content {
+    padding-top: 0;
+    margin-bottom: 8rem;
+  }
+  .about__image {
+    margin-right: 0;
+    max-height: 40.8rem;
+  }
+  .slider {
+    max-width: 70.8rem;
+  }
+  .slider__items {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 58rem;
+            flex: 0 0 58rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .slider__btn {
+    margin-right: 0;
+  }
+  .card {
+    margin-right: 4rem;
+  }
+  .help__wrapper {
+    padding: 8rem 0 0;
+    margin-bottom: 4.7rem;
+  }
+  .list__break_desktop {
+    display: none;
+  }
+  .list__item {
+    min-width: 33.33%;
+  }
+  .list__item:nth-last-child(4) {
+    padding-left: 0rem;
+  }
+  .list__item:last-child {
+    padding-right: 0;
+  }
+  .donation__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .donation__image {
+    margin-right: 0;
+    padding-top: 6rem;
+  }
+  .footer__wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+  .contacts,
+  .location {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    padding-top: 0;
+  }
+  .footer__image-container {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+  .navigation {
+    display: none;
+  }
+  .navbar__toggler {
+    display: block;
+  }
+  .navbar__toggler-icon {
+    background-image: url("./../../assets/icons/burger.png");
+  }
+}
+/*# sourceMappingURL=main.css.map */
