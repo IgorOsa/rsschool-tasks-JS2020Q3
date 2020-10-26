@@ -111,6 +111,10 @@ body {
   color: #ffffff;
 }
 
+.navbar__toggler {
+  display: none;
+}
+
 .navigation {
   width: 44.3rem;
   display: -webkit-box;
@@ -145,6 +149,7 @@ body {
   font-size: 1.5rem;
   line-height: 2.4rem;
   color: #cdcdcd;
+  text-decoration: none;
 }
 
 .navigation__link:hover {
@@ -158,8 +163,9 @@ body {
 }
 
 .navigation__link_active:hover {
-  cursor: default;
   opacity: 1;
+  color: #cdcdcd;
+  border-bottom: 3px solid #fddcc4;
 }
 
 main {
@@ -219,13 +225,15 @@ main {
   color: #292929;
   background: #f1cdb3;
   border-radius: 10rem;
-  background-color: #f1cdb3;
   border: none;
   padding: 15px 45px;
+  outline: 0;
+  text-decoration: none;
 }
 
 .btn__primary:hover {
   cursor: pointer;
+  background: #fddcc4;
 }
 
 .about {
@@ -358,6 +366,7 @@ main {
   border: 2px solid #f1cdb3;
   border-radius: 10rem;
   padding: 23px 19px;
+  outline: 0;
 }
 
 .slider__btn:hover {
@@ -430,7 +439,7 @@ main {
   margin-bottom: 3rem;
 }
 
-.btn_secondary {
+.btn__secondary {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,9 +461,10 @@ main {
   border: 2px solid #f1cdb3;
   border-radius: 10rem;
   padding: 15px 45px;
+  outline: 0;
 }
 
-.btn_secondary:hover {
+.btn__secondary:hover {
   cursor: pointer;
   background: #fddcc4;
 }
@@ -623,6 +633,11 @@ main {
   border-radius: 0.9rem;
   padding: 1rem 1.5rem;
   margin-bottom: 2rem;
+}
+
+.credit-card:hover {
+  cursor: pointer;
+  background: #fddcc4;
 }
 
 .credit-card__wrapper {
@@ -936,6 +951,21 @@ main {
         -ms-flex-pack: center;
             justify-content: center;
     padding-top: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+  .navigation {
+    display: none;
+  }
+  .navbar__toggler {
+    display: block;
+  }
+  .navbar__toggler-icon {
+    background-image: url("./../../assets/icons/burger.png");
   }
 }
 /*# sourceMappingURL=main.css.map */

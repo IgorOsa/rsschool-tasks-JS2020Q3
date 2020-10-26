@@ -144,6 +144,7 @@ body {
 .navigation__link {
   font-size: 1.5rem;
   line-height: 2.4rem;
+  text-decoration: none;
   color: #545454;
 }
 
@@ -157,7 +158,6 @@ body {
 }
 
 .navigation__link_active:hover {
-  cursor: default;
   opacity: 1;
 }
 
