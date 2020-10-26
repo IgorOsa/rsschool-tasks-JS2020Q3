@@ -21,14 +21,19 @@ body {
 .wrapper {
   max-width: 120rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
 }
 
 // Header styles
 
 .header {
+  position: fixed;
   width: 100%;
+  background-color: $color-light-xl;
   padding-top: 3rem;
+  z-index: 1;
 }
 
 .header__wrapper {
@@ -74,6 +79,10 @@ body {
   font-weight: normal;
 }
 
+.navbar__toggler {
+  display: none;
+}
+
 .navigation {
   display: flex;
   width: 443px;
@@ -108,7 +117,6 @@ body {
 }
 
 .navigation__link_active:hover {
-  // cursor: default;
   opacity: 1;
 }
 
@@ -118,6 +126,10 @@ body {
     cursor: default;
     color: $color-dark-l;
   }
+}
+
+.main {
+  padding-top: 12rem;
 }
 
 // pets section styles
@@ -181,7 +193,6 @@ body {
 .slider__controls {
   width: 100%;
   max-width: 34rem;
-  // height: 5.2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -292,9 +303,7 @@ body {
 // footer styles
 
 .footer {
-  background: url(../../assets/images/noise_transparent@2x.png),
-    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
-    #211f20;
+  @include footer-gradient-background;
 }
 
 .footer__wrapper {
@@ -406,3 +415,6 @@ body {
   letter-spacing: 0.06em;
   color: $color-primary;
 }
+
+@import './tablet';
+@import './mobile';
