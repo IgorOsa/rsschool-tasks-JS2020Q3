@@ -23,6 +23,8 @@ body {
 .wrapper {
   max-width: 120rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -149,10 +151,11 @@ main {
   font-size: 1.5rem;
   line-height: 2.4rem;
   color: $color-dark-s;
-  margin-bottom: 4.1rem;
+  margin-bottom: 5.6rem;
 }
 
 .btn__primary {
+  height: 5.2rem;
   font-family: $font-primary;
   font-size: 1.7rem;
   line-height: 2.2rem;
@@ -160,9 +163,11 @@ main {
   color: $color-dark-3xl;
   background: $color-primary;
   border-radius: 10rem;
-  // background-color: $color-primary;
+  order: 0;
+  align-self: center;
+  flex-grow: 0;
   border: none;
-  padding: 15px 45px;
+  padding: 13px 43px;
   outline: 0;
   text-decoration: none;
 
@@ -198,7 +203,7 @@ main {
 }
 
 .about__heding {
-  width: 370px;
+  max-width: 37rem;
   font-family: $font-primary;
   font-style: normal;
   font-weight: normal;
@@ -240,7 +245,7 @@ main {
 }
 
 .pets__header {
-  width: 40rem;
+  max-width: 40rem;
   font-family: $font-primary;
   font-style: normal;
   font-weight: normal;
@@ -279,7 +284,7 @@ main {
   background-color: transparent;
   border: 2px solid $color-primary;
   border-radius: 10rem;
-  padding: 23px 19px;
+  padding: 22px 17px;
   outline: 0;
 
   &:hover {
@@ -339,6 +344,7 @@ main {
 }
 
 .btn__secondary {
+  height: 5.2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -352,7 +358,7 @@ main {
   background: transparent;
   border: 2px solid $color-primary;
   border-radius: 10rem;
-  padding: 15px 45px;
+  padding: 13px 43px;
   outline: 0;
 
   &:hover {
@@ -461,7 +467,7 @@ main {
   font-size: 3.5rem;
   line-height: 130%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   letter-spacing: 0.06em;
   color: $color-dark-l;
   margin-bottom: 2rem;
@@ -469,14 +475,9 @@ main {
 
 .information__subheading {
   max-width: 31rem;
-  font-family: $font-primary;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 110%;
+  @include h5;
   display: flex;
   align-items: center;
-  letter-spacing: 0.06em;
   color: $color-dark-l; // #545454;
   margin-bottom: 2rem;
 }
@@ -517,7 +518,8 @@ main {
 }
 
 .credit-card__link {
-  color: $color-dark-l; // #545454;
+  @include h4;
+  color: $color-dark-l;
   text-decoration: none;
 }
 

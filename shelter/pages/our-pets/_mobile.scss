@@ -1,0 +1,141 @@
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+
+  .header__wrapper {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .logo {
+    max-width: 19rem;
+    margin-right: 4rem;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .navbar__toggler {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: none;
+    &:hover {
+      cursor: pointer;
+    }
+    margin-right: 4.3rem;
+  }
+
+  .navbar__toggler-icon {
+    width: 3rem;
+    height: 0.2rem;
+    background-color: $color-primary;
+    margin-bottom: 0.8rem;
+  }
+
+  .navbar__toggler-icon:last-child {
+    margin-bottom: 0;
+  }
+
+  // pets section styles
+
+  .pets__wrapper {
+    padding: 4.2rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .pets__header {
+    max-width: 30rem;
+    @include h3-mobile;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4.2rem;
+  }
+
+  .slider {
+    flex: 0 0 100%;
+    max-width: 27rem;
+    flex-wrap: wrap;
+  }
+
+  .slider__btn_left {
+    order: 1;
+  }
+
+  .slider__btn_right {
+    order: 2;
+  }
+
+  .slider__items {
+    margin-bottom: 0;
+  }
+
+  .slider__controls {
+    padding-top: 2.2rem;
+  }
+
+  .slider__btn {
+    margin-top: 2rem;
+  }
+
+  .slider__btn_left {
+    margin-left: 4.2rem;
+  }
+
+  .slider__btn_right {
+    margin-right: 4.2rem;
+  }
+
+  // footer styles
+
+  .footer__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3rem 0 0;
+  }
+
+  .contacts,
+  .location {
+    max-width: 30rem;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+  .contacts__title,
+  .location__title {
+    @include h3-mobile;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  .location__info,
+  .location__title {
+    margin-bottom: 4rem;
+  }
+
+  .location__link {
+    width: 30rem;
+  }
+
+  .email_link {
+    max-width: 25.1rem;
+  }
+  .footer__image-container {
+    padding: 0;
+  }
+  .footer__image {
+    max-width: 26rem;
+  }
+}
