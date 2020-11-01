@@ -26,15 +26,31 @@ const Keyboard = {
         ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
         ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\', 'enter'],
         ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
-        ['done', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'left', 'right']
       ],
       true: [
         ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'backspace'],
         ['tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}'],
         ['caps', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '|', 'enter'],
         ['shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
-        ['done', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'left', 'right']
       ],
+    },
+    ru: {
+      false: [
+        ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
+        ['tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ'],
+        ['caps', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '\\', 'enter'],
+        ['shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'],
+        ['done', 'lang', 'space', 'left', 'right']
+      ],
+      true: [
+        ['Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'backspace'],
+        ['tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ'],
+        ['caps', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '/', 'enter'],
+        ['shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ','],
+        ['done', 'lang', 'space', 'left', 'right']
+      ]
     }
   },
 
@@ -214,6 +230,16 @@ const Keyboard = {
 
             break;
 
+          case 'lang':
+            keyElement.innerHTML = this.properties.currentLayout;
+
+            keyElement.addEventListener('click', () => {
+              this.properties.currentLayout = this.properties.currentLayout === 'en' ? 'ru' : 'en';
+              this._switchLayout();
+            });
+
+            break;
+
           default:
             keyElement.textContent = key;
 
@@ -245,6 +271,12 @@ const Keyboard = {
     }
   },
 
+  _switchLayout() {
+    this.elements.keysContainer.innerHTML = '';
+    this.elements.keysContainer.appendChild(this.createKeys());
+    this.elements.keys = this.elements.keysContainer.querySelectorAll('.keyboard__key');
+  },
+
   _switchCase() {
     for (const key of this.elements.keys) {
       if (key.childElementCount === 0) {
@@ -268,9 +300,7 @@ const Keyboard = {
 
   _toggleShift() {
     this.properties.shift = !this.properties.shift;
-    this.elements.keysContainer.innerHTML = '';
-    this.elements.keysContainer.appendChild(this.createKeys());
-    this.elements.keys = this.elements.keysContainer.querySelectorAll('.keyboard__key');
+    this._switchLayout();
     this._switchCase();
   },
 
