@@ -13,6 +13,7 @@ const Keyboard = {
   properties: {
     value: '',
     capsLock: false,
+    shift: false,
     caretStart: 0,
     caretEnd: 0,
   },
@@ -48,6 +49,10 @@ const Keyboard = {
         this.properties.caretStart = element.selectionStart;
         this.properties.caretEnd = element.selectionEnd;
       });
+      element.addEventListener('keyup', event => {
+        this.properties.value = element.value;
+        // console.log(event.target.value);
+      })
     });
   },
 
@@ -131,8 +136,8 @@ const Keyboard = {
             keyElement.innerHTML = createIconHTML('keyboard_arrow_up');
 
             keyElement.addEventListener('click', () => {
-              this._toggleCapsLock();
-              keyElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
+              this._toggleShift();
+              keyElement.classList.toggle('keyboard__key--active', this.properties.shift);
             });
 
             break;
@@ -235,6 +240,16 @@ const Keyboard = {
     }
   },
 
+  _toggleShift() {
+    this.properties.shift = !this.properties.shift;
+    console.log(this.elements.keys);
+    // for (const key of this.elements.keys) {
+    // if (key.childElementCount === 0) {
+    //     key.textContent = this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+    // }
+    // }
+  },
+
   open(initialValue, oninput, onclose) {
     this.properties.value = initialValue || '';
     this.eventHandlers.oninput = oninput;
@@ -255,5 +270,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('keydown', (event) => {
-  console.log(event);
+  // console.log(event);
+  // console.log(Keyboard.properties.value);
 });
