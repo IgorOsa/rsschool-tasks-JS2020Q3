@@ -178,9 +178,11 @@ const Keyboard = {
             keyElement.innerHTML = createIconHTML('keyboard_arrow_left');
 
             keyElement.addEventListener('click', () => {
-              // this.properties.value += ' ';
-              // this._triggerEvent('oninput');
-              console.log('keyboard_arrow_left');
+              if (this.properties.caretStart > 0) {
+                this.properties.caretStart -= 1;
+                this.properties.caretEnd -= 1;
+              }
+              this._triggerEvent('oninput');
             });
 
             break;
@@ -190,9 +192,11 @@ const Keyboard = {
             keyElement.innerHTML = createIconHTML('keyboard_arrow_right');
 
             keyElement.addEventListener('click', () => {
-              // this.properties.value += ' ';
-              // this._triggerEvent('oninput');
-              console.log('keyboard_arrow_right');
+              if (this.properties.value.length > this.properties.caretEnd) {
+                this.properties.caretStart += 1;
+                this.properties.caretEnd += 1;
+              }
+              this._triggerEvent('oninput');
             });
 
             break;
