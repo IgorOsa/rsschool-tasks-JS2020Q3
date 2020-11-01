@@ -71,6 +71,8 @@ const Keyboard = {
       });
       element.addEventListener('keyup', event => {
         this.properties.value = element.value;
+        this.properties.caretStart = element.selectionStart;
+        this.properties.caretEnd = element.selectionEnd;
       })
     });
   },
