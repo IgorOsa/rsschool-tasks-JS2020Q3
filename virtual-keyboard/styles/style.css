@@ -82,6 +82,10 @@
   background: rgba(0, 0, 0, 0.25);
 }
 
+.keyboard__key--warn {
+  color: red;
+}
+
 @media (max-width: 800px) {
   .keyboard__key {
     width: 5%;

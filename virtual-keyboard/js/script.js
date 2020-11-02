@@ -18,7 +18,8 @@ const Keyboard = {
     caretEnd: 0,
     currentLayout: 'en',
     keyPressed: '',
-    audio: false
+    audio: false,
+    voice: false
   },
 
   keyLayout: {
@@ -28,14 +29,14 @@ const Keyboard = {
         ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
         ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\', 'enter'],
         ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
-        ['done', 'lang', 'space', 'arrowleft', 'arrowright', 'audio']
+        ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       true: [
         ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'backspace'],
         ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}'],
         ['capslock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '|', 'enter'],
         ['shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
-        ['done', 'lang', 'space', 'arrowleft', 'arrowright', 'audio']
+        ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       sounds: {
         Shift: './../../virtual-keyboard/assets/sounds/snare.wav',
@@ -51,14 +52,14 @@ const Keyboard = {
         ['й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ'],
         ['capslock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '\\', 'enter'],
         ['shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'],
-        ['done', 'lang', 'space', 'arrowleft', 'arrowright', 'audio']
+        ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       true: [
         ['Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'backspace'],
         ['Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ'],
         ['capslock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '/', 'enter'],
         ['shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ','],
-        ['done', 'lang', 'space', 'arrowleft', 'arrowright', 'audio']
+        ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       sounds: {
         Shift: './../../virtual-keyboard/assets/sounds/Cev_H2.mp3',
@@ -73,7 +74,7 @@ const Keyboard = {
       ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight'],
       ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
       ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
-      ['', '', 'Space', 'ArrowLeft', 'ArrowRight'],
+      ['', '', '', 'Space', 'ArrowLeft', 'ArrowRight'],
     ]
   },
 
@@ -301,6 +302,20 @@ const Keyboard = {
 
             break;
 
+          case 'voice':
+            keyElement.classList.add('keyboard__key--wide');
+            keyElement.innerHTML = createIconHTML(this.properties.voice ? 'mic' : 'mic_off');
+
+            keyElement.addEventListener('click', () => {
+              this.keyPressed = keyElement.dataset.id;
+              this.properties.voice = !this.properties.voice;
+              keyElement.innerHTML = createIconHTML(this.properties.voice ? 'mic' : 'mic_off');
+              keyElement.classList.toggle('keyboard__key--warn');
+              this._voiceInput();
+            });
+
+            break;
+
           default:
             keyElement.textContent = key;
             keyElement.addEventListener('click', () => {
@@ -383,6 +398,49 @@ const Keyboard = {
       }
       audio.currentTime = 0;
       audio.play();
+    }
+  },
+
+  _voiceInput() {
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    if (this.properties.voice) {
+      let buffer;
+
+      recognition.interimResults = true;
+      recognition.lang = this.properties.currentLayout === 'ru' ? 'ru-RU' : 'en-US';
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        if (!this.properties.voice) return;
+
+        var res = Array.from(event.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('');
+
+        buffer = res;
+      };
+
+      recognition.onend = (event) => {
+        if (!this.properties.voice) return;
+
+        if (buffer != undefined && buffer != '') {
+          const { value, caretStart, caretEnd } = this.properties;
+          this.properties.value = [value.slice(0, caretStart), buffer, ' ', value.slice(caretEnd)].join('');
+          this.properties.caretStart += buffer.length + 1;
+          this.properties.caretEnd += buffer.length + 1;
+        }
+        this._triggerEvent('oninput');
+        buffer = '';
+        recognition.start();
+      };
+    }
+    else {
+      recognition.abort();
+      recognition.onresult = null;
+      recognition.onend = null;
     }
   },
 
