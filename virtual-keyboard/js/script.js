@@ -16,42 +16,49 @@ const Keyboard = {
     shift: false,
     caretStart: 0,
     caretEnd: 0,
-    currentLayout: "en"
+    currentLayout: 'en'
   },
 
   keyLayout: {
     en: {
       false: [
         ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
-        ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
-        ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\', 'enter'],
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+        ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\', 'enter'],
         ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
-        ['done', 'lang', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'arrowleft', 'arrowright']
       ],
       true: [
         ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'backspace'],
-        ['tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}'],
-        ['caps', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '|', 'enter'],
+        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}'],
+        ['capslock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '|', 'enter'],
         ['shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
-        ['done', 'lang', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'arrowleft', 'arrowright']
       ],
     },
     ru: {
       false: [
         ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
-        ['tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ'],
-        ['caps', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '\\', 'enter'],
+        ['й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ'],
+        ['capslock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '\\', 'enter'],
         ['shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'],
-        ['done', 'lang', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'arrowleft', 'arrowright']
       ],
       true: [
         ['Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'backspace'],
-        ['tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ'],
-        ['caps', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '/', 'enter'],
+        ['Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ'],
+        ['capslock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '/', 'enter'],
         ['shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ','],
-        ['done', 'lang', 'space', 'left', 'right']
+        ['done', 'lang', 'space', 'arrowleft', 'arrowright']
       ]
-    }
+    },
+    raw: [
+      ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace'],
+      ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight'],
+      ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
+      ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
+      ['', '', 'Space', 'ArrowLeft', 'ArrowRight'],
+    ]
   },
 
   init() {
@@ -81,14 +88,25 @@ const Keyboard = {
           element.focus();
         });
       });
-      element.addEventListener('click', () => {
-        this.properties.caretStart = element.selectionStart;
-        this.properties.caretEnd = element.selectionEnd;
-      });
       element.addEventListener('keyup', event => {
         this.properties.value = element.value;
         this.properties.caretStart = element.selectionStart;
         this.properties.caretEnd = element.selectionEnd;
+
+        const keyPressed = this.elements.keysContainer.querySelector(`[data-id='${event.code}']`);
+        if (keyPressed) {
+          keyPressed.classList.remove('keyboard__key--pressed');
+        }
+
+        if (event.code.match(/ShiftLeft|ShiftRight|CapsLock/)) {
+          keyPressed.click();
+        }
+      })
+      element.addEventListener('keydown', event => {
+        const keyPressed = this.elements.keysContainer.querySelector(`[data-id='${event.code}']`);
+        if (keyPressed) {
+          keyPressed.classList.add('keyboard__key--pressed');
+        }
       })
     });
   },
@@ -100,13 +118,14 @@ const Keyboard = {
     const createIconHTML = (icon_name) => `<i class="material-icons">${icon_name}</i>`;
     const currentLayout = this.keyLayout[this.properties.currentLayout][this.properties.shift];
 
-    currentLayout.forEach((row) => {
-      row.map(key => {
+    currentLayout.forEach((row, i) => {
+      row.map((key, j) => {
         const keyElement = document.createElement('button');
 
         // Add attributes/classes
         keyElement.setAttribute('type', 'button');
         keyElement.classList.add('keyboard__key');
+        keyElement.dataset.id = this.keyLayout.raw[i][j];
 
         switch (key) {
           case 'backspace':
@@ -131,17 +150,7 @@ const Keyboard = {
 
             break;
 
-          case 'tab':
-            keyElement.classList.add('keyboard__key--wide');
-            keyElement.innerHTML = createIconHTML('keyboard_tab');
-
-            keyElement.addEventListener('click', () => {
-              console.log('keyboard_tab');
-            });
-
-            break;
-
-          case 'caps':
+          case 'capslock':
             keyElement.classList.add('keyboard__key--wide', 'keyboard__key--activatable');
             keyElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
             keyElement.innerHTML = createIconHTML('keyboard_capslock');
@@ -191,7 +200,7 @@ const Keyboard = {
 
             break;
 
-          case 'left':
+          case 'arrowleft':
             keyElement.classList.add('keyboard__key--wide');
             keyElement.innerHTML = createIconHTML('keyboard_arrow_left');
 
@@ -205,7 +214,7 @@ const Keyboard = {
 
             break;
 
-          case 'right':
+          case 'arrowright':
             keyElement.classList.add('keyboard__key--wide');
             keyElement.innerHTML = createIconHTML('keyboard_arrow_right');
 
@@ -242,7 +251,6 @@ const Keyboard = {
 
           default:
             keyElement.textContent = key;
-
             keyElement.addEventListener('click', () => {
               const input = this.properties.capsLock ? keyElement.textContent : key;
               const value = this.properties.value;
