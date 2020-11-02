@@ -39,11 +39,11 @@ const Keyboard = {
         ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       sounds: {
-        Shift: './../../virtual-keyboard/assets/sounds/snare.wav',
-        CapsLock: './../../virtual-keyboard/assets/sounds/hihat.wav',
-        Backspace: './../../virtual-keyboard/assets/sounds/kick.wav',
-        Enter: './../../virtual-keyboard/assets/sounds/clap.wav',
-        others: './../../virtual-keyboard/assets/sounds/tink.wav'
+        Shift: 'assets/sounds/snare.wav',
+        CapsLock: 'assets/sounds/hihat.wav',
+        Backspace: 'assets/sounds/kick.wav',
+        Enter: 'assets/sounds/clap.wav',
+        others: 'assets/sounds/tink.wav'
       }
     },
     ru: {
@@ -62,11 +62,11 @@ const Keyboard = {
         ['done', 'lang', 'voice', 'space', 'arrowleft', 'arrowright', 'audio']
       ],
       sounds: {
-        Shift: './../../virtual-keyboard/assets/sounds/Cev_H2.mp3',
-        CapsLock: './../../virtual-keyboard/assets/sounds/tom.wav',
-        Backspace: './../../virtual-keyboard/assets/sounds/RP4_KICK_1.mp3',
-        Enter: './../../virtual-keyboard/assets/sounds/openhat.wav',
-        others: './../../virtual-keyboard/assets/sounds/Kick_n_Hat.mp3'
+        Shift: 'assets/sounds/Cev_H2.mp3',
+        CapsLock: 'assets/sounds/tom.wav',
+        Backspace: 'assets/sounds/RP4_KICK_1.mp3',
+        Enter: 'assets/sounds/openhat.wav',
+        others: 'assets/sounds/Kick_n_Hat.mp3'
       }
     },
     raw: [
