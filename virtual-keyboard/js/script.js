@@ -294,8 +294,10 @@ const Keyboard = {
             keyElement.innerHTML = this.properties.currentLayout;
 
             keyElement.addEventListener('click', () => {
+              this.properties.voice = !this.properties.voice;
               this.keyPressed = keyElement.dataset.id;
               this.properties.currentLayout = this.properties.currentLayout === 'en' ? 'ru' : 'en';
+              this._voiceInput();
               this._playSounds();
               this._switchLayout();
             });
@@ -310,7 +312,9 @@ const Keyboard = {
               this.keyPressed = keyElement.dataset.id;
               this.properties.voice = !this.properties.voice;
               keyElement.innerHTML = createIconHTML(this.properties.voice ? 'mic' : 'mic_off');
-              keyElement.classList.toggle('keyboard__key--warn');
+              this.properties.voice
+                ? keyElement.classList.add('keyboard__key--warn')
+                : keyElement.classList.remove('keyboard__key--warn');
               this._voiceInput();
             });
 
