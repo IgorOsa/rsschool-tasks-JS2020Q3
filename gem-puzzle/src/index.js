@@ -1,21 +1,18 @@
-import example from './images/example.png';
-import './styles/styles.scss';
+// Test import of a JavaScript function
+import { example } from './js/example'
 
-// index.js
-// создание свойства класса без конструктора
-class Game {
-    name = 'Puzzle Game';
-}
-const myGame = new Game();
+// Test import of an asset
+import webpackLogo from './images/webpack-logo.svg'
 
-// создаем параграф
-const p = document.createElement('p');
-p.textContent = `I like ${myGame.name}.`;
+// Test import of styles
+import './styles/index.scss'
 
-// создаем элемент заголовка
-const heading = document.createElement('h1');
-heading.textContent = 'Very interesting!';
+// Appending to the DOM
+const logo = document.createElement('img')
+logo.src = webpackLogo
 
-// добавляем параграф и заголовок в DOM
-const root = document.querySelector('#root');
-root.append(heading, p);
+const heading = document.createElement('h1')
+heading.textContent = example()
+
+const app = document.querySelector('#root')
+app.append(logo, heading)
