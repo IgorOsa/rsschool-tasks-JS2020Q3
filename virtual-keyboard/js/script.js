@@ -74,7 +74,7 @@ const Keyboard = {
       ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight'],
       ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
       ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
-      ['', '', '', 'Space', 'ArrowLeft', 'ArrowRight'],
+      ['done', 'lang', 'voice', 'Space', 'ArrowLeft', 'ArrowRight'],
     ]
   },
 
@@ -294,7 +294,7 @@ const Keyboard = {
             keyElement.innerHTML = this.properties.currentLayout;
 
             keyElement.addEventListener('click', () => {
-              this.properties.voice = !this.properties.voice;
+              this.properties.voice = false;
               this.keyPressed = keyElement.dataset.id;
               this.properties.currentLayout = this.properties.currentLayout === 'en' ? 'ru' : 'en';
               this._voiceInput();
@@ -316,6 +316,7 @@ const Keyboard = {
                 ? keyElement.classList.add('keyboard__key--warn')
                 : keyElement.classList.remove('keyboard__key--warn');
               this._voiceInput();
+              this._triggerEvent('oninput');
             });
 
             break;
@@ -410,39 +411,23 @@ const Keyboard = {
     const recognition = new SpeechRecognition();
 
     if (this.properties.voice) {
-      let buffer;
-
-      recognition.interimResults = true;
-      recognition.lang = this.properties.currentLayout === 'ru' ? 'ru-RU' : 'en-US';
+      recognition.continuous = true;
+      recognition.lang = this.properties.currentLayout;
       recognition.start();
-
-      recognition.onresult = (event) => {
-        if (!this.properties.voice) return;
-
-        var res = Array.from(event.results)
-          .map(result => result[0])
-          .map(result => result.transcript)
-          .join('');
-
-        buffer = res;
-      };
-
-      recognition.onend = (event) => {
-        if (!this.properties.voice) return;
-
-        if (buffer != undefined && buffer != '') {
-          const { value, caretStart, caretEnd } = this.properties;
-          this.properties.value = [value.slice(0, caretStart), buffer, ' ', value.slice(caretEnd)].join('');
-          this.properties.caretStart += buffer.length + 1;
-          this.properties.caretEnd += buffer.length + 1;
-        }
+      recognition.onresult = event => {
+        const result = event.results[event.resultIndex][0].transcript;
+        this.properties.value = [
+          this.properties.value.slice(0, this.properties.caretStart),
+          result,
+          this.properties.value.slice(this.properties.caretEnd)
+        ].join('');
+        this.properties.caretStart += result.length + 1;
+        this.properties.caretEnd += result.length + 1;
         this._triggerEvent('oninput');
-        buffer = '';
-        recognition.start();
-      };
+      }
     }
     else {
-      recognition.abort();
+      recognition.stop();
       recognition.onresult = null;
       recognition.onend = null;
     }
