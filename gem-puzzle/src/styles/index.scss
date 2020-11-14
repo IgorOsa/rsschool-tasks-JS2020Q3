@@ -5,3 +5,20 @@
 
 @import 'variables';
 @import 'scaffolding';
+
+#game-area {
+  box-sizing: content-box;
+  border-radius: 1rem;
+  border: 2px solid white;
+  position: relative;
+}
+
+#cell-empty {
+  border: 2px solid red;
+}
+
+.cell {
+  border-radius: 1rem;
+  border: 2px solid yellowgreen;
+  position: absolute;
+}

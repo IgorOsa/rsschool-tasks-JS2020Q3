@@ -45,7 +45,7 @@ module.exports = {
 
     new PrettierPlugin({
       singleQuote: true,
-      trailingComma: 'none',
+      trailingComma: 'es5',
       printWidth: 120,
       arrowParens: 'avoid',
       tabWidth: 2,
