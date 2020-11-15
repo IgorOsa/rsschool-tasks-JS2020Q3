@@ -9,11 +9,10 @@ export default function Field() {
       const TOTAL_ITEMS = 15;
       const itemSize = GAME_AREA_WIDTH / ITEMS_IN_A_ROW;
       const EMPTY_ITEM = {
-        top: 0,
-        left: 0,
+        top: 3,
+        left: 3,
       };
-      const cells = [];
-      cells.push(EMPTY_ITEM);
+      const cells = [...Array(15).keys()].sort(() => 0.5 - Math.random());
 
       const gameArea = document.createElement('div');
       gameArea.id = 'game-area';
@@ -34,17 +33,17 @@ export default function Field() {
       const emptyNode = emptyCell.get();
       gameArea.appendChild(emptyNode);
 
-      for (let i = 1; i <= TOTAL_ITEMS; i += 1) {
+      for (let i = 0; i < TOTAL_ITEMS; i += 1) {
         const left = i % ITEMS_IN_A_ROW;
         const top = (i - left) / ITEMS_IN_A_ROW;
 
         const item = new Cell({
           height: itemSize,
           width: itemSize,
-          id: i,
+          id: cells[i],
           top,
           left,
-          inner: i,
+          inner: cells[i] + 1,
         });
         const itemNode = item.get();
 
