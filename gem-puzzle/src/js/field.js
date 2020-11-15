@@ -31,7 +31,8 @@ export default function Field() {
         id: 'empty',
         ...EMPTY_ITEM,
       });
-      gameArea.appendChild(emptyCell);
+      const emptyNode = emptyCell.get();
+      gameArea.appendChild(emptyNode);
 
       for (let i = 1; i <= TOTAL_ITEMS; i += 1) {
         const left = i % ITEMS_IN_A_ROW;
@@ -45,7 +46,22 @@ export default function Field() {
           left,
           inner: i,
         });
-        gameArea.appendChild(item);
+        const itemNode = item.get();
+
+        gameArea.appendChild(itemNode);
+        itemNode.addEventListener('click', () => {
+          const leftDiff = Math.abs(item.left - emptyCell.left);
+          const topDiff = Math.abs(item.top - emptyCell.top);
+          if (leftDiff + topDiff === 1) {
+            [item.top, emptyCell.top] = [emptyCell.top, item.top];
+            [item.left, emptyCell.left] = [emptyCell.left, item.left];
+            [itemNode.style.top, emptyNode.style.top] = [emptyNode.style.top, itemNode.style.top];
+            [itemNode.style.left, emptyNode.style.left] = [
+              emptyNode.style.left,
+              itemNode.style.left,
+            ];
+          }
+        });
       }
     },
   };

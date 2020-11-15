@@ -14,11 +14,17 @@
 }
 
 #cell-empty {
-  border: 2px solid red;
+  border: none;
 }
 
 .cell {
+  cursor: pointer;
   border-radius: 1rem;
   border: 2px solid yellowgreen;
   position: absolute;
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
 }
