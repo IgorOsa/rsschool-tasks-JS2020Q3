@@ -1,4 +1,4 @@
-import drawInterface from './js/interface';
+import game from './js/game';
 import './styles/index.scss';
 
-window.onload = drawInterface;
+window.onload = game;

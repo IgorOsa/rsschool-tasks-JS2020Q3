@@ -6,6 +6,10 @@
 @import 'variables';
 @import 'scaffolding';
 
+.heading {
+  font-size: 3.6rem;
+}
+
 #game-area {
   box-sizing: content-box;
   border-radius: 1rem;
@@ -27,4 +31,42 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
+}
+
+.counter {
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.counter__text {
+  margin-right: 1rem;
+}
+
+.menu-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.6rem;
+  color: $font-color;
+  position: absolute;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-item {
+  margin-bottom: 1rem;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.hidden {
+  display: none;
 }
