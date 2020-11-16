@@ -6,7 +6,10 @@
   "private": true,
   "author": "Igor Osadchyi",
   "license": "ISC",
+  "homepage": "https://rolling-scopes-school.github.io/igorosa-JS2020Q3/gem-puzzle/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -e ./gem-puzzle -m deployGemPuzzle",
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js --open Chrome.exe",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint ./ --ignore-path .eslintignore --fix"
@@ -28,6 +31,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-webpack-plugin": "^2.2.1",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^5.0.0-alpha.7",
     "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.14.1",
