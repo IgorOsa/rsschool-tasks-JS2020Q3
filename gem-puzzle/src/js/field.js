@@ -10,9 +10,9 @@ export default function Field() {
   this.isFinished = false;
   this.timerId = null;
 
-  const app = document.querySelector('#root');
+  const randomNumbers = [...Array(15).keys()];
 
-  // let timerId;
+  const app = document.querySelector('#root');
 
   const updateTimer = () => {
     this.storage.incrementTime();
@@ -21,7 +21,7 @@ export default function Field() {
 
   const startNewGame = () => {
     if (this.timerId) clearTimeout(this.timerId);
-    this.cells.sort(() => 0.5 - Math.random());
+    randomNumbers.sort(() => 0.5 - Math.random());
     app.innerHTML = '';
     this.generate();
     this.timerId = setInterval(updateTimer, 1000);
@@ -43,7 +43,6 @@ export default function Field() {
       top: 3,
       left: 3,
     };
-    this.cells = [];
 
     // game area
     const gameArea = document.createElement('div');
@@ -58,7 +57,6 @@ export default function Field() {
     const emptyCell = new Cell({
       height: itemSize,
       width: itemSize,
-      id: 'empty',
       ...EMPTY_ITEM,
     });
     const emptyNode = emptyCell.get();
@@ -73,10 +71,9 @@ export default function Field() {
       const item = new Cell({
         height: itemSize,
         width: itemSize,
-        id: i + 1,
         top,
         left,
-        inner: i + 1,
+        inner: randomNumbers[i] + 1,
       });
       const itemNode = item.get();
 

@@ -1,6 +1,6 @@
 export default function Cell(props) {
   const {
-    top, left, height, width, id, inner,
+    top, left, height, width, inner,
   } = props;
 
   this.top = top;
@@ -12,7 +12,6 @@ export default function Cell(props) {
   item.style.height = `${height}px`;
   item.style.top = `${this.top * height}px`;
   item.style.left = `${this.left * width}px`;
-  item.id = `cell-${id}`;
   item.classList.add('cell');
   item.innerHTML = inner || '';
 
