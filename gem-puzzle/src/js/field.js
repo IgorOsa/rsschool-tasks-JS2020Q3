@@ -6,11 +6,13 @@ import { timeFormatter } from './helpers';
 
 export default function Field() {
   this.storage = new Storage();
-  this.cells = [...Array(15).keys()];
+  this.cells = [];
+  this.isFinished = false;
+  this.timerId = null;
 
   const app = document.querySelector('#root');
 
-  let timerId;
+  // let timerId;
 
   const updateTimer = () => {
     this.storage.incrementTime();
@@ -18,11 +20,11 @@ export default function Field() {
   };
 
   const startNewGame = () => {
-    if (timerId) clearTimeout(timerId);
+    if (this.timerId) clearTimeout(this.timerId);
     this.cells.sort(() => 0.5 - Math.random());
     app.innerHTML = '';
     this.generate();
-    timerId = setInterval(updateTimer, 1000);
+    this.timerId = setInterval(updateTimer, 1000);
   };
 
   const handlers = {
@@ -41,10 +43,12 @@ export default function Field() {
       top: 3,
       left: 3,
     };
+    this.cells = [];
 
     // game area
     const gameArea = document.createElement('div');
     gameArea.id = 'game-area';
+    gameArea.className = 'game-area';
     gameArea.style.width = `${GAME_AREA_WIDTH}px`;
     gameArea.style.height = `${GAME_AREA_HEIGHT}px`;
 
@@ -58,7 +62,9 @@ export default function Field() {
       ...EMPTY_ITEM,
     });
     const emptyNode = emptyCell.get();
+    emptyNode.classList.add('cell-empty');
     gameArea.appendChild(emptyNode);
+
     // cells
     for (let i = 0; i < TOTAL_ITEMS; i += 1) {
       const left = i % ITEMS_IN_A_ROW;
@@ -67,12 +73,14 @@ export default function Field() {
       const item = new Cell({
         height: itemSize,
         width: itemSize,
-        id: this.cells[i] + 1,
+        id: i + 1,
         top,
         left,
-        inner: this.cells[i] + 1,
+        inner: i + 1,
       });
       const itemNode = item.get();
+
+      this.cells.push(item);
 
       gameArea.appendChild(itemNode);
       itemNode.addEventListener('click', () => {
@@ -86,6 +94,15 @@ export default function Field() {
           // update moves
           this.storage.incrementMoves();
           counterData.innerText = this.storage.getProp('moves');
+          // check if current position win
+          this.isFinished = this.cells.every((cell) => cell.inner === cell.top * 4 + cell.left + 1);
+
+          if (this.isFinished) {
+            if (this.timerId) {
+              clearInterval(this.timerId);
+            }
+            setTimeout(() => alert('You won!'), 300);
+          }
         }
       });
     }

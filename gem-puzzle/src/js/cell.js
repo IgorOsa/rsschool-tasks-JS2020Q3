@@ -5,6 +5,7 @@ export default function Cell(props) {
 
   this.top = top;
   this.left = left;
+  this.inner = inner;
 
   const item = document.createElement('div');
   item.style.width = `${width}px`;
