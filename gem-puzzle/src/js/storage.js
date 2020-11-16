@@ -12,4 +12,9 @@ export default function Storage() {
     gameData.moves += 1;
     localStorage.setItem('gameData', JSON.stringify(gameData));
   };
+
+  this.incrementTime = () => {
+    gameData.time += 1;
+    localStorage.setItem('gameData', JSON.stringify(gameData));
+  };
 }

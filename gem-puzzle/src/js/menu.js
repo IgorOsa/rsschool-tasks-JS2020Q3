@@ -7,13 +7,16 @@ export default function Menu(props) {
       props.startNewGame();
       menuOverlay.classList.add('hidden');
     },
+    continue: () => {},
+    bestScores: () => {},
+    settings: () => {},
   };
 
   const menuItems = [
     { itemName: 'New game', onClick: handler.newGame },
-    { itemName: 'Continue', onClick: (event) => handler(event) },
-    { itemName: 'Best scores', onClick: (event) => handler(event) },
-    { itemName: 'Settings', onClick: (event) => handler(event) },
+    { itemName: 'Continue', onClick: handler.continue },
+    { itemName: 'Best scores', onClick: handler.bestScores },
+    { itemName: 'Settings', onClick: handler.settings },
   ];
 
   menuItems.forEach((el) => {

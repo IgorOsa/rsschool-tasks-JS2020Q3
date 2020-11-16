@@ -1,6 +1,8 @@
 import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
+import { header, timerData, counterData } from './fieldData';
+import { timeFormatter } from './helpers';
 
 export default function Field() {
   this.storage = new Storage();
@@ -8,10 +10,19 @@ export default function Field() {
 
   const app = document.querySelector('#root');
 
+  let timerId;
+
+  const updateTimer = () => {
+    this.storage.incrementTime();
+    timerData.innerHTML = timeFormatter(this.storage.getProp('time'));
+  };
+
   const startNewGame = () => {
+    if (timerId) clearTimeout(timerId);
     this.cells.sort(() => 0.5 - Math.random());
     app.innerHTML = '';
     this.generate();
+    timerId = setInterval(updateTimer, 1000);
   };
 
   const handlers = {
@@ -37,22 +48,8 @@ export default function Field() {
     gameArea.style.width = `${GAME_AREA_WIDTH}px`;
     gameArea.style.height = `${GAME_AREA_HEIGHT}px`;
 
-    const heading = document.createElement('h1');
-    heading.className = 'heading';
-    heading.textContent = 'Gem Puzzle Game';
+    app.append(header, gameArea);
 
-    // counter
-    const counter = document.createElement('div');
-    const counterText = document.createElement('span');
-    counterText.className = 'counter__text';
-    counterText.innerText = 'Moves';
-    const counterData = document.createElement('span');
-    counterData.className = 'counter__data';
-    counterData.innerText = '0';
-    counter.className = 'counter';
-    counter.append(counterText, counterData);
-
-    app.append(heading, counter, gameArea);
     // empty cell
     const emptyCell = new Cell({
       height: itemSize,
