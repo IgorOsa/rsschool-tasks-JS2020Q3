@@ -1,7 +1,9 @@
 import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
-import { header, timerData, counterData } from './fieldData';
+import {
+  header, timerData, counterData, btnPause,
+} from './fieldTools';
 import { timeFormatter } from './helpers';
 import popup from './popup';
 
@@ -20,19 +22,41 @@ export default function Field() {
     timerData.innerHTML = timeFormatter(this.storage.getProp('time'));
   };
 
-  const startNewGame = () => {
+  const clearGame = () => {
     if (this.timerId) clearTimeout(this.timerId);
-    randomNumbers.sort(() => 0.5 - Math.random());
     app.innerHTML = '';
+    counterData.innerHTML = '0';
+    timerData.innerText = '00:00';
+    this.storage.clearTime();
+    this.storage.clearMoves();
     this.generate();
+  };
+
+  const startNewGame = () => {
+    randomNumbers.sort(() => 0.5 - Math.random());
+    clearGame();
     this.timerId = setInterval(updateTimer, 1000);
+    btnPause.classList.remove('disabled');
+  };
+
+  const continueGame = () => {
+    this.timerId = setInterval(updateTimer, 1000);
+    btnPause.classList.remove('disabled');
   };
 
   const handlers = {
     startNewGame,
+    continueGame,
   };
 
   const menu = new Menu(handlers);
+
+  btnPause.addEventListener('click', () => {
+    clearInterval(this.timerId);
+    this.timerId = null;
+    btnPause.classList.toggle('disabled');
+    menu.show.classList.toggle('hidden');
+  });
 
   this.generate = () => {
     const GAME_AREA_SIZE = 600;
@@ -107,18 +131,20 @@ export default function Field() {
           this.storage.incrementMoves();
           counterData.innerText = this.storage.getProp('moves');
           // check if current position win
-          this.isFinished = this.cells.every((cell) => cell.inner === cell.top * 4 + cell.left + 1);
+          this.isFinished = this.cells.every(
+            (cell) => cell.inner === cell.top * ITEMS_IN_A_ROW + cell.left + 1,
+          );
 
           if (this.isFinished) {
             if (this.timerId) {
               clearInterval(this.timerId);
             }
             setTimeout(() => {
-              // alert('You won!');
               const popupNode = popup({
                 time: timerData.innerText,
                 moves: counterData.innerText,
                 menu: menu.show,
+                finishGame: clearGame,
               });
               gameArea.appendChild(popupNode);
             }, 300);

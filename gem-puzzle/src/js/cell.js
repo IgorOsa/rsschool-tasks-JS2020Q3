@@ -14,6 +14,8 @@ export default function Cell(props) {
   item.style.left = `${this.left * width}%`;
   item.classList.add('cell');
   item.innerHTML = inner || '';
+  item.dataset.top = top;
+  item.dataset.left = left;
 
   this.get = () => item;
 }

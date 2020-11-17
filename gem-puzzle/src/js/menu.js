@@ -1,4 +1,5 @@
 export default function Menu(props) {
+  this.continue = false;
   const menuOverlay = document.createElement('span');
   menuOverlay.className = 'menu-overlay';
 
@@ -7,16 +8,19 @@ export default function Menu(props) {
       props.startNewGame();
       menuOverlay.classList.add('hidden');
     },
-    continue: () => {},
+    continue: () => {
+      props.continueGame();
+      menuOverlay.classList.add('hidden');
+    },
     bestScores: () => {},
     settings: () => {},
   };
 
   const menuItems = [
     { itemName: 'New game', onClick: handler.newGame, disabled: false },
-    { itemName: 'Continue', onClick: handler.continue, disabled: true },
-    { itemName: 'Best scores', onClick: handler.bestScores, disabled: true },
-    { itemName: 'Settings', onClick: handler.settings, disabled: true },
+    { itemName: 'Continue', onClick: handler.continue, disabled: false },
+    // { itemName: 'Best scores', onClick: handler.bestScores, disabled: true },
+    // { itemName: 'Settings', onClick: handler.settings, disabled: true },
   ];
 
   menuItems.forEach((el) => {

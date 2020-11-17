@@ -42,13 +42,15 @@
   display: flex;
   align-content: center;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .counter,
 .timer {
   display: flex;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-right: 1rem;
 }
 
 .counter__text,
@@ -98,6 +100,15 @@
   position: absolute;
   top: 2rem;
   right: 3rem;
+}
+
+.btn-pause {
+  cursor: pointer;
+  // padding: 0.5rem;
+  // margin: 1rem;
+}
+.btn-pause:hover {
+  opacity: 0.7;
 }
 
 .hidden {

@@ -6,15 +6,29 @@ export default function Storage() {
   localStorage.setItem('gameData', JSON.stringify(defaultData));
   const gameData = JSON.parse(localStorage.getItem('gameData'));
 
+  const updateStorage = () => {
+    localStorage.setItem('gameData', JSON.stringify(gameData));
+  };
+
   this.getProp = (prop) => gameData[prop];
 
   this.incrementMoves = () => {
     gameData.moves += 1;
-    localStorage.setItem('gameData', JSON.stringify(gameData));
+    updateStorage();
   };
 
   this.incrementTime = () => {
     gameData.time += 1;
-    localStorage.setItem('gameData', JSON.stringify(gameData));
+    updateStorage();
+  };
+
+  this.clearTime = () => {
+    gameData.time = 0;
+    updateStorage();
+  };
+
+  this.clearMoves = () => {
+    gameData.moves = 0;
+    updateStorage();
   };
 }

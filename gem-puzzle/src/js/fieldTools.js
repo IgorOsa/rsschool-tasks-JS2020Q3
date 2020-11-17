@@ -32,6 +32,13 @@ counterData.innerText = '0';
 counter.className = 'counter';
 counter.append(counterText, counterData);
 
-dataWrapper.append(timer, counter);
+// pause btn
+export const btnPause = document.createElement('div');
+btnPause.className = 'btn-pause';
+btnPause.classList.toggle('disabled');
+btnPause.innerText = 'pause';
+header.appendChild(btnPause);
+
+dataWrapper.append(timer, counter, btnPause);
 
 header.append(heading, dataWrapper);
