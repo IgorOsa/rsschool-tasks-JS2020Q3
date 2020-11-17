@@ -8,10 +8,10 @@ export default function Cell(props) {
   this.inner = inner;
 
   const item = document.createElement('div');
-  item.style.width = `${width}px`;
-  item.style.height = `${height}px`;
-  item.style.top = `${this.top * height}px`;
-  item.style.left = `${this.left * width}px`;
+  item.style.width = `${width}%`;
+  item.style.height = `${height}%`;
+  item.style.top = `${this.top * height}%`;
+  item.style.left = `${this.left * width}%`;
   item.classList.add('cell');
   item.innerHTML = inner || '';
 

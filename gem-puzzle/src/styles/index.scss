@@ -7,7 +7,7 @@
 @import 'scaffolding';
 
 .heading {
-  font-size: 3.6rem;
+  font-size: 2.8rem;
 }
 
 .game-area {
@@ -36,6 +36,7 @@
 }
 
 .data-wrapper {
+  font-size: 1.8rem;
   width: 100%;
   max-width: 60rem;
   display: flex;
@@ -46,7 +47,6 @@
 .counter,
 .timer {
   display: flex;
-  font-size: 2rem;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -94,4 +94,34 @@
 .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+@media screen and (max-width: 500px) {
+  .data-wrapper {
+    font-size: 1.6rem;
+  }
+  .heading {
+    font-size: 2.6rem;
+  }
+  .cell {
+    font-size: 5rem;
+  }
+  .menu-item {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .data-wrapper {
+    font-size: 1.4rem;
+  }
+  .heading {
+    font-size: 2.4rem;
+  }
+  .cell {
+    font-size: 4rem;
+  }
+  .menu-item {
+    font-size: 2.8rem;
+  }
 }

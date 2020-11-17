@@ -19,7 +19,7 @@ html {
 
 body {
   margin: 0;
-  width: 100vw;
+  width: 99vw;
 }
 
 #root {
@@ -29,6 +29,7 @@ body {
   flex-direction: column;
   align-self: center;
   height: 100vh;
+  padding: 1rem;
 }
 
 h1 {

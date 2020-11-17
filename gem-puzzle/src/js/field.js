@@ -34,11 +34,10 @@ export default function Field() {
   const menu = new Menu(handlers);
 
   this.generate = () => {
-    const GAME_AREA_WIDTH = 600;
-    const GAME_AREA_HEIGHT = 600;
+    const GAME_AREA_SIZE = 600;
     const ITEMS_IN_A_ROW = 4;
     const TOTAL_ITEMS = 15;
-    const itemSize = GAME_AREA_WIDTH / ITEMS_IN_A_ROW;
+    const itemSize = 100 / ITEMS_IN_A_ROW;
     const EMPTY_ITEM = {
       top: 3,
       left: 3,
@@ -46,10 +45,25 @@ export default function Field() {
 
     // game area
     const gameArea = document.createElement('div');
+
+    const setGameAreaSize = () => {
+      const viewport = window.innerWidth - parseInt(getComputedStyle(app).getPropertyValue('padding'), 10) * 2;
+      if (viewport <= GAME_AREA_SIZE) {
+        gameArea.style.width = `${viewport}px`;
+        gameArea.style.height = `${viewport}px`;
+      } else {
+        gameArea.style.width = `${GAME_AREA_SIZE}px`;
+        gameArea.style.height = `${GAME_AREA_SIZE}px`;
+      }
+    };
+
     gameArea.id = 'game-area';
     gameArea.className = 'game-area';
-    gameArea.style.width = `${GAME_AREA_WIDTH}px`;
-    gameArea.style.height = `${GAME_AREA_HEIGHT}px`;
+
+    setGameAreaSize();
+
+    // resize field on resize window
+    window.addEventListener('resize', setGameAreaSize);
 
     app.append(header, gameArea);
 
