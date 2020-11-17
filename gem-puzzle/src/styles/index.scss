@@ -63,7 +63,8 @@
   min-width: 3rem;
 }
 
-.menu-overlay {
+.menu-overlay,
+.popup-overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,6 +88,18 @@
   opacity: 0.8;
 }
 
+.popup__text {
+  width: 75%;
+  text-align: center;
+}
+
+.popup__btn-close {
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+}
+
 .hidden {
   display: none;
 }
@@ -106,7 +119,9 @@
   .cell {
     font-size: 5rem;
   }
-  .menu-item {
+  .menu-item,
+  .popup__text,
+  .popup__btn-close {
     font-size: 3.2rem;
   }
 }
@@ -123,5 +138,9 @@
   }
   .menu-item {
     font-size: 2.8rem;
+  }
+  .popup__text,
+  .popup__btn-close {
+    font-size: 2.4rem;
   }
 }

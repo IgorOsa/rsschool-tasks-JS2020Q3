@@ -3,6 +3,7 @@ import Cell from './cell';
 import Menu from './menu';
 import { header, timerData, counterData } from './fieldData';
 import { timeFormatter } from './helpers';
+import popup from './popup';
 
 export default function Field() {
   this.storage = new Storage();
@@ -112,7 +113,15 @@ export default function Field() {
             if (this.timerId) {
               clearInterval(this.timerId);
             }
-            setTimeout(() => alert('You won!'), 300);
+            setTimeout(() => {
+              // alert('You won!');
+              const popupNode = popup({
+                time: timerData.innerText,
+                moves: counterData.innerText,
+                menu: menu.show,
+              });
+              gameArea.appendChild(popupNode);
+            }, 300);
           }
         }
       });
