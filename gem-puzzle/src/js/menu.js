@@ -1,40 +1,19 @@
-export default function Menu(props) {
-  this.continue = false;
-  const menuOverlay = document.createElement('span');
-  menuOverlay.className = 'menu-overlay';
+import { createDOMElement } from './helpers';
 
-  const handler = {
-    newGame: () => {
-      props.startNewGame();
-      menuOverlay.classList.add('hidden');
-    },
-    continue: () => {
-      props.continueGame();
-      menuOverlay.classList.add('hidden');
-    },
-    bestScores: () => {},
-    settings: () => {},
-  };
+export default function Menu() {
+  const overlay = createDOMElement('span', null, 'menu-overlay');
+  const newGame = createDOMElement('div', 'New game', 'menu-item', 'new-game');
+  const continueGame = createDOMElement('div', 'Continue', 'menu-item', 'continue-game', true);
+  const saveGame = createDOMElement('div', 'Save game', 'menu-item', 'save-game', true);
+  const loadGame = createDOMElement('div', 'Load game', 'menu-item', 'load-game', true);
 
-  const menuItems = [
-    { itemName: 'New game', onClick: handler.newGame, disabled: false },
-    { itemName: 'Continue', onClick: handler.continue, disabled: false },
-    // { itemName: 'Best scores', onClick: handler.bestScores, disabled: true },
-    // { itemName: 'Settings', onClick: handler.settings, disabled: true },
-  ];
-
-  menuItems.forEach((el) => {
-    const menuItem = document.createElement('div');
-    menuItem.className = 'menu-item';
-    menuItem.innerText = el.itemName;
-    if (el.disabled) {
-      menuItem.classList.add('disabled');
-    }
-    menuItem.addEventListener('click', el.onClick);
-    menuOverlay.appendChild(menuItem);
-  });
+  overlay.append(newGame, continueGame, saveGame, loadGame);
 
   return {
-    show: menuOverlay,
+    overlay,
+    newGame,
+    continueGame,
+    saveGame,
+    loadGame,
   };
 }

@@ -14,8 +14,8 @@ export default function Field() {
   this.timerId = null;
 
   const randomNumbers = [...Array(15).keys()];
-
   const app = document.querySelector('#root');
+  const menu = new Menu();
 
   const updateTimer = () => {
     this.storage.incrementTime();
@@ -37,25 +37,24 @@ export default function Field() {
     clearGame();
     this.timerId = setInterval(updateTimer, 1000);
     btnPause.classList.remove('disabled');
+    menu.overlay.classList.add('hidden');
+    menu.continueGame.classList.remove('disabled');
   };
 
   const continueGame = () => {
     this.timerId = setInterval(updateTimer, 1000);
     btnPause.classList.remove('disabled');
+    menu.overlay.classList.toggle('hidden');
   };
 
-  const handlers = {
-    startNewGame,
-    continueGame,
-  };
-
-  const menu = new Menu(handlers);
+  menu.newGame.addEventListener('click', startNewGame);
+  menu.continueGame.addEventListener('click', continueGame);
 
   btnPause.addEventListener('click', () => {
     clearInterval(this.timerId);
     this.timerId = null;
     btnPause.classList.toggle('disabled');
-    menu.show.classList.toggle('hidden');
+    menu.overlay.classList.toggle('hidden');
   });
 
   this.generate = () => {
@@ -154,6 +153,6 @@ export default function Field() {
     }
 
     // append menu
-    gameArea.append(menu.show);
+    gameArea.append(menu.overlay);
   };
 }
