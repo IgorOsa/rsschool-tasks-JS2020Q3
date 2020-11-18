@@ -1,7 +1,6 @@
-export default function popup(props) {
-  const {
-    time, moves, menu, finishGame,
-  } = props;
+export default function popup({
+  time, moves, menu, finishGame, btnPause,
+}) {
   const winPopUp = document.createElement('span');
 
   winPopUp.className = 'popup-overlay';
@@ -10,9 +9,11 @@ export default function popup(props) {
   const closeBtn = document.createElement('div');
   closeBtn.className = 'popup__btn-close';
   closeBtn.innerText = 'X';
+  btnPause.classList.add('disabled');
   closeBtn.addEventListener('click', () => {
     winPopUp.classList.toggle('hidden');
-    menu.classList.remove('hidden');
+    menu.overlay.classList.remove('hidden');
+    menu.continueGame.classList.add('disabled');
     finishGame();
   });
 

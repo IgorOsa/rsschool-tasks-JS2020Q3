@@ -143,7 +143,8 @@ export default function Field() {
               const popupNode = popup({
                 time: timerData.innerText,
                 moves: counterData.innerText,
-                menu: menu.show,
+                menu,
+                btnPause,
                 finishGame: clearGame,
               });
               gameArea.appendChild(popupNode);
