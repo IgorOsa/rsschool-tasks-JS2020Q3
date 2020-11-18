@@ -4,7 +4,7 @@ import Menu from './menu';
 import {
   header, timerData, counterData, btnPause,
 } from './fieldTools';
-import { timeFormatter } from './helpers';
+import { createDOMElement, timeFormatter } from './helpers';
 import popup from './popup';
 
 export default function Field() {
@@ -68,7 +68,7 @@ export default function Field() {
     };
 
     // game area
-    const gameArea = document.createElement('div');
+    const gameArea = createDOMElement('div', null, 'game-area', 'game-area');
 
     const setGameAreaSize = () => {
       const viewport = window.innerWidth - parseInt(getComputedStyle(app).getPropertyValue('padding'), 10) * 2;
@@ -80,9 +80,6 @@ export default function Field() {
         gameArea.style.height = `${GAME_AREA_SIZE}px`;
       }
     };
-
-    gameArea.id = 'game-area';
-    gameArea.className = 'game-area';
 
     setGameAreaSize();
 
@@ -118,17 +115,21 @@ export default function Field() {
       this.cells.push(item);
 
       gameArea.appendChild(itemNode);
+
       itemNode.addEventListener('click', () => {
         const leftDiff = Math.abs(item.left - emptyCell.left);
         const topDiff = Math.abs(item.top - emptyCell.top);
         if (leftDiff + topDiff === 1) {
+          // swap cell positions
           [item.top, emptyCell.top] = [emptyCell.top, item.top];
           [item.left, emptyCell.left] = [emptyCell.left, item.left];
           [itemNode.style.top, emptyNode.style.top] = [emptyNode.style.top, itemNode.style.top];
           [itemNode.style.left, emptyNode.style.left] = [emptyNode.style.left, itemNode.style.left];
+
           // update moves
           this.storage.incrementMoves();
           counterData.innerText = this.storage.getProp('moves');
+
           // check if current position win
           this.isFinished = this.cells.every(
             (cell) => cell.inner === cell.top * ITEMS_IN_A_ROW + cell.left + 1,

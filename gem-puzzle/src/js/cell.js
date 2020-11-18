@@ -1,8 +1,6 @@
-export default function Cell(props) {
-  const {
-    top, left, height, width, inner,
-  } = props;
-
+export default function Cell({
+  top, left, height, width, inner,
+}) {
   this.top = top;
   this.left = left;
   this.inner = inner;

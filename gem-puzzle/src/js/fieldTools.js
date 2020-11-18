@@ -1,47 +1,27 @@
+import { createDOMElement } from './helpers';
+
 // header
-export const header = document.createElement('header');
-header.className = 'header';
+export const header = createDOMElement('header', null, 'header');
 
 // heading
-const heading = document.createElement('h1');
-heading.className = 'heading';
-heading.textContent = 'Gem Puzzle Game';
-
-const dataWrapper = document.createElement('div');
-dataWrapper.className = 'data-wrapper';
+const heading = createDOMElement('h1', 'Gem Puzzle Game', 'heading');
+const dataWrapper = createDOMElement('div', null, 'data-wrapper');
 
 // timer
-const timer = document.createElement('div');
-timer.className = 'timer';
-
-const timerText = document.createElement('span');
-timerText.className = 'timer__text';
-timerText.innerText = 'Timer';
-
-export const timerData = document.createElement('span');
-timerData.className = 'timer__data';
-timerData.innerText = '00:00';
+const timer = createDOMElement('div', null, 'timer');
+const timerText = createDOMElement('span', 'Timer', 'timer__text');
+export const timerData = createDOMElement('span', '00:00', 'timer__data');
 timer.append(timerText, timerData);
 
 // counter
-const counter = document.createElement('div');
-counter.className = 'counter';
-
-const counterText = document.createElement('span');
-counterText.className = 'counter__text';
-counterText.innerText = 'Moves';
-
-export const counterData = document.createElement('span');
-counterData.className = 'counter__data';
-counterData.innerText = '0';
+const counter = createDOMElement('div', null, 'counter');
+const counterText = createDOMElement('span', 'Moves', 'counter__text');
+export const counterData = createDOMElement('span', '0', 'counter__data');
 
 counter.append(counterText, counterData);
 
 // pause btn
-export const btnPause = document.createElement('div');
-btnPause.className = 'btn-pause';
-btnPause.classList.add('disabled');
-btnPause.innerText = 'pause';
+export const btnPause = createDOMElement('div', 'Pause', 'btn-pause', null, true);
 header.appendChild(btnPause);
 
 dataWrapper.append(timer, counter, btnPause);
