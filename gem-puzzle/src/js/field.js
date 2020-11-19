@@ -16,14 +16,10 @@ export default function Field() {
   this.isFinished = false;
   this.timerId = null;
   this.sounds = true;
-
-  this.setupDimension = () => {
-    this.cells = [];
-    this.dimension = parseInt(this.storage.getProp('dimension'), 10);
-    this.totalCells = this.dimension ** 2 - 1;
-    this.randomNumbers = [...Array(this.totalCells).keys()];
-  };
-  this.setupDimension();
+  this.cells = [];
+  this.dimension = parseInt(this.storage.getProp('dimension'), 10);
+  this.totalCells = this.dimension ** 2 - 1;
+  this.randomNumbers = [...Array(this.totalCells).keys()];
 
   const app = document.querySelector('#root');
   const menu = new Menu({ storage: this.storage });
@@ -39,14 +35,13 @@ export default function Field() {
     app.innerHTML = '';
     counterData.innerHTML = '0';
     timerData.innerText = '00:00';
-    this.setupDimension();
     this.storage.clearTime();
     this.storage.clearMoves();
     this.generate();
   };
 
   const startNewGame = () => {
-    // this.randomNumbers.sort(() => 0.5 - Math.random());
+    this.randomNumbers.sort(() => 0.5 - Math.random());
     clearGame();
     this.timerId = setInterval(updateTimer, 1000);
     btnPause.classList.remove('disabled');
@@ -66,6 +61,9 @@ export default function Field() {
     const dimension = parseInt(event.target.value, 10);
     this.storage.setProp('dimension', dimension);
     this.dimension = dimension;
+    this.dimension = parseInt(this.storage.getProp('dimension'), 10);
+    this.totalCells = this.dimension ** 2 - 1;
+    this.randomNumbers = [...Array(this.totalCells).keys()];
     clearGame();
   });
 
