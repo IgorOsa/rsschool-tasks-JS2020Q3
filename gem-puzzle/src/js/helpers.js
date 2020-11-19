@@ -25,3 +25,5 @@ export const createDOMElement = (
 
   return item;
 };
+
+export const createIconHTML = (iconName) => `<i class="material-icons">${iconName}</i>`;

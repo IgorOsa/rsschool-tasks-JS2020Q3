@@ -24,6 +24,9 @@ counter.append(counterText, counterData);
 export const btnPause = createDOMElement('div', 'Pause', 'btn-pause', null, true);
 header.appendChild(btnPause);
 
-dataWrapper.append(timer, counter, btnPause);
+// sound on/off icon
+export const btnSound = createDOMElement('div', 'Sound', 'btn-sound');
+
+dataWrapper.append(btnSound, timer, counter, btnPause);
 
 header.append(heading, dataWrapper);

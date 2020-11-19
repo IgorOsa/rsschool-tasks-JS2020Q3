@@ -80,6 +80,15 @@ module.exports = {
 
       // Fonts and SVGs: Inline files
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+
+      {
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+          outputPath: 'sounds',
+        },
+      },
     ],
   },
 };

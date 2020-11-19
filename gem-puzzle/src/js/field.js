@@ -2,10 +2,11 @@ import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
 import {
-  header, timerData, counterData, btnPause,
+  header, timerData, counterData, btnPause, btnSound,
 } from './fieldTools';
-import { createDOMElement, timeFormatter } from './helpers';
+import { createDOMElement, timeFormatter, createIconHTML } from './helpers';
 import popup from './popup';
+import playSound from './sounds';
 
 import imageSrc from '../images/125.jpg';
 
@@ -14,6 +15,7 @@ export default function Field() {
   this.cells = [];
   this.isFinished = false;
   this.timerId = null;
+  this.sounds = true;
 
   const randomNumbers = [...Array(15).keys()];
   const app = document.querySelector('#root');
@@ -59,6 +61,12 @@ export default function Field() {
     menu.overlay.classList.toggle('hidden');
   });
 
+  btnSound.innerHTML = createIconHTML(this.sounds ? 'volume_up' : 'volume_off');
+  btnSound.addEventListener('click', () => {
+    this.sounds = !this.sounds;
+    btnSound.innerHTML = createIconHTML(this.sounds ? 'volume_up' : 'volume_off');
+  });
+
   this.generate = () => {
     const GAME_AREA_SIZE = 600;
     const ITEMS_IN_A_ROW = 4;
@@ -88,6 +96,7 @@ export default function Field() {
     // resize field on resize window
     window.addEventListener('resize', setGameAreaSize);
 
+    // message at the field bottom
     const tmp = document.createElement('div');
     tmp.style.fontSize = '1.2rem';
     tmp.innerText = '* Цифры оставлены для удобства проверки!';
@@ -127,6 +136,10 @@ export default function Field() {
         const leftDiff = Math.abs(item.left - empty.left);
         const topDiff = Math.abs(item.top - empty.top);
         if (leftDiff + topDiff === 1) {
+          // play sound then swap
+          if (this.sounds) {
+            playSound();
+          }
           // swap cell positions
           [item.top, empty.top] = [empty.top, item.top];
           [item.left, empty.left] = [empty.left, item.left];
