@@ -5,9 +5,11 @@ export default function Storage() {
     dimension: '4',
   };
 
-  const gameData = JSON.parse(localStorage.getItem('gameData'))
-    ? JSON.parse(localStorage.getItem('gameData'))
-    : localStorage.setItem('gameData', JSON.stringify(defaultData));
+  if (!JSON.parse(localStorage.getItem('gameData'))) {
+    localStorage.setItem('gameData', JSON.stringify(defaultData));
+  }
+
+  const gameData = JSON.parse(localStorage.getItem('gameData'));
 
   const updateStorage = () => {
     localStorage.setItem('gameData', JSON.stringify(gameData));
