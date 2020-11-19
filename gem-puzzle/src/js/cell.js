@@ -15,11 +15,13 @@ export default function Cell({
   item.innerHTML = inner || '';
 
   // background image
-  item.style.backgroundSize = '400% 400%';
-  item.style.backgroundImage = `url(${imageSrc})`;
-  item.style.backgroundPosition = `-${((inner - 1) % 4) * 100}% -${
-    Math.floor((inner - 1) / 4) * 100
-  }%`;
+  if (imageSrc) {
+    item.style.backgroundSize = '400% 400%';
+    item.style.backgroundImage = `url(${imageSrc})`;
+    item.style.backgroundPosition = `-${((inner - 1) % 4) * 100}% -${
+      Math.floor((inner - 1) / 4) * 100
+    }%`;
+  }
 
   this.get = () => item;
   this.node = this.get();
