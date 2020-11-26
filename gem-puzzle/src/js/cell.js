@@ -24,6 +24,5 @@ export default function Cell({ top, left, height, width, tileNumber, imageSrc, d
     item.style.backgroundPosition = `-${backgroundPositionLeft}% -${backgroundPositionTop}%`;
   }
 
-  this.get = () => item;
-  this.node = this.get();
+  this.node = item;
 }
