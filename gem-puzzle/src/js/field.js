@@ -156,7 +156,7 @@ export default function Field() {
         width: itemSize,
         top,
         left,
-        inner: this.randomNumbers[i] + 1,
+        tileNumber: this.randomNumbers[i] + 1,
         imageSrc,
         dimension: this.dimension,
       });
@@ -189,7 +189,7 @@ export default function Field() {
           // check if current position win
           this.isFinished = this.cells
             .filter((x) => !x.isEmpty)
-            .every((cell) => cell.inner === cell.top * this.dimension + cell.left + 1);
+            .every((cell) => cell.tileNumber === cell.top * this.dimension + cell.left + 1);
 
           if (this.isFinished) {
             if (this.timerId) {

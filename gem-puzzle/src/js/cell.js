@@ -1,9 +1,9 @@
 export default function Cell({
-  top, left, height, width, inner, imageSrc, dimension,
+  top, left, height, width, tileNumber, imageSrc, dimension,
 }) {
   this.top = top;
   this.left = left;
-  this.inner = inner;
+  this.tileNumber = tileNumber;
   this.isEmpty = false;
 
   const item = document.createElement('div');
@@ -12,7 +12,7 @@ export default function Cell({
   item.style.top = `${this.top * height}%`;
   item.style.left = `${this.left * width}%`;
   item.classList.add('cell');
-  item.innerHTML = inner || '';
+  item.innerHTML = tileNumber || '';
   item.style.fontSize = `${4 / dimension}em`;
 
   // background image
@@ -20,8 +20,8 @@ export default function Cell({
     const backgroundSize = dimension * 100;
     item.style.backgroundSize = `${backgroundSize}% ${backgroundSize}%`;
     item.style.backgroundImage = `url(${imageSrc})`;
-    item.style.backgroundPosition = `-${((inner - 1) % dimension) * 100}% -${
-      Math.floor((inner - 1) / dimension) * 100
+    item.style.backgroundPosition = `-${((tileNumber - 1) % dimension) * 100}% -${
+      Math.floor((tileNumber - 1) / dimension) * 100
     }%`;
   }
 
