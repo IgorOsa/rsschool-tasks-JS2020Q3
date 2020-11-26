@@ -1,6 +1,4 @@
-export default function Cell({
-  top, left, height, width, tileNumber, imageSrc, dimension,
-}) {
+export default function Cell({ top, left, height, width, tileNumber, imageSrc, dimension }) {
   this.top = top;
   this.left = left;
   this.tileNumber = tileNumber;

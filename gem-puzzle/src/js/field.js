@@ -1,9 +1,7 @@
 import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
-import {
-  header, timerData, counterData, btnPause, btnSound,
-} from './fieldTools';
+import { header, timerData, counterData, btnPause, btnSound } from './fieldTools';
 import { createDOMElement, timeFormatter, createIconHTML } from './helpers';
 import popup from './popup';
 import playSound from './sounds';
@@ -22,7 +20,9 @@ export default function Field() {
   this.randomNumbers = [...Array(this.totalCells).keys()];
 
   const app = document.querySelector('#root');
-  const menu = new Menu({ storage: this.storage });
+  const menu = new Menu({
+    storage: this.storage,
+  });
 
   const updateTimer = () => {
     this.storage.incrementTime();
@@ -177,10 +177,7 @@ export default function Field() {
           [item.top, empty.top] = [empty.top, item.top];
           [item.left, empty.left] = [empty.left, item.left];
           [item.node.style.top, empty.node.style.top] = [empty.node.style.top, item.node.style.top];
-          [item.node.style.left, empty.node.style.left] = [
-            empty.node.style.left,
-            item.node.style.left,
-          ];
+          [item.node.style.left, empty.node.style.left] = [empty.node.style.left, item.node.style.left];
 
           // update moves
           this.storage.incrementMoves();

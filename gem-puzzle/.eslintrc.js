@@ -13,5 +13,26 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreComments: true,
+      },
+    ],
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: {
+          multiline: true,
+        },
+        ImportDeclaration: 'never',
+        ExportDeclaration: {
+          multiline: true, minProperties: 3,
+        },
+      },
+    ],
+  },
 };

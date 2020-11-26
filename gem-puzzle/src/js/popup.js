@@ -1,6 +1,4 @@
-export default function popup({
-  time, moves, menu, finishGame, btnPause,
-}) {
+export default function popup({ time, moves, menu, finishGame, btnPause }) {
   const winPopUp = document.createElement('span');
 
   winPopUp.className = 'popup-overlay';
