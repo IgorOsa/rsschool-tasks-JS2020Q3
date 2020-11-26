@@ -1,4 +1,4 @@
-export const timeFormatter = (time) => `${Math.floor(time / 60)
+export const formatTimer = (time) => `${Math.floor(time / 60)
   .toString()
   .padStart(2, '0')}:${Math.floor(time % 60)
   .toString()

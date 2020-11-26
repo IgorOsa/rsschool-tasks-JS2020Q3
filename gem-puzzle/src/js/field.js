@@ -2,7 +2,7 @@ import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
 import { header, timerData, counterData, btnPause, btnSound } from './fieldTools';
-import { createDOMElement, timeFormatter, createIconHTML } from './helpers';
+import { createDOMElement, formatTimer, createIconHTML } from './helpers';
 import popup from './popup';
 import playSound from './sounds';
 
@@ -26,7 +26,7 @@ export default function Field() {
 
   const updateTimer = () => {
     this.storage.incrementTime();
-    timerData.innerHTML = timeFormatter(this.storage.getProp('time'));
+    timerData.innerHTML = formatTimer(this.storage.getProp('time'));
   };
 
   const clearGame = () => {
