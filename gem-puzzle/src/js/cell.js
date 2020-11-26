@@ -18,11 +18,12 @@ export default function Cell({
   // background image
   if (imageSrc) {
     const backgroundSize = dimension * 100;
+    const backgroundPositionLeft = ((tileNumber - 1) % dimension) * 100;
+    const backgroundPositionTop = Math.floor((tileNumber - 1) / dimension) * 100;
+
     item.style.backgroundSize = `${backgroundSize}% ${backgroundSize}%`;
     item.style.backgroundImage = `url(${imageSrc})`;
-    item.style.backgroundPosition = `-${((tileNumber - 1) % dimension) * 100}% -${
-      Math.floor((tileNumber - 1) / dimension) * 100
-    }%`;
+    item.style.backgroundPosition = `-${backgroundPositionLeft}% -${backgroundPositionTop}%`;
   }
 
   this.get = () => item;
