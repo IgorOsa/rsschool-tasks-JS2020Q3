@@ -40,8 +40,26 @@ export default function Field() {
     this.generate();
   };
 
+  const isEven = (x) => x % 2;
+
+  const isSolvable = () => {
+    // check if solvable combination by formula
+    const N = this.randomNumbers.reduce((acc, el, i, arr) => {
+      const countElementsLowerOfCurrent = arr.slice(i + 1).filter((x) => x < el).length;
+      return acc + countElementsLowerOfCurrent;
+    }, 0) + this.dimension;
+    // if result is even combination is solvable
+    const result = isEven(N);
+
+    return result;
+  };
+
   const startNewGame = () => {
-    this.randomNumbers.sort(() => 0.5 - Math.random());
+    let isSolvableCombination;
+    do {
+      this.randomNumbers.sort(() => 0.5 - Math.random());
+      isSolvableCombination = isSolvable();
+    } while (!isSolvableCombination);
     clearGame();
     this.timerId = setInterval(updateTimer, 1000);
     btnPause.classList.remove('disabled');
