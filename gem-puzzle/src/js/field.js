@@ -186,7 +186,15 @@ export default function Field() {
           // check if current position win
           this.isFinished = this.cells
             .filter((x) => !x.isEmpty)
-            .every((cell) => cell.tileNumber === cell.top * this.dimension + cell.left + 1);
+            .every((cell) => {
+              // every cell must be on proper position in row and column
+              const { tileNumber } = cell;
+              const tileRow = cell.top * this.dimension;
+              const tileColumn = cell.left + 1;
+              const tileIndex = tileRow + tileColumn;
+
+              return tileNumber === tileIndex;
+            });
 
           if (this.isFinished) {
             if (this.timerId) {
