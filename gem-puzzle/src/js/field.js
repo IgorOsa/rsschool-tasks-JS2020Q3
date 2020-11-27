@@ -3,7 +3,7 @@ import Cell from './cell';
 import Menu from './menu';
 import { header, timerData, counterData, btnPause, btnSound } from './fieldTools';
 import { createDOMElement, formatTimer, createIconHTML } from './helpers';
-import popup from './popup';
+import Popup from './popup';
 import playSound from './sounds';
 
 import imageSrc from '../images/125.jpg';
@@ -201,7 +201,7 @@ export default function Field() {
               clearInterval(this.timerId);
             }
             setTimeout(() => {
-              const popupNode = popup({
+              const popupNode = new Popup({
                 time: timerData.innerText,
                 moves: counterData.innerText,
                 menu,
