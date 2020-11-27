@@ -1,8 +1,8 @@
 import Storage from './storage';
 import Cell from './cell';
 import Menu from './menu';
-import { header, timerData, counterData, btnPause, btnSound } from './fieldTools';
-import { createDOMElement, formatTimer, createIconHTML } from './helpers';
+import { header, timerData, counterData, btnPause, btnSound, setupGameArea } from './fieldTools';
+import { formatTimer, createIconHTML } from './helpers';
 import Popup from './popup';
 import playSound from './sounds';
 
@@ -20,6 +20,7 @@ export default function Field() {
   this.randomNumbers = [...Array(this.totalCells).keys()];
 
   const app = document.querySelector('#root');
+
   const menu = new Menu({
     storage: this.storage,
   });
@@ -73,6 +74,18 @@ export default function Field() {
     menu.overlay.classList.toggle('hidden');
   };
 
+  const isFinishedChecker = () => this.cells
+    .filter((x) => !x.isEmpty)
+    .every((cell) => {
+      // every cell must be on proper position in row and column
+      const { tileNumber } = cell;
+      const tileRow = cell.top * this.dimension;
+      const tileColumn = cell.left + 1;
+      const tileIndex = tileRow + tileColumn;
+
+      return tileNumber === tileIndex;
+    });
+
   menu.newGame.addEventListener('click', startNewGame);
   menu.continueGame.addEventListener('click', continueGame);
   menu.dimentionSelect.addEventListener('change', (event) => {
@@ -100,53 +113,30 @@ export default function Field() {
 
   this.generate = () => {
     const GAME_AREA_SIZE = 600;
-    const EMPTY_ITEM = {
-      top: this.dimension - 1,
-      left: this.dimension - 1,
-    };
     const itemSize = 100 / this.dimension;
 
-    // game area
-    const gameArea = createDOMElement('div', null, 'game-area', 'game-area');
+    const gameArea = setupGameArea({
+      app,
+      gameAreaSize: GAME_AREA_SIZE,
+    });
 
-    const setGameAreaSize = () => {
-      const viewport = window.innerWidth - parseInt(getComputedStyle(app).getPropertyValue('padding'), 10) * 2;
-      if (viewport <= GAME_AREA_SIZE) {
-        gameArea.style.width = `${viewport}px`;
-        gameArea.style.height = `${viewport}px`;
-        gameArea.style.fontSize = `${viewport / 100}rem`;
-      } else {
-        gameArea.style.width = `${GAME_AREA_SIZE}px`;
-        gameArea.style.height = `${GAME_AREA_SIZE}px`;
-        gameArea.style.fontSize = `${GAME_AREA_SIZE / 100}rem`;
-      }
-    };
+    app.append(header, gameArea);
 
-    setGameAreaSize();
-
-    // resize field on resize window
-    window.addEventListener('resize', setGameAreaSize);
-
-    // message at the field bottom
-    const tmp = document.createElement('div');
-    tmp.style.fontSize = '1.2rem';
-    tmp.innerText = '* Цифры оставлены для удобства проверки!';
-
-    app.append(header, gameArea, tmp);
-
-    // empty cell
+    // create empty cell
     const empty = new Cell({
       height: itemSize,
       width: itemSize,
       dimension: this.dimension,
-      ...EMPTY_ITEM,
+      top: this.dimension - 1,
+      left: this.dimension - 1,
     });
+
     empty.isEmpty = true;
-    this.cells.push(empty);
     empty.node.classList.add('cell-empty');
+    this.cells.push(empty);
     gameArea.appendChild(empty.node);
 
-    // cells
+    // create other cells
     for (let i = 0; i < this.totalCells; i += 1) {
       const left = i % this.dimension;
       const top = (i - left) / this.dimension;
@@ -183,18 +173,8 @@ export default function Field() {
           this.storage.incrementMoves();
           counterData.innerText = this.storage.getProp('moves');
 
-          // check if current position win
-          this.isFinished = this.cells
-            .filter((x) => !x.isEmpty)
-            .every((cell) => {
-              // every cell must be on proper position in row and column
-              const { tileNumber } = cell;
-              const tileRow = cell.top * this.dimension;
-              const tileColumn = cell.left + 1;
-              const tileIndex = tileRow + tileColumn;
-
-              return tileNumber === tileIndex;
-            });
+          // check if current position win after each cell swap
+          this.isFinished = isFinishedChecker();
 
           if (this.isFinished) {
             if (this.timerId) {
