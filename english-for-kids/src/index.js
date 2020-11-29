@@ -1,4 +1,4 @@
-import app from './js/app';
+import App from './js/app';
 import './styles/index.scss';
 
-window.onload = app;
+window.onload = App;

@@ -1,8 +1,10 @@
-export default function app() {
+import Main from './Main';
+
+export default function App() {
   const root = document.getElementById('root');
 
   const wrapper = document.createElement('div');
-  wrapper.innerHTML = '<h1>Webpack works!</h1>';
+  wrapper.innerHTML = Main();
 
   root.appendChild(wrapper);
 }
