@@ -1,3 +1,3 @@
 export default function Menu() {
-  return '<aside>Menu header</aside>';
+  return '<aside>Side menu</aside>';
 }

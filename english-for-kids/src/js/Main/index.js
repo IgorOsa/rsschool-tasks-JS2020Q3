@@ -1,3 +1,8 @@
+import './index.scss';
+
 export default function Main() {
-  return '<h1>Webpack works!</h1>';
+  const main = document.createElement('main');
+  main.innerHTML = '<main>Main section</main>';
+
+  return main;
 }
