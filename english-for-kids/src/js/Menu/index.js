@@ -1,3 +1,9 @@
+import './index.scss';
+
 export default function Menu() {
-  return '<aside>Side menu</aside>';
+  const aside = document.createElement('aside');
+  aside.className = 'menu';
+  aside.innerHTML = 'Side menu';
+
+  return aside;
 }

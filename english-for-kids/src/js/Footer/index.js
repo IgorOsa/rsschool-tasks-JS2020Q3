@@ -1,6 +1,13 @@
+import './index.scss';
+
 export default function Footer() {
   const footer = document.createElement('footer');
-  footer.innerHTML = 'Footer';
+  footer.className = 'footer text-light bg-primary text-center';
+  footer.innerHTML = `
+    <div class="container-fluid">
+      &copy; 2020
+    </div>
+`;
 
   return footer;
 }
