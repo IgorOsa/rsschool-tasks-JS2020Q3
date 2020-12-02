@@ -1,4 +1,6 @@
 import Switch from '../Switch';
+import { toggleNav } from '../tools';
+import './index.scss';
 
 export default function Header() {
   const header = document.createElement('header');
@@ -14,7 +16,14 @@ export default function Header() {
   const menuBtn = document.createElement('button');
   menuBtn.classList = 'navbar-toggler';
   menuBtn.type = 'button';
-  menuBtn.innerHTML = '<span class="navbar-toggler-icon"></span>';
+
+  const navbarToggler = document.createElement('span');
+  navbarToggler.className = 'navbar-toggler-icon';
+
+  navbarToggler.addEventListener('click', toggleNav);
+
+  menuBtn.appendChild(navbarToggler);
+
   container.appendChild(menuBtn);
 
   const headerLogo = document.createElement('a');
