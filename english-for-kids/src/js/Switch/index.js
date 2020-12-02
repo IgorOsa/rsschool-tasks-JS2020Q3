@@ -1,3 +1,12 @@
+import './index.scss';
+
 export default function Switch() {
-  return '<div>Switch</div>';
+  const switchButton = document.createElement('label');
+  switchButton.className = 'switch';
+  switchButton.innerHTML = `
+  <input type="checkbox">
+  <span class="slider"></span>
+  `;
+
+  return switchButton;
 }
