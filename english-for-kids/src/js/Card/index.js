@@ -16,10 +16,10 @@ export default function Card(props) {
     cardBody.appendChild(cardImage);
   }
 
-  if (title) {
+  if (title || word) {
     const cardTitle = document.createElement('h5');
     cardTitle.className = 'card-title text-center';
-    cardTitle.innerText = title;
+    cardTitle.innerText = title || word;
     cardBody.appendChild(cardTitle);
   }
 
