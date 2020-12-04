@@ -1,7 +1,7 @@
 import Card from '../Card';
 import './index.scss';
 
-function Category(props) {
+export function renderCategory(props) {
   const { words, node } = props;
   node.innerHTML = '';
 
@@ -20,34 +20,53 @@ function Category(props) {
   });
 }
 
-export default function Main(props) {
+function renderCategories(props) {
+  const { main } = props;
   const categories = props.data[0];
+  const cardsRow = document.createElement('div');
+  cardsRow.className = 'row';
+  cardsRow.id = 'cards-container';
+  main.appendChild(cardsRow);
 
-  const main = document.createElement('main');
-  main.className = 'container-fluid pt-3 pb-3';
+  categories.forEach((el, i) => {
+    const cardColumn = document.createElement('div');
+    cardColumn.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
+    const item = Card({
+      ...el,
+    });
+    item.addEventListener('click', () => {
+      renderCategory({
+        words: props.data[i + 1],
+        main,
+        node: cardsRow,
+      });
+    });
+    cardColumn.appendChild(item);
+    cardsRow.appendChild(cardColumn);
+  });
+}
+
+export function renderMain(props) {
+  const categories = props.data[0];
+  const { main } = props;
+
+  main.innerHTML = '';
 
   if (categories) {
-    const cardsRow = document.createElement('div');
-    cardsRow.className = 'row';
-    main.appendChild(cardsRow);
-
-    categories.forEach((el, i) => {
-      const cardColumn = document.createElement('div');
-      cardColumn.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
-      const item = Card({
-        ...el,
-      });
-      item.addEventListener('click', () => {
-        Category({
-          words: props.data[i + 1],
-          main,
-          node: cardsRow,
-        });
-      });
-      cardColumn.appendChild(item);
-      cardsRow.appendChild(cardColumn);
+    renderCategories({
+      ...props, main,
     });
   }
+}
+
+export default function Main(props) {
+  const main = document.createElement('main');
+  main.className = 'container-fluid pt-3 pb-3';
+  main.id = 'main';
+
+  renderMain({
+    ...props, main,
+  });
 
   return main;
 }
