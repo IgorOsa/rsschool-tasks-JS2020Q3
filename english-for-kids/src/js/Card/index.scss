@@ -1,0 +1,13 @@
+@import '~bootswatch/dist/yeti/variables';
+
+.card-body {
+  &:hover {
+    cursor: pointer;
+    background-color: $gray-100;
+    box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.08);
+  }
+}
+
+.card-body-back {
+  // todo styles for card backside
+}
