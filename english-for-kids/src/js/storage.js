@@ -1,12 +1,17 @@
-export default function Storage(state = {
-}) {
-  this.state = state;
+export default function Storage(initialState) {
+  const state = initialState;
 
-  // const [categories, words] = this.state.data;
+  function getState(prop) {
+    return state[prop];
+  }
 
-  // console.log(categories);
+  function setState(prop, value) {
+    state[prop] = value;
+  }
 
-  // console.log(words);
-
-  return state;
+  return {
+    ...state,
+    getState,
+    setState,
+  };
 }
