@@ -2,7 +2,7 @@ import Switch from '../Switch';
 import { toggleNav } from '../tools';
 import './index.scss';
 
-export default function Header() {
+export default function Header(props) {
   const header = document.createElement('header');
 
   const nav = document.createElement('nav');
@@ -34,7 +34,7 @@ export default function Header() {
 
   const switchWrapper = document.createElement('div');
   switchWrapper.className = 'switch-wrapper align-middle';
-  const switchNode = Switch();
+  const switchNode = Switch(props);
   switchWrapper.appendChild(switchNode);
   container.appendChild(switchWrapper);
 

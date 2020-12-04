@@ -8,9 +8,10 @@ import data from './data';
 export default function App() {
   const storage = new Storage({
     data,
+    gameMode: false,
   });
 
-  const header = Header();
+  const header = Header(storage);
   const menu = Menu(storage);
   const main = Main(storage);
   const footer = Footer();
