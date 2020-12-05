@@ -1,6 +1,37 @@
 @import '~bootswatch/dist/yeti/variables';
 
+.card-flip {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip.active .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+  transform: rotateY(180deg);
+}
+
 .card-body {
+  display: flex;
+  flex-direction: column;
   &:hover {
     cursor: pointer;
     background-color: $gray-100;
@@ -8,6 +39,24 @@
   }
 }
 
-.card-body-back {
-  // todo styles for card backside
+.card-rotate {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.card-rotate-icon {
+  height: 2rem;
+  width: 2rem;
+  background: no-repeat url('../../images/rotate.svg') center center;
+  background-size: cover;
 }

@@ -1,18 +1,13 @@
 import './index.scss';
 
-// eslint-disable-next-line no-unused-vars
-function createCard({ title, word, translation, image, audioSrc }) {
-  const card = document.createElement('div');
-  card.className = 'card mb-4 shadow';
-
+function createCard({ title, word, translation, image, audioSrc, flipNode }) {
   const cardBody = document.createElement('div');
-  cardBody.className = 'card-body';
 
   if (image) {
     const cardImage = document.createElement('img');
     cardImage.src = image;
     cardImage.className = 'card-img-top mb-1';
-    cardImage.alt = word || title;
+    cardImage.alt = word || title || translation;
     cardBody.appendChild(cardImage);
   }
 
@@ -24,11 +19,13 @@ function createCard({ title, word, translation, image, audioSrc }) {
   }
 
   if (word) {
-    const button = document.createElement('a');
-    button.innerHTML = '<a href="#" class="text-center">R</a>';
+    const button = document.createElement('button');
+    button.className = 'card-rotate';
+    button.innerHTML = '<span class="card-rotate-icon"></span>';
     cardBody.appendChild(button);
-    button.addEventListener('click', () => {
-      // todo: implement function for rotation card to see an answer
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      flipNode.classList.toggle('active');
     });
   }
 
@@ -41,18 +38,42 @@ function createCard({ title, word, translation, image, audioSrc }) {
     cardBody.appendChild(audio);
   }
 
-  card.append(cardBody);
-
-  return card;
+  return cardBody;
 }
 
 export default function Card(props) {
-  // eslint-disable-next-line no-unused-vars
   const { title, word, translation, image, audioSrc, back } = props;
 
-  const cardFront = createCard({
-    title, word, image, audioSrc,
-  });
+  const cardColumn = document.createElement('div');
+  cardColumn.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
 
-  return cardFront;
+  const card = document.createElement('div');
+  card.className = 'card shadow mb-4';
+  cardColumn.appendChild(card);
+
+  const cardBody = document.createElement('div');
+  cardBody.className = 'card-body';
+  card.appendChild(cardBody);
+
+  const cardFront = createCard({
+    title, word, image, audioSrc, flipNode: cardColumn,
+  });
+  cardFront.classList.add('card-front');
+  cardBody.appendChild(cardFront);
+
+  if (back) {
+    cardColumn.classList.add('card-flip');
+    card.classList.add('card-inner');
+
+    const cardBack = createCard({
+      translation, image, flipNode: cardColumn,
+    });
+    cardBack.classList.add('card-back');
+    cardBody.appendChild(cardBack);
+    cardColumn.addEventListener('mouseleave', () => {
+      cardColumn.classList.remove('active');
+    });
+  }
+
+  return cardColumn;
 }

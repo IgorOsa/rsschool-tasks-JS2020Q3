@@ -6,17 +6,11 @@ export function renderCategory(props) {
   node.innerHTML = '';
 
   words.forEach((el) => {
-    const cardColumn = document.createElement('div');
-    cardColumn.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
     const item = Card({
       ...el,
+      back: true,
     });
-    item.addEventListener('click', () => {
-      // eslint-disable-next-line no-console
-      console.log('word click', el);
-    });
-    cardColumn.appendChild(item);
-    node.appendChild(cardColumn);
+    node.appendChild(item);
   });
 }
 
@@ -29,8 +23,6 @@ function renderCategories(props) {
   main.appendChild(cardsRow);
 
   categories.forEach((el, i) => {
-    const cardColumn = document.createElement('div');
-    cardColumn.className = 'col col-12 col-md-6 col-lg-4 col-xl-3';
     const item = Card({
       ...el,
     });
@@ -41,8 +33,7 @@ function renderCategories(props) {
         node: cardsRow,
       });
     });
-    cardColumn.appendChild(item);
-    cardsRow.appendChild(cardColumn);
+    cardsRow.appendChild(item);
   });
 }
 
