@@ -17,12 +17,20 @@ const data = [
       image: 'assets/images/fish1.jpg',
     },
     {
+      title: 'Body parts',
+      image: 'assets/images/hand.jpg',
+    },
+    {
       title: 'Clothes',
       image: 'assets/images/pants.jpg',
     },
     {
       title: 'Emotions',
       image: 'assets/images/happy.jpg',
+    },
+    {
+      title: 'Transport',
+      image: 'assets/images/truck.jpg',
     },
   ],
   [
@@ -227,6 +235,56 @@ const data = [
   ],
   [
     {
+      word: 'eye',
+      translation: 'глаз',
+      image: 'assets/images/eye.jpg',
+      audioSrc: 'assets/audio/eye.mp3',
+    },
+    {
+      word: 'ear',
+      translation: 'ухо',
+      image: 'assets/images/ear.jpg',
+      audioSrc: 'assets/audio/ear.mp3',
+    },
+    {
+      word: 'mouth',
+      translation: 'рот',
+      image: 'assets/images/mouth.jpg',
+      audioSrc: 'assets/audio/mouth.mp3',
+    },
+    {
+      word: 'hand',
+      translation: 'рука',
+      image: 'assets/images/hand.jpg',
+      audioSrc: 'assets/audio/hand.mp3',
+    },
+    {
+      word: 'leg',
+      translation: 'нога',
+      image: 'assets/images/leg.jpg',
+      audioSrc: 'assets/audio/leg.mp3',
+    },
+    {
+      word: 'neck',
+      translation: 'шея',
+      image: 'assets/images/neck.jpg',
+      audioSrc: 'assets/audio/neck.mp3',
+    },
+    {
+      word: 'stomach',
+      translation: 'живот',
+      image: 'assets/images/stomach.jpg',
+      audioSrc: 'assets/audio/stomach.mp3',
+    },
+    {
+      word: 'foot',
+      translation: 'стопа',
+      image: 'assets/images/foot.jpg',
+      audioSrc: 'assets/audio/foot.mp3',
+    },
+  ],
+  [
+    {
       word: 'skirt',
       translation: 'юбка',
       image: 'assets/images/skirt.jpg',
@@ -323,6 +381,56 @@ const data = [
       translation: 'смех',
       image: 'assets/images/laugh.jpg',
       audioSrc: 'assets/audio/laugh.mp3',
+    },
+  ],
+  [
+    {
+      word: 'airplane',
+      translation: 'самолет',
+      image: 'assets/images/airplane.jpg',
+      audioSrc: 'assets/audio/airplane.mp3',
+    },
+    {
+      word: 'bicycle',
+      translation: 'велосипед',
+      image: 'assets/images/bicycle.jpg',
+      audioSrc: 'assets/audio/bicycle.mp3',
+    },
+    {
+      word: 'bus',
+      translation: 'автобус',
+      image: 'assets/images/bus.jpg',
+      audioSrc: 'assets/audio/bus.mp3',
+    },
+    {
+      word: 'car',
+      translation: 'автомобиль',
+      image: 'assets/images/car.jpg',
+      audioSrc: 'assets/audio/car.mp3',
+    },
+    {
+      word: 'motorcycle',
+      translation: 'мотоцикл',
+      image: 'assets/images/motorcycle.jpg',
+      audioSrc: 'assets/audio/motorcycle.mp3',
+    },
+    {
+      word: 'ship',
+      translation: 'корабль',
+      image: 'assets/images/ship.jpg',
+      audioSrc: 'assets/audio/ship.mp3',
+    },
+    {
+      word: 'train',
+      translation: 'поезд',
+      image: 'assets/images/train.jpg',
+      audioSrc: 'assets/audio/train.mp3',
+    },
+    {
+      word: 'truck',
+      translation: 'грузовик',
+      image: 'assets/images/truck.jpg',
+      audioSrc: 'assets/audio/truck.mp3',
     },
   ],
 ];
