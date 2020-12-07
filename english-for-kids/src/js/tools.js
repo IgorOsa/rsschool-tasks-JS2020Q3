@@ -1,6 +1,10 @@
-function toggleNav() {
+function toggleNav(onlyHide = false) {
   const sideMenu = document.getElementById('side-menu');
-  sideMenu.classList.toggle('show');
+  if (onlyHide) {
+    sideMenu.classList.remove('show');
+  } else {
+    sideMenu.classList.toggle('show');
+  }
 }
 
 module.exports = {

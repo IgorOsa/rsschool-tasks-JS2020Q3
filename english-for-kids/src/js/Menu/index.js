@@ -14,7 +14,7 @@ export default function Menu(props) {
   closeBtn.className = 'closebtn';
   closeBtn.innerHTML = '&times;';
   aside.appendChild(closeBtn);
-  closeBtn.addEventListener('click', toggleNav);
+  closeBtn.addEventListener('click', () => toggleNav());
 
   const mainPageLink = document.createElement('a');
   mainPageLink.href = '#';
@@ -47,7 +47,7 @@ export default function Menu(props) {
   const checkOutsideClick = (event) => {
     const isClickInside = aside.contains(event.target);
     if (!isClickInside) {
-      toggleNav();
+      toggleNav(true);
     }
   };
 
