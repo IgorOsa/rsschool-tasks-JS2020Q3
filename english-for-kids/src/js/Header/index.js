@@ -20,7 +20,7 @@ export default function Header(props) {
   const navbarToggler = document.createElement('span');
   navbarToggler.className = 'navbar-toggler-icon';
 
-  navbarToggler.addEventListener('click', (event) => {
+  menuBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     toggleNav();
   });
