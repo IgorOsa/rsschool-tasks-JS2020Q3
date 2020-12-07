@@ -44,17 +44,14 @@ export default function Menu(props) {
     });
   }
 
-  // todo implement function to clome menu after click outside
-  // eslint-disable-next-line no-unused-vars
   const checkOutsideClick = (event) => {
     const isClickInside = aside.contains(event.target);
     if (!isClickInside) {
       toggleNav();
-      // document.removeEventListener('click', checkOutsideClick);
     }
   };
 
-  // document.addEventListener('click', checkOutsideClick);
+  document.addEventListener('click', checkOutsideClick);
 
   return aside;
 }
