@@ -6,7 +6,7 @@
 
 main{font-size:2rem}
 
-.side-menu{height:100%;width:320px;position:fixed;z-index:1;top:0;left:-320px;background-color:#008cba;overflow-x:hidden;-webkit-transition:0.5s;transition:0.5s;padding-top:60px}.side-menu a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#eee;display:block;-webkit-transition:0.3s;transition:0.3s}.side-menu a:hover{cursor:pointer;text-decoration:none;color:#adb5bd}.side-menu .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}.show{left:0;max-width:320px;border-right:2px solid white}.current{background-color:var(--info)}
+.side-menu{height:100%;width:320px;position:fixed;z-index:1;top:0;left:-320px;background-color:#008cba;overflow-x:hidden;-webkit-transition:0.5s;transition:0.5s;padding-top:60px}.side-menu a{padding:8px 8px 8px 32px;text-decoration:none;font-size:25px;color:#eee;display:block;-webkit-transition:0.3s;transition:0.3s}.side-menu a:hover{cursor:pointer;text-decoration:none;color:#adb5bd}.side-menu .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}.show{left:0;max-width:320px;border-right:2px solid white}
 
 .footer{position:fixed;bottom:0;width:100%;height:60px;line-height:60px;color:#fff}
 
