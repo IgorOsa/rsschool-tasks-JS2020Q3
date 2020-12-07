@@ -25,3 +25,8 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+.game-mode {
+  --primary: var(--warning);
+  --secondary: var(--warning);
+}

@@ -52,7 +52,7 @@ export default function Card(props) {
   cardColumn.appendChild(card);
 
   const cardBody = document.createElement('div');
-  cardBody.className = 'card-body';
+  cardBody.className = 'card-body card__game-mode';
   card.appendChild(cardBody);
 
   const cardFront = createCard({

@@ -3,9 +3,10 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 72px;
   height: 34px;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .switch input {
@@ -30,15 +31,15 @@
   position: absolute;
   content: '';
   height: 26px;
-  width: 26px;
+  width: 32px;
   left: 4px;
   bottom: 4px;
-  background-color: $primary;
+  background-color: var(--primary);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked + .slider:before {
   background-color: $warning;
 }
 
@@ -47,7 +48,5 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  transform: translateX(32px);
 }
