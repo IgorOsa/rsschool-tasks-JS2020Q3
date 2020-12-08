@@ -70,7 +70,7 @@ export default function Card(props) {
     });
     cardBack.classList.add('card-back');
     cardBody.appendChild(cardBack);
-    cardColumn.addEventListener('mouseleave', () => {
+    cardBody.addEventListener('mouseleave', () => {
       cardColumn.classList.remove('active');
     });
   }
