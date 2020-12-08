@@ -8,6 +8,7 @@ import data from './data';
 export default function App() {
   const storage = new Storage({
     data,
+    currentPage: 0,
     gameMode: false,
   });
 

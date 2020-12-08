@@ -1,9 +1,12 @@
 import Card from '../Card';
+import { changeMenuCurrentSelection } from '../tools';
 import './index.scss';
 
 export function renderCategory(props) {
-  const { words, node } = props;
+  const { words, node, categoryId } = props;
   node.innerHTML = '';
+
+  changeMenuCurrentSelection(categoryId);
 
   words.forEach((el) => {
     const item = Card({
@@ -29,6 +32,7 @@ function renderCategories(props) {
     item.addEventListener('click', () => {
       renderCategory({
         words: props.data[i + 1],
+        categoryId: i + 1,
         main,
         node: cardsRow,
       });
