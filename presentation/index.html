@@ -178,27 +178,29 @@ const signature = HMAC-SHA256(unsignedToken, SECRET_KEY);</code></pre>
                     <p class="fragment">
                         https://jwt.io/#debugger-io
                     </p>
+                    <aside class="notes">
+                        <p>The signature is used to verify the message wasn't changed along the way, and, in the case of
+                            tokens signed with a private key, it can also verify that the sender of the JWT is who it
+                            says
+                            it is.</p>
+                        <p>Creating signature using the following pseudo code:</p>
+
+                        <p>... see the slide ...</p>
+
+                        <p>The result with our example data may looks like this:</p>
+
+                        <p>... see the slide ...</p>
+
+                        <p>The base64url algorithm encodes the header and payload created in previous steps. The
+                            algorithm concatenates encoded strings through a dot. Then, the resulting string is hashed
+                            by the algorithm specified in the header based on secret key.</p>
+
+                        <p>If you want to play with JWT and put these concepts into practice, you can use <a
+                                href="https://jwt.io/#debugger-io">jwt.io Debugger</a> to decode, verify, and generate
+                            JWTs.
+                        </p>
+                    </aside>
                 </section>
-                <aside class="notes">
-                    <p>The signature is used to verify the message wasn't changed along the way, and, in the case of
-                        tokens signed with a private key, it can also verify that the sender of the JWT is who it says
-                        it is.</p>
-                    <p>Creating signature using the following pseudo code:</p>
-
-                    <p>... see the slide ...</p>
-
-                    <p>The result with our example data may looks like this:</p>
-
-                    <p>... see the slide ...</p>
-
-                    <p>The base64url algorithm encodes the header and payload created in steps 1 and 2. The algorithm
-                        concatenates encoded strings through a dot. Then, the resulting string is hashed by the
-                        algorithm specified in the header based on secret key.</p>
-
-                    <p>If you want to play with JWT and put these concepts into practice, you can use <a
-                            href="https://jwt.io/#debugger-io">jwt.io Debugger</a> to decode, verify, and generate JWTs.
-                    </p>
-                </aside>
             </section>
 
             <section id="jwt-verifying">
@@ -208,6 +210,11 @@ const signature = HMAC-SHA256(unsignedToken, SECRET_KEY);</code></pre>
 header = base64Decode(base64Header);
 payload = base64Decode(base64Payload);
                     </code></pre>
+                    <aside class="notes">
+                        <p>Now that we know how to encode a JWT, decoding is pretty easy. We start by splitting the
+                            token by the periods, and then decode each section separately:</p>
+                        <p>... see the slide ...</p>
+                    </aside>
                 </section>
                 <section>
                     <pre><code class="hljs javascript" data-trim data-line-numbers="0">
@@ -217,23 +224,16 @@ if (cs != signature) {
     throw new Error('FAILED');
 }
 </code></pre>
+                    <aside class="notes">
+                        <p>The slightly more complicated part is when we need to verify the signature. We do this by
+                            recreating the signature from the header and payload using our secret, and then check to see
+                            if it matches the signature we were given. If it doesn't, then either the token isn't
+                            authentic or it has been altered in some way.</p>
+                        <p>... see the slide ...</p>
+                        <p>Keep in mind that in most cases you should check the header to see which algorithm was used
+                            in the signature. I can skip that part here for our purposes.</p>
+                    </aside>
                 </section>
-                <aside class="notes">
-                    <p>Now that we know how to encode a JWT, decoding is pretty easy. We start by splitting the token by
-                        the periods, and then decode each section separately:</p>
-
-                    <p>... see the slide ...</p>
-
-                    <p>The slightly more complicated part is when we need to verify the signature. We do this by
-                        recreating the signature from the header and payload using our secret, and then check to see if
-                        it matches the signature we were given. If it doesn't, then either the token isn't authentic or
-                        it has been altered in some way.</p>
-
-                    <p>... see the slide ...</p>
-
-                    <p>Keep in mind that in most cases you should check the header to see which algorithm was used in
-                        the signature. I can skip that part here for our purposes.</p>
-                </aside>
             </section>
 
             <section>
@@ -250,13 +250,17 @@ if (cs != signature) {
             <section>
                 <section>
                     <img src="/presentation/images/what-next.png" alt="JWT tiken example" height="150">
+                    <aside class="notes">
+                        <p>The next step to improve the security of the application is the Refresh Token topic. </p>
+                    </aside>
                 </section>
-                <section>Refresh Token</section>
-                <aside class="notes">
-                    <p>The next step to improve the security of the application is the Refresh Token topic. A refresh
-                        token is a special kind of token used to obtain a renewed access token. Look for additional
-                        links in related materials.</p>
-                </aside>
+                <section>
+                    Refresh Token
+                    <aside class="notes">
+                        <p>A refresh token is a special kind of token used to obtain a renewed access token. Look for
+                            additional links in related materials.</p>
+                    </aside>
+                </section>
             </section>
 
             <section>
@@ -274,10 +278,16 @@ if (cs != signature) {
                     <li><a href="https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt">Build
                             a Secure React Application with JWTs</a></li>
                 </ul>
+                <aside class="notes">
+                    <p>Here I suggest a few useful links for more deep dive into the JWT topic.</p>
+                </aside>
             </section>
 
             <section>
                 Thank you for attention!
+                <aside class="notes">
+                    For additional info check the description under this video.
+                </aside>
             </section>
 
         </div>

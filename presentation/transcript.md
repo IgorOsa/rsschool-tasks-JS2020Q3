@@ -79,7 +79,7 @@ The result with our example data may looks like this:
 
 `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM`
 
-The base64url algorithm encodes the header and payload created in steps 1 and 2. The algorithm concatenates encoded strings through a dot. Then, the resulting string is hashed by the algorithm specified in the header based on secret key.
+The base64url algorithm encodes the header and payload created in previous steps. The algorithm concatenates encoded strings through a dot. Then, the resulting string is hashed by the algorithm specified in the header based on secret key.
 
 If you want to play with JWT and put these concepts into practice, you can use [jwt.io Debugger](https://jwt.io/#debugger-io) to decode, verify, and generate JWTs.
 
@@ -111,6 +111,8 @@ The next step to improve the security of the application is the Refresh Token to
 
 ## Related materials
 
+Here I suggest a few useful links for more deep dive into the JWT topic.
+
 - [JWT.IO](https://jwt.io/)
 - [jsonwebtoken library for node.js](https://github.com/auth0/node-jsonwebtoken)
 - [Understanding JSON Web Tokens (JWT)](https://stackabuse.com/understanding-json-web-tokens-jwt/)
@@ -118,5 +120,7 @@ The next step to improve the security of the application is the Refresh Token to
 - [Refresh tokens](https://auth0.com/docs/tokens/refresh-tokens)
 - [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt)
 - [Build a Secure React Application with JWTs](https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt)
+
+For additional info check the description under this video.
 
 Thank you for attention!
