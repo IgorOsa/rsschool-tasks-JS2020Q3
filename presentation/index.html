@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Presentation</title>
+    <title>Understanding JWT (JSON Web Token) Presentation</title>
     <meta name="description" content="JWT Presentation using Reaveal JS library">
     <meta name="author" content="Igor Osadchyi">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,7 +21,8 @@
     <div class="reveal">
         <div class="slides">
             <section>
-                Understanding JWT<br>(JSON Web Token)
+                Understanding JWT<br>(<span style="color: red;">JSON</span> <span style="color: magenta;">Web</span>
+                <span style="color: lightseagreen;">Token</span>)
                 <aside class="notes">
                     Hello and welcome to my simple presentation of JWT (JSON Web Token). JWT used for securing
                     interactions between users and web aplications.
@@ -279,10 +280,7 @@ if (cs != signature) {
     <script src="node_modules/reveal.js/plugin/search/search.js"></script>
     <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
     <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
-    <script>
-
-        // Also available as an ES module, see:
-        // https://revealjs.com/initialization/
+    <script type="module">
         Reveal.initialize({
             controls: true,
             progress: true,
@@ -292,7 +290,6 @@ if (cs != signature) {
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
         });
-
     </script>
 </body>
 
