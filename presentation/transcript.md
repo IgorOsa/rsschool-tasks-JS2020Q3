@@ -95,9 +95,9 @@ Now that we know how to encode a JWT, decoding is pretty easy. We start by split
 
 The slightly more complicated part is when we need to verify the signature. We do this by recreating the signature from the header and payload using our secret, and then check to see if it matches the signature we were given. If it doesn't, then either the token isn't authentic or it has been altered in some way.
 
-`computedSig = HS256(base64Header + '.' + base64Payload, 'cAtwa1kkEy')`
+`cs = HS256(base64Header + '.' + base64Payload, 'cAtwa1kkEy');`
 
-`if computedSig != signature: print('FAILED')`
+`if (cs != signature) { throw new Error('FAILED'); }`
 
 Keep in mind that in most cases you should check the header to see which algorithm was used in the signature. I can skip that part here for our purposes.
 
@@ -118,3 +118,5 @@ The next step to improve the security of the application is the Refresh Token to
 - [Refresh tokens](https://auth0.com/docs/tokens/refresh-tokens)
 - [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt)
 - [Build a Secure React Application with JWTs](https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt)
+
+Thank you for attention!
