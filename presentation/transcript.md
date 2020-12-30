@@ -2,9 +2,9 @@
 
 Hello and welcome to my simple presentation of JWT (JSON Web Token), that used for securing interactions between users and web aplications.
 
-Here are some basic topics that will be covered during my speach. First, we'll take a look at what JWT is. Next, we will consider its structure and formation rules. Let's analyze what a heder, swill, signature is. After that, we will analyze how the token is verified. In conclusion, I will present ways to further explore the topic.
+Here are some basic topics that will be covered during my speech. First, we'll take a look at what JWT is. Next, we will consider its structure and creation rules. Let's see what a header, payload, and signature are. After that, we will look at how the token is verified. In conclusion, I'll suggest links to further explore the topic.
 
-So, take comfortable seat and I'll begin.
+So, take a comfortable seat and I'll start.
 
 - [Understanding JWT (JSON Web Token)](#understanding-jwt-json-web-token)
   - [What is JSON Web Token?](#what-is-json-web-token)
