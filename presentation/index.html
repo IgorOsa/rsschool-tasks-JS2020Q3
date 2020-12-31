@@ -83,7 +83,7 @@
                 </section>
                 <section>
                     Real-world situation
-                    <img src="/presentation/images/jwt-schema.png" alt="JWT Auth interaction schema" height="450">
+                    <img src="./images/jwt-schema.png" alt="JWT Auth interaction schema" height="450">
                     <pre class="fragment"><code data-trim data-escape data-line-numbers="0">Authorization: Bearer &lt;token&gt;</code>
                     </pre>
                     <aside class="notes">
@@ -164,7 +164,7 @@ const unsignedToken = base64urlEncode(header)
 const signature = HMAC-SHA256(unsignedToken, SECRET_KEY);</code></pre>
                     <p class="fragment">
                         Result: <br>
-                        <img src="/presentation/images/token.png" alt="JWT tiken example" height="125">
+                        <img src="./images/token.png" alt="JWT tiken example" height="125">
                     </p>
                     <p class="fragment">
                         https://jwt.io/#debugger-io
@@ -237,7 +237,7 @@ if (cs != signature) {
                     </aside>
                 </section>
                 <section>
-                    <img src="/presentation/images/peace-of-puzzle.jpg" alt="peace of puzzle" height="400">
+                    <img src="./images/peace-of-puzzle.jpg" alt="peace of puzzle" height="400">
                     <aside class="notes">
                         <p>But this is just a piece of the puzzle of the big topic of authorizing and securing web
                             applications. We have covered only the basics, but without them it is impossible to move on.
@@ -248,7 +248,7 @@ if (cs != signature) {
 
             <section>
                 <section>
-                    <img src="/presentation/images/what-next.png" alt="what next question" height="150">
+                    <img src="./images/what-next.png" alt="what next question" height="150">
                     <aside class="notes">
                         <p>The next step to improve the security of the application is the Refresh Token topic. </p>
                     </aside>
