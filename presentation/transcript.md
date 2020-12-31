@@ -2,7 +2,7 @@
 
 Hello and welcome to my simple presentation of JWT (JSON Web Token), that used for securing interactions between users and web aplications.
 
-Here are some basic topics that will be covered during my speech. First, we'll take a look at what JWT is. Next, we will consider its structure and creation rules. Let's see what a header, payload, and signature are. After that, we will look at how the token is verified. In conclusion, I'll suggest links to further explore the topic.
+Here are some basic topics that will be covered during my speech. First, we'll take a look at what JWT is. Next, we will consider its structure and creation rules. We'll see what a header, payload, and signature are. After that, we will look at how the token is verified. In conclusion, I'll suggest links to further explore the topic.
 
 So, take a comfortable seat and I'll start.
 
@@ -21,7 +21,7 @@ So, take a comfortable seat and I'll start.
 
 For the beginning, a little bit of terminology.
 
-JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using different encription algorithms (RSA or ECDSA).
 
 In simple words, JWT is just a string in the following format
 
