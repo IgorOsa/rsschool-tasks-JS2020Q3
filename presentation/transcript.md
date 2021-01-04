@@ -1,6 +1,6 @@
 # Understanding JWT (JSON Web Token)
 
-Hello and welcome to my simple presentation of JWT (JSON Web Token), that used for securing interactions between users and web aplications.
+Hello and welcome to my simple presentation of JWT (JSON Web Token), that is used for securing interactions between users and web aplications.
 
 Here are some basic topics that will be covered during my speech. First, we'll take a look at what JWT is. Next, we will consider its structure and creation rules. We'll see what a header, payload, and signature are. After that, we will look at how the token is verified. In conclusion, I'll suggest links to further explore the topic.
 
@@ -27,7 +27,7 @@ In simple words, JWT is just a string in the following format
 
 `header.payload.signature`
 
-For better undestanding of JWT, let's imagine a realworld situation. For example, we want to register on a web-site. In our case, there are will be three participants — user, application server and authentication server. The authentication server will provide to user a token, whitch help to interact with the application.
+For better undestanding of JWT, let's imagine a realworld situation. For example, we want to register on a web-site. In our case, there are will be three participants — user, application server and authentication server. The authentication server will provide to user a token, which help to interact with the application.
 
 ![JWT Auth interaction schema](/presentation/images/jwt-schema.png)
 
@@ -99,7 +99,7 @@ The slightly more complicated part is when we need to verify the signature. We d
 
 `if (cs != signature) { throw new Error('FAILED'); }`
 
-Keep in mind that in most cases you should check the header to see which algorithm was used in the signature. I can skip that part here for our purposes.
+Keep in mind that in most cases you should check the header to see which algorithm was used in the signature. I can skip that part here.
 
 ## Conclusion
 
