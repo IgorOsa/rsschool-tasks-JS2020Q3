@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding JWT (JSON Web Token) Presentation</title>
+    <meta name="description" content="JWT Presentation using Reaveal JS library">
+    <meta name="author" content="Igor Osadchyi">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css" id="theme">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                Understanding JWT<br>(<span style="color: red;">JSON</span> <span style="color: magenta;">Web</span>
+                <span style="color: lightseagreen;">Token</span>)
+                <aside class="notes">
+                    <p>Hello and welcome to my simple presentation of JWT (JSON Web Token). JWT is used for securing
+                        interactions between users and web aplications.</p>
+                </aside>
+            </section>
+
+            <section>
+                <p>List of topics</p>
+                <ul>
+                    <li><a href="#/what-is-json-web-token">What is JSON Web Token?</a></li>
+                    <li><a href="#/jwt-structure--creation">JWT structure &amp; creation</a>
+                        <ul>
+                            <li><a href="#/jwt-header-first-step-of-creation">JWT Header (First step of
+                                    creation)</a></li>
+                            <li><a href="#/jwt-payload-second-step-of-creation">JWT Payload (Second step of
+                                    creation)</a></li>
+                            <li><a href="#/jwt-signature-third-step">JWT Signature (Third step)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/jwt-verifying">JWT Verifying</a></li>
+                    <li><a href="#/conclusion">Conclusion</a></li>
+                    <li><a href="#/what-next">What next?</a></li>
+                </ul>
+                <aside class="notes">
+                    <p>Here are some basic topics that will be covered during my speech. First, we'll take a look at
+                        what JWT is. Next, we will consider its structure and creation rules. We'll see what a header,
+                        payload, and signature are. After that, we will look at how the token is verified. In
+                        conclusion, I'll suggest links to further explore the topic.
+                    </p>
+                    <p>So, take a comfortable seat and I'll start. </p>
+                </aside>
+            </section>
+
+            <section id="what-is-json-web-token">
+                <section>
+                    What is JSON Web Token?
+                    <aside class="notes">
+                        For the beginning, a little bit of terminology.
+                    </aside>
+                </section>
+                <section>
+                    JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way
+                    for securely transmitting information between parties as a JSON object.
+                    <aside class="notes">
+                        <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained
+                            way for securely transmitting information between parties as a JSON object. This information
+                            can be verified and trusted because it is digitally signed. JWTs can be signed using a
+                            secret (with the HMAC algorithm) or a public/private key pair using different encription
+                            algorithms (RSA or ECDSA).</p>
+                    </aside>
+                </section>
+                <section>
+                    <p><span style="color: red;">header</span>.<span style="color: magenta;">payload</span>.<span
+                            style="color: lightseagreen;">signature</span></p>
+                    <aside class="notes">
+                        <p>In simple words, JWT is just a string in the following format</p>
+                    </aside>
+                </section>
+                <section>
+                    Real-world situation
+                    <img src="./images/jwt-schema.png" alt="JWT Auth interaction schema" height="450">
+                    <pre class="fragment"><code data-trim data-escape data-line-numbers="0">Authorization: Bearer &lt;token&gt;</code>
+                    </pre>
+                    <aside class="notes">
+                        <p>For better undestanding of JWT, let's imagine a realworld situation. For example, we want to
+                            register on a web-site. In our case, there are will be three participants — user,
+                            application server and authentication server. The authentication server will provide to user
+                            a token, which help to interact with the application. </p>
+                        <p>First of all, user sign-in providing the credentials (for example, username and password,
+                            using Facebook, Google, or same service if possible). The authentication server then creates
+                            a JWT and sends it to the user. When the user makes API calls to the application, the user
+                            passes the JWT along with the API call. It must be included in
+                            header of every request.</p>
+                        <p>The application server must be configured to verify inbound JWTs and check if they are
+                            generated by the authentication server. So, when a user makes API calls with a JWT attached,
+                            the application can use the JWT to verify that the API call comes from an authenticated
+                            user.</p>
+                        <p>Let's take a closer look at the process of creating and verifying a JWT token.</p </aside>
+                </section>
+            </section>
+
+            <section id="jwt-structure--creation">
+                <section>
+                    JWT structure &amp; creation
+                </section>
+                <section id=" jwt-header-first-step-of-creation">
+                    JWT Header
+                    <pre class="fragment" data-id="code-animation">
+                           <code class="hljs" data-trim data-line-numbers>{ 
+    "alg": "HS256", 
+    "typ": "JWT" 
+}</code>
+                    </pre>
+                    <aside class="notes">
+                        <p>The JWT consists of three parts: header, payload, and signature. Let's go through each of
+                            them.</p>
+                        <p>The header typically consists of two parts: the type of the token, which is JWT, and the
+                            signing algorithm being used, such as HMAC SHA256 or RSA.</p>
+                        <p>For example:</p>
+                        <p>... slide info ...</p>
+                        <p>Then, this JSON is Base64Url encoded to form the first part of the JWT.</p>
+                    </aside>
+                </section>
+
+                <section id="jwt-payload-second-step-of-creation">
+                    JWT Payload
+                    <pre class="fragment" data-id="code-animation"><code class="hljs" data-trim data-line-numbers>{ 
+    "userId": "b08f86af-35da-48f2-8fab-cef3904660bd" 
+}</code></pre>
+                    <p class="fragment" style="color:red; font-size: 1.25rem;">
+                        Do not put secret information in the payload or header elements of a JWT unless it is
+                        encrypted.
+                    </p>
+                    <aside class="notes">
+                        <p>The second part of the token is the payload, which contains the claims. Claims are statements
+                            about an entity (typically, the user) and additional data. For example, the authentication
+                            server creates a JWT with the user information stored inside of it, specifically the user
+                            ID.</p>
+
+                        <p>... slide info ...</p>
+
+                        <p>In this example, we are only putting one claim into the payload. You can put as many claims
+                            as you need, but keep in mind that the size of the data will affect the overall size of the
+                            JWT. This generally isn’t an issue but having excessively large JWT may negatively affect
+                            performance and cause latency.</p>
+
+                        <p><strong>Do not put secret information in the payload or header elements of a JWT unless it is
+                                encrypted.</strong>
+                        </p>
+                    </aside>
+                </section>
+
+                <section id="jwt-signature-third-step">
+                    JWT Signature
+                    <pre class="fragment" data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>const SECRET_KEY = 'cAtwa1kkEy';
+const unsignedToken = base64urlEncode(header) 
+    + '.' 
+    + base64urlEncode(payload)`;
+const signature = HMAC-SHA256(unsignedToken, SECRET_KEY);</code></pre>
+                    <p class="fragment">
+                        Result: <br>
+                        <img src="./images/token.png" alt="JWT tiken example" height="125">
+                    </p>
+                    <p class="fragment">
+                        https://jwt.io/#debugger-io
+                    </p>
+                    <aside class="notes">
+                        <p>The signature is used to verify the message wasn't changed along the way, and, in the case of
+                            tokens signed with a private key, it can also verify that the sender of the JWT is who it
+                            says
+                            it is.</p>
+                        <p>Creating signature using the following pseudo code:</p>
+
+                        <p>... see the slide ...</p>
+
+                        <p>The result with our example data may looks like this:</p>
+
+                        <p>... see the slide ...</p>
+
+                        <p>The base64url algorithm encodes the header and payload created in previous steps. The
+                            algorithm concatenates encoded strings through a dot. Then, the resulting string is hashed
+                            by the algorithm specified in the header based on secret key.</p>
+
+                        <p>If you want to play with JWT and put these concepts into practice, you can use <a
+                                href="https://jwt.io/#debugger-io">jwt.io Debugger</a> to decode, verify, and generate
+                            JWTs.
+                        </p>
+                    </aside>
+                </section>
+            </section>
+
+            <section id="jwt-verifying">
+                JWT Verifying
+                <section>
+                    <pre><code class="hljs javascript" data-trim data-line-numbers="1|2,3|0">base64Header, base64Payload, signature = token.split('.');
+header = base64Decode(base64Header);
+payload = base64Decode(base64Payload);
+                    </code></pre>
+                    <aside class="notes">
+                        <p>Now that we know how to encode a JWT, decoding is pretty easy. We start by splitting the
+                            token by the periods, and then decode each section separately:</p>
+                        <p>... see the slide ...</p>
+                    </aside>
+                </section>
+                <section>
+                    <pre><code class="hljs javascript" data-trim data-line-numbers="0">
+cs = HS256(base64Header + '.' + base64Payload, 'cAtwa1kkEy');
+
+if (cs != signature) { 
+    throw new Error('FAILED');
+}
+</code></pre>
+                    <aside class="notes">
+                        <p>The slightly more complicated part is when we need to verify the signature. We do this by
+                            recreating the signature from the header and payload using our secret, and then check to see
+                            if it matches the signature we were given. If it doesn't, then either the token isn't
+                            authentic or it has been altered in some way.</p>
+                        <p>... see the slide ...</p>
+                        <p>Keep in mind that in most cases you should check the header to see which algorithm was used
+                            in the signature. I can skip that part here.</p>
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    Conclusion
+                    <aside class="notes">
+                        <p>We walked through what JWTs are, how to create and how to validate it, how it can be used to
+                            establish a trust relationship between a user and an application.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <img src="./images/peace-of-puzzle.jpg" alt="peace of puzzle" height="400">
+                    <aside class="notes">
+                        <p>But this is just a piece of the puzzle of the big topic of authorizing and securing web
+                            applications. We have covered only the basics, but without them it is impossible to move on.
+                        </p>
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <img src="./images/what-next.png" alt="what next question" height="150">
+                    <aside class="notes">
+                        <p>The next step to improve the security of the application is the Refresh Token topic. </p>
+                    </aside>
+                </section>
+                <section>
+                    Refresh Token
+                    <aside class="notes">
+                        <p>A refresh token is a special kind of token used to obtain a renewed access token. Look for
+                            additional links in related materials.</p>
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                Related materials:
+                <ul>
+                    <li><a href="https://jwt.io/">JWT.IO</a></li>
+                    <li><a href="https://github.com/auth0/node-jsonwebtoken">jsonwebtoken library for node.js</a></li>
+                    <li><a href="https://stackabuse.com/understanding-json-web-tokens-jwt/">Understanding JSON Web
+                            Tokens (JWT)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=7Q17ubqLfaM">What Is JWT and Why Should You Use JWT
+                            (video)</a></li>
+                    <li><a href="https://auth0.com/docs/tokens/refresh-tokens">Refresh tokens</a></li>
+                    <li><a href="https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt">Refresh
+                            Tokens: When to Use Them and How They Interact with JWTs</a></li>
+                    <li><a href="https://developer.okta.com/blog/2019/08/12/build-secure-react-application-redux-jwt">Build
+                            a Secure React Application with JWTs</a></li>
+                </ul>
+                <aside class="notes">
+                    <p>Here I suggest a few useful links for more deep dive into the JWT topic.</p>
+                </aside>
+            </section>
+
+            <section>
+                Thank you for attention!
+                <aside class="notes">
+                    For additional info check the description under this video.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="node_modules/reveal.js/plugin/search/search.js"></script>
+    <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script type="module">
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+
+            plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>

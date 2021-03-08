@@ -1,0 +1,54 @@
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+
+  // pets section styles
+  .pets__wrapper {
+    padding-bottom: 7rem;
+  }
+
+  .pets__header {
+    margin-bottom: 3rem;
+  }
+
+  .slider {
+    max-width: 70.8rem;
+  }
+
+  .slider__items {
+    max-width: 58rem;
+    max-height: 136.5rem;
+    position: relative;
+    overflow: hidden;
+    padding-top: 0;
+    margin-bottom: 4rem;
+  }
+
+  .slider__btn {
+    margin-right: 0;
+  }
+
+  // footer styles
+
+  .footer__wrapper {
+    max-width: 70.8rem;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+
+  .contacts,
+  .location {
+    flex-basis: 50%;
+    padding-top: 0;
+  }
+
+  .footer__image-container {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5rem;
+  }
+}

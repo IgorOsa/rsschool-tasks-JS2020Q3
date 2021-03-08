@@ -1,0 +1,268 @@
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+
+  .header__wrapper {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .logo {
+    max-width: 19rem;
+    margin-right: 4rem;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .navbar__toggler {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: none;
+    &:hover {
+      cursor: pointer;
+    }
+    margin-right: 4.3rem;
+  }
+
+  .navbar__toggler-icon {
+    width: 3rem;
+    height: 0.2rem;
+    background-color: $color-primary;
+    margin-bottom: 0.8rem;
+  }
+
+  .navbar__toggler-icon:last-child {
+    margin-bottom: 0;
+  }
+
+  .hero__header {
+    max-width: none;
+    @include h3-mobile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__content {
+    margin-bottom: 10.5rem;
+  }
+
+  .hero__image {
+    max-width: 26rem;
+    margin-right: -4rem;
+  }
+
+  // about section styles
+  .about {
+    padding: 0;
+  }
+
+  .about__wrapper {
+    max-height: 97.4rem;
+    padding: 4.2rem 1.5rem;
+  }
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4.2rem;
+  }
+
+  .about__heding {
+    @include h3-mobile;
+    max-width: 30rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about__text {
+    text-align: justify;
+  }
+
+  .about__image {
+    max-width: 26rem;
+    max-height: 35.4rem;
+  }
+
+  // pets section styles
+  .pets__wrapper {
+    padding: 4.2rem 0;
+  }
+
+  .pets__header {
+    max-width: 30rem;
+    @include h3-mobile;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4.2rem;
+  }
+
+  .slider {
+    flex: 0 0 100%;
+    max-width: 27rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .slider__btn_left {
+    order: 1;
+  }
+
+  .slider__btn_right {
+    order: 2;
+  }
+
+  .slider__items {
+    flex: 0 0 27rem;
+  }
+
+  .slider__btn {
+    margin-top: 2rem;
+  }
+
+  .slider__btn_left {
+    margin-left: 4.2rem;
+  }
+
+  .slider__btn_right {
+    margin-right: 4.2rem;
+  }
+
+  // help section styles
+
+  .help__wrapper {
+    padding: 4.2rem 0;
+    margin: 0;
+  }
+
+  .help__heading {
+    @include h3-mobile;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4.2rem;
+  }
+
+  .icons__list-row {
+    max-width: 29rem;
+  }
+
+  .list__item {
+    min-width: 13rem;
+    margin-bottom: 3rem;
+  }
+
+  .list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .item__image {
+    max-width: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .item__heading {
+    @include h5;
+  }
+
+  // donation section styles
+  .donation {
+    min-height: auto;
+    padding: 4.2rem 0;
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .information__heading {
+    @include h3-mobile;
+    text-align: center;
+  }
+
+  .information__subheading {
+    max-width: 27.3rem;
+    min-height: 2.4rem;
+    letter-spacing: normal;
+  }
+
+  .credit-card__link {
+    @include h5;
+  }
+
+  .legal-info {
+    max-width: 28rem;
+    text-align: justify;
+    letter-spacing: normal;
+  }
+
+  .donation__image {
+    padding-top: 4.2rem;
+    max-width: 26rem;
+  }
+
+  // footer styles
+  .footer__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3rem 0 0;
+  }
+
+  .contacts,
+  .location {
+    max-width: 30rem;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+  .contacts__title,
+  .location__title {
+    @include h3-mobile;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  .location__info,
+  .location__title {
+    margin-bottom: 4rem;
+  }
+
+  .location__link {
+    width: 30rem;
+  }
+
+  .email_link {
+    max-width: 25.1rem;
+  }
+  .footer__image-container {
+    padding: 0;
+  }
+  .footer__image {
+    max-width: 26rem;
+  }
+}
