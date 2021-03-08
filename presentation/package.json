@@ -1,0 +1,12 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "Presentation with Reveal JS",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Igor Osadchyi",
+  "license": "ISC",
+  "dependencies": {
+    "reveal.js": "^4.1.0"
+  }
+}
