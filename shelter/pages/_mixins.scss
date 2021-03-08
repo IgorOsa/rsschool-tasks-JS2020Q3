@@ -1,0 +1,114 @@
+@import './vars';
+
+@mixin h2 {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 4.4rem;
+    line-height: 130%;
+}
+
+@mixin h3 {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin h3-mobile {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.5rem;
+    line-height: 3.2rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin h4 {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin h5 {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin h5-modal-window {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin paragraph-l {
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+
+@mixin paragraph-s {
+    font-family: $font-secondary;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+@mixin paragraph-mobile-menu {
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.2rem;
+    line-height: 5.1rem;
+}
+
+@mixin logo-title {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.2rem;
+    line-height: 3.5rem;
+    letter-spacing: 0.06em;
+}
+
+@mixin logo-subtitle {
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+@mixin start-screen-gradient-background {
+    background: url(./../../assets/images/noise_transparent@2x.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
+    #211f20;
+
+}
+
+@mixin footer-gradient-background {
+    background: url(./../../assets/images/noise_transparent@2x.png),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+    #211F20;
+}
+
+@mixin card-hover {
+    background: #C4C4C4;
+    box-shadow: 0rem 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
+}
